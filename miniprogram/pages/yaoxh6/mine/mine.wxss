@@ -1,0 +1,70 @@
+.person{
+  background-color: #5CACEE;
+  padding-top: 50rpx;
+  padding-bottom: 50rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.picAndName{
+  display: flex;
+  flex-direction: column;
+}
+.pic{
+  width: 200rpx;
+}
+
+.name{
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.stateDetail{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #E3E3E3;
+}
+
+.waitToFinishBlock{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.waitToFinishIcon{
+  width: 120rpx;
+}
+.waitToFinishText{
+  margin-left: 10rpx;
+}
+
+.hasBeenFinishedBlock{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.hasBeenFinishedIcon{
+  width: 120rpx;
+}
+
+.hasBeenFinishedText{
+  margin-left: 10rpx;
+}
+
+.hasBeenPublishedBlock{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.hasBeenPublishedIcon{
+  width: 120rpx;
+}
+
+.hasBeenPublishedText{
+  margin-left: 10rpx;
+}

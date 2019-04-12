@@ -33,11 +33,11 @@ Page({
 
   testFunction() {
     wx.cloud.callFunction({
-      name: 'sum',
-      data: {
-        a: 1,
-        b: 2
-      },
+      name: 'test',
+      // data:{
+      //   'a': 1,
+      //   'b': 2,
+      // },
       success: res => {
         wx.showToast({
           title: '调用成功',

@@ -40,4 +40,11 @@
     </navigator>
   </view>
 
+  <!-- 发邮件 -->
+  <view class="uploader">
+    <navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
+      <text>发送邮件</text>
+    </navigator>
+  </view>
+
 </view>

@@ -1,5 +1,10 @@
 //app.js
 App({
+  // 全局变量
+  globalData: {
+    qid: 0
+  },
+
   onLaunch: function () {
     
     if (!wx.cloud) {

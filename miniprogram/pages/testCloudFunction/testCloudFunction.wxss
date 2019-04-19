@@ -1,0 +1,3 @@
+/* pages/testCloudFunction/testCloudFunction.wxss */
+
+@import "../../style/guide.wxss";

@@ -31,7 +31,7 @@ Page({
 
   getAllQuestionnaire() {
     wx.cloud.callFunction({
-      name: 'getAllQuestionnaire',
+      name: 'get_all_questionnaire',
       success: res => {
         console.log(JSON.stringify(res))
         wx.showToast({
@@ -50,8 +50,13 @@ Page({
 
   fillInQuestionnaire() {
     wx.cloud.callFunction({
-      name: 'fillInQuestionnaire',
+      name: 'fill_in_questionnaire',
+      data: {
+        content: 'content',
+        qid: 'qid'
+      },
       success: res => {
+        console.log(JSON.stringify(res))
         wx.showToast({
           title: '调用成功',
         })
@@ -68,11 +73,12 @@ Page({
 
   releaseQuestionnaire() {
     wx.cloud.callFunction({
-      name: 'releaseQuestionnaire',
+      name: 'release_questionnaire',
       data: {
         content: ' '
       },
       success: res => {
+        console.log(JSON.stringify(res))
         console.log(res)
         wx.showToast({
           title: '调用成功',

@@ -53,6 +53,7 @@ Page({
       data: {},
       success: res => {
         console.log('[云函数] [login] user openid: ', res.result.openid)
+        console.log(res.result)
         app.globalData.openid = res.result.openid
         wx.navigateTo({
           url: '../userConsole/userConsole',
@@ -117,4 +118,69 @@ Page({
     })
   },
 
+  databaseFunc: function() {
+    wx.cloud.callFunction({
+      name: 'databaseTest',
+      data: {},
+      success: res => {
+        console.log('云函数调用成功', res.result)
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+      }
+    })
+  }
+  ,
+
+  test_login: function() {
+    wx.cloud.callFunction({
+      name: 'new_login',
+      data: {},
+      complete: res => {
+        console.log(res)
+      }
+    })
+  }
+  ,
+  test_verification_send: ()=> {
+    wx.cloud.callFunction({
+      name: 'send_verification',
+      data: {
+        receiver: '1254086477@qq.com'
+      },
+      complete: res => {
+        console.log(res)
+      }
+    })
+  }
+  ,
+
+  test_verification_recv: ()=> {
+    wx.cloud.callFunction({
+      name: 'recv_verification',
+      data: {
+        code: 58620
+      },
+      complete: res => {
+        console.log(res)
+      }
+    })
+  }
+  ,
+
+  test_add_info: ()=> {
+    wx.cloud.callFunction({
+      name: 'add_info',
+      data: {
+        user_type: 0,
+        user_info: {
+          collage: "数据科学与计算机学院",
+          major: "软件工程"
+        }
+      },
+      complete: res => {
+        console.log(res)
+      }
+    })
+  }
 })

@@ -46,5 +46,11 @@
       <text>发送邮件</text>
     </navigator>
   </view>
-
+  
+  <view>
+    <button class="userinfo-nickname" bindtap="test_login">登入</button>
+    <button class="userinfo-nickname" bindtap="test_verification_send">发送验证邮件</button>
+    <button class="userinfo-nickname" bindtap="test_verification_recv">验证验证码</button>
+    <button class="userinfo-nickname" bindtap="test_add_info">更新用户信息</button>    
+  </view>
 </view>

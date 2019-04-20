@@ -1,9 +1,9 @@
-<view id = "back">
+<view id = "back" bindtap='fun'>
   <view class="arrow"></view>
   <view class='backContent'> 返回</view>
 </view>
 
-<view id="title">
+<view id="title" bindtap='fun2'>
   <view class='titleContent'>问卷</view>
   <image class='titlePriceIcon' src='{{priceIcon}}' mode='widthFix'></image>
   <view class='priceContent'>25</view>
@@ -49,6 +49,6 @@
       </view>
     </view>
 
-    <textarea class = "SAQAnswer"></textarea>
+    <textarea class = "SAQAnswer">{{test}}</textarea>
   </view>
 </view>

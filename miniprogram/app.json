@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/yaoxh6/mine/mine",
+    "pages/yaoxh6/item/item",
     "pages/yaoxh6/task/task",
+    "pages/yaoxh6/publish/publish",
+    "pages/yaoxh6/mine/mine",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -33,7 +35,7 @@
       {
         "selectedIconPath": "images/发布2.png",
         "iconPath": "images/发布1.png",
-        "pagePath": "pages/yaoxh6/task/task",
+        "pagePath": "pages/yaoxh6/publish/publish",
         "text": "发布"
       },
       {

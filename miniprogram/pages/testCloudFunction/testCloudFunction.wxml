@@ -4,22 +4,6 @@
   
   <view class="list">
 
-    <view class="list-item" bindtap="sendEmail">
-      <text>发邮件</text>
-    </view>
-
-    <view class="list-item" bindtap="getAllQuestionnaire">
-      <text>获取所有问卷</text>
-    </view>
-
-    <view class="list-item" bindtap="releaseQuestionnaire">
-      <text>发问卷</text>
-    </view>
-
-    <view class="list-item" bindtap="fillInQuestionnaire">
-      <text>填问卷</text>
-    </view>
-
     <view class="list-item" bindtap="test_login">
       <text>登入</text>
     </view>
@@ -34,6 +18,22 @@
 
     <view class="list-item" bindtap="test_add_info">
       <text>更新用户信息</text>
+    </view>
+
+    <view class="list-item" bindtap="sendEmail">
+      <text>发邮件</text>
+    </view>
+
+    <view class="list-item" bindtap="getAllQuestionnaire">
+      <text>获取所有问卷</text>
+    </view>
+
+    <view class="list-item" bindtap="releaseQuestionnaire">
+      <text>发问卷</text>
+    </view>
+
+    <view class="list-item" bindtap="fillInQuestionnaire">
+      <text>填问卷</text>
     </view>
   </view>
 

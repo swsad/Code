@@ -40,4 +40,11 @@
     </navigator>
   </view>
 
+  <!-- 发邮件 -->
+  <view class="uploader">
+    <navigator url="../testCloudFunction/testCloudFunction" open-type="navigate" class="uploader-text">
+      <text>测试云函数</text>
+    </navigator>
+  </view>
+
 </view>

@@ -20,7 +20,7 @@ Page({
 
   },
 
-  copyCode: function() {
+  copyCode: function () {
     wx.setClipboardData({
       data: code,
       success: function () {
@@ -33,7 +33,11 @@ Page({
 
   testFunction() {
     wx.cloud.callFunction({
-      name: 'sendEmail',
+      name: 'sum',
+      data: {
+        a: 1,
+        b: 2
+      },
       success: res => {
         wx.showToast({
           title: '调用成功',
@@ -53,4 +57,3 @@ Page({
   },
 
 })
-

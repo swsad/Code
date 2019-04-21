@@ -18,8 +18,8 @@ cloud.init()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const db = cloud.database()
-  console.log(event.content)
-  console.log(event.qid)
+  console.log('[参数]: ', event)
+
   try {
     const _id = await db.collection('answer').add({
       data: {
@@ -35,10 +35,12 @@ exports.main = async (event, context) => {
         uid: wxContext.OPENID
       }
     })
+    console.log('[完成]: 完成填写问卷')
     return {
       success: true
     }
   } catch (err) {
+    console.log('[错误]: ', err)
     return {
       success: false,
       error: err

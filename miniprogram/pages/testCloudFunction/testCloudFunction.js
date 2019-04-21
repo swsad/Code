@@ -75,7 +75,7 @@ Page({
     wx.cloud.callFunction({
       name: 'release_questionnaire',
       data: {
-        content: ' '
+        content: JSON.parse(this.data)
       },
       success: res => {
         console.log(JSON.stringify(res))

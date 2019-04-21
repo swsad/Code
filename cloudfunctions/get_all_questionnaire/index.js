@@ -16,14 +16,17 @@ cloud.init()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const db = cloud.database()
+  console.log('[参数]: ', event)
 
   try {
     const result = await db.collection('questionnaire').get()
+    console.log('[完成]: 完成获取所有问卷')
     return {
       success: true,
       results: result
     }
   } catch (err) {
+    console.log('[错误]: ', err)
     return {
       success: false,
       error: err

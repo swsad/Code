@@ -1,0 +1,23 @@
+<!--pages/testCloudFunction/testCloudFunction.wxml-->
+
+<view class="container">
+  
+  <view class="list">
+    <view class="list-item" bindtap="test_login">
+      <text>登入</text>
+    </view>
+
+    <view class="list-item" bindtap="test_verification_send">
+      <text>发送验证邮件</text>
+    </view>
+
+    <view class="list-item" bindtap="test_verification_recv">
+      <text>验证验证码</text>
+    </view>
+
+    <view class="list-item" bindtap="test_add_info">
+      <text>更新用户信息</text>
+    </view>
+  </view>
+
+</view>

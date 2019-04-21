@@ -42,15 +42,9 @@
 
   <!-- 发邮件 -->
   <view class="uploader">
-    <navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
-      <text>发送邮件</text>
+    <navigator url="../testCloudFunction/testCloudFunction" open-type="navigate" class="uploader-text">
+      <text>测试云函数</text>
     </navigator>
   </view>
-  
-  <view>
-    <button class="userinfo-nickname" bindtap="test_login">登入</button>
-    <button class="userinfo-nickname" bindtap="test_verification_send">发送验证邮件</button>
-    <button class="userinfo-nickname" bindtap="test_verification_recv">验证验证码</button>
-    <button class="userinfo-nickname" bindtap="test_add_info">更新用户信息</button>    
-  </view>
+
 </view>

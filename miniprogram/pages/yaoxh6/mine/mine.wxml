@@ -1,0 +1,55 @@
+<view class="person"> 
+  <view class='picAndName'>
+    <image class='pic' src="{{WaitToFinishIcon}}" mode='widthFix'></image>
+    <view class='name'>{{name}}</view>
+  </view>
+</view>
+
+<view class="state">
+  <view class='stateDetail'>
+    <view class="waitToFinishBlock">
+      <image class="waitToFinishIcon" src="{{WaitToFinishIcon}}" mode='widthFix'></image>
+      <text class="waitToFinishText">待完成</text>
+    </view>
+    <view class="hasBeenFinishedBlock">
+      <image class="hasBeenFinishedIcon" src="{{HasBeenFinishedIcon}}" mode='widthFix'></image>
+      <text class="hasBeenFinishedText">已完成</text>
+    </view>
+    <view class="hasBeenPublishedBlock">
+      <image class="hasBeenPublishedIcon" src="{{HasBeenPublishedIcon}}" mode='widthFix'></image>
+      <text class="hasBeenPublishedText">已发布</text>
+    </view>
+  </view>
+</view>
+
+
+<view class="weui-cells weui-cells_after-title">
+  <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image src="{{MyPurseIcon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+    </view>
+    <view class="weui-cell__bd">我的钱包</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+  <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image src="{{MyCollectionIcon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+    </view>
+    <view class="weui-cell__bd">我的收藏</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+  <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image src="{{CallCenterIcon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+    </view>
+    <view class="weui-cell__bd">客服中心</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+  <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image src="{{PersonalSettingIcon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+    </view>
+    <view class="weui-cell__bd">个人设置</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+</view>

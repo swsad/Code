@@ -1,0 +1,25 @@
+.divLine{
+ background: #E0E3DA;
+ width: 100%;
+ height: 5rpx;
+ margin-top: 20rpx;
+}
+
+#title{
+  display: flex;
+  flex-direction: row;
+  color:#D4D4D4;
+}
+
+.titleContent{
+  margin-top: 5rpx;
+}
+
+#request{
+  height: 30%;
+  color:#D4D4D4;
+}
+
+.weui-btn{
+  width: 50%;
+}

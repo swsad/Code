@@ -1,0 +1,73 @@
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+}
+
+.questionnaire{
+  background-color: #E3E3E3;
+}
+.questionnaireTitle{
+  margin-left: 45rpx;
+  /* margin-bottom: 30rpx; */
+}
+
+.questionnaireDetail{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 30rpx;
+}
+
+.dateBlock{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10rpx;
+}
+
+.dateIconClass{
+  width: 40rpx;
+}
+
+.dateClass{
+  font-size: 25rpx;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+}
+
+.addressBlock{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10rpx;
+}
+
+.addressIconClass{
+  width: 40rpx;
+}
+
+.addressClass{
+  font-size: 25rpx;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+}
+
+.priceBlock{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10rpx;
+}
+
+.priceIconClass{
+  width: 40rpx;
+}
+
+.priceClass{
+  font-size: 25rpx;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+}

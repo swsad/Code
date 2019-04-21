@@ -3,7 +3,6 @@
 <view class="container">
   
   <view class="list">
-
     <view class="list-item" bindtap="test_login">
       <text>登入</text>
     </view>

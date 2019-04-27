@@ -71,3 +71,61 @@
   margin-left: 10rpx;
   margin-top: 10rpx;
 }
+
+.weui-btn-area{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.areaPicker{
+  /* border: 1px solid #999; */
+  width: 33.3%;
+  height: 60rpx;
+}
+
+.typePicker{
+  /* border: 1px solid #999; */
+  width: 33.3%;
+  height: 60rpx;
+}
+
+.timePicker{
+  /* border: 1px solid #999; */
+  width: 33.3%;
+  height: 60rpx;
+}
+
+.areaArrow{
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+  transform: rotate(135deg);
+  position: relative;
+  left: 160rpx;
+  bottom: 50rpx;
+}
+
+
+.typeArrow{
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+  transform: rotate(135deg);
+  position: relative;
+  left: 160rpx;
+  bottom: 50rpx;
+}
+
+.timeArrow{
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+  transform: rotate(135deg);
+  position: relative;
+  left: 160rpx;
+  bottom: 50rpx;
+}

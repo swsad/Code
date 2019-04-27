@@ -65,37 +65,43 @@ Page({
   onShareAppMessage: function () {
 
   },
-  fun : function(){
-    var q = {
-      test: this.data.test,
-      test2: this.data.test2
-    }
-    wx.cloud.callFunction({
-      name: 'release_questionnaire',
-      data: {
-        content: JSON.stringify(q)
-      },
-      success: res => {
-        // test = JSON.stringify(res)
-        // this.setData({
-        //   test : JSON.stringify(res.result.results.data[0].description)
-        // })
-        console.log('success')
-      }
-    })
-  },
+  // fun : function(){
+  //   var q = {
+  //     test: this.data.test,
+  //     test2: this.data.test2
+  //   }
+  //   wx.cloud.callFunction({
+  //     name: 'release_questionnaire',
+  //     data: {
+  //       content: JSON.stringify(q)
+  //     },
+  //     success: res => {
+  //       // test = JSON.stringify(res)
+  //       // this.setData({
+  //       //   test : JSON.stringify(res.result.results.data[0].description)
+  //       // })
+  //       console.log('success')
+  //     }
+  //   })
+  // },
 
-  fun2 : function(){
-    wx.cloud.callFunction({
-      name: 'get_all_questionnaire',
-      success: res => {
-        console.log(res)
-        var last = res.result.results.data[8].content
-        this.setData({
-          test: JSON.parse(last).test
-        })
-        console.log('success')
-      }
+  // fun2 : function(){
+  //   wx.cloud.callFunction({
+  //     name: 'get_all_questionnaire',
+  //     success: res => {
+  //       console.log(res)
+  //       var last = res.result.results.data[8].content
+  //       this.setData({
+  //         test: JSON.parse(last).test
+  //       })
+  //       console.log('success')
+  //     }
+  //   })
+  // }
+  goBack(){
+    console.log('to task page')
+    wx.switchTab({
+      url: '../task/task',
     })
   }
 })

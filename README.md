@@ -14,5 +14,5 @@ helloworld
 
 - 每个人建立自己的分支，分支名为`xxx_workspace`，只能在自己的分支上操作，然后创建`pull request`合并到`master`分支，不能在`master`分支下直接`push`（因为可能两个人改了同一个文件而互相不知道，先提交的代码就会被后提交的代码所覆盖），具体步骤如下：
   - 首先创建自己的分支：`git checkout -b xxx_workspace`，然后只能在自己的分支下提交
-  - 每次想要和`master`分支合并之前先在自己的分支下从`master`分支下拉取最新的文件：git pull origin master，然后检查本地的代码，解决冲突
+  - 每次想要和`master`分支合并之前先在自己的分支下从`master`分支下拉取最新的文件：`git pull origin master`，然后检查本地的代码，解决冲突
   - 冲突解决完之后在`push`到自己的分支上，创建`pull request`，如果没有冲突会显示可以自动合并，如果不能自动合并则需要回到上一步；如果能自动合并就可以由自己确认合并（合并后自己的分支下的`commit`也会合并到`master`分支下）

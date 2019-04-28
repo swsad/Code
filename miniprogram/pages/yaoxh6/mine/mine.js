@@ -5,13 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    MyPurseIcon:"../../../images/我的钱包.png",
-    MyCollectionIcon:"../../../images/我的收藏.png",
-    CallCenterIcon:"../../../images/客服中心.png",
+    MyPurseIcon:"../../../images/myWallet.png",
+    MyCollectionIcon:"../../../images/myFavourite.png",
+    CallCenterIcon:"../../../images/customerService.png",
     PersonalSettingIcon:"",
-    WaitToFinishIcon:"../../../images/待完成.png",
-    HasBeenFinishedIcon:"../../../images/已完成.png",
-    HasBeenPublishedIcon:"../../../images/已发布.png",
+    WaitToFinishIcon:"../../../images/waitToFinish.png",
+    HasBeenFinishedIcon:"../../../images/hasFinished.png",
+    HasBeenPublishedIcon:"../../../images/hasPublished.png",
     name:"Yaoxh6"
   },
 

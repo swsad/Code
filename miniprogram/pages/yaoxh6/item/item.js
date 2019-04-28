@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    priceIcon: "../../../images/价格.png",
+    priceIcon: "../../../images/price.png",
     test:"global",
     test2:["hello","world"]
   },

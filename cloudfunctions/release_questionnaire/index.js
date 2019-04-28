@@ -1,6 +1,9 @@
 /*
   功能：发布问卷
   接受参数：
+    name: string 问卷名
+    time: string 问卷的截止时间
+    reward: string 报酬
     content: string 问卷内容（JSON转string）
     description: string 对问卷的简要描述
   返回情况：
@@ -25,6 +28,14 @@ exports.main = async (event, context) => {
       data: {
         content: event.content,
         description: event.description
+      }
+    })
+    await db.collection('questionnaire_info').add({
+      data: {
+        qid: _id,
+        name: event.name,
+        time: event.time,
+        reward: event.reward
       }
     })
     await db.collection('qu_relation').add({

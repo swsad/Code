@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/yaoxh6/test/test",
     "pages/yaoxh6/task/task",
     "pages/yaoxh6/mine/mine",
     "pages/yaoxh6/publish/publish",

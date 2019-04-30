@@ -15,7 +15,7 @@
       <image class="hasBeenFinishedIcon" src="{{HasBeenFinishedIcon}}" mode='widthFix'></image>
       <text class="hasBeenFinishedText">已完成</text>
     </view>
-    <view class="hasBeenPublishedBlock">
+    <view class="hasBeenPublishedBlock" bindtap='goPosted'>
       <image class="hasBeenPublishedIcon" src="{{HasBeenPublishedIcon}}" mode='widthFix'></image>
       <text class="hasBeenPublishedText">已发布</text>
     </view>

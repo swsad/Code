@@ -107,7 +107,7 @@ Page({
     wx.cloud.callFunction({
       name: 'get_all_questionnaire',
       success: res => {
-        console.log(JSON.stringify(util.deBlocking(res)))
+        console.log(util.deBlocking(res)[0])
         wx.showToast({
           title: '调用成功',
         })
@@ -123,11 +123,25 @@ Page({
   },
 
   fillInQuestionnaire() {
+    var answer = [
+      {
+        type: 'SCQ',
+        choice: [1]
+      },
+      {
+        type: 'MCQ',
+        choice: [1, 2]
+      },
+      {
+        type: 'SAQ',
+        text: 'Simon'
+      }
+    ]
     wx.cloud.callFunction({
       name: 'fill_in_questionnaire',
       data: {
-        content: 'content',
-        qid: '6dc9aa7d-1947-4104-92b9-07e125a0dc30'
+        content: JSON.stringify(answer),
+        qid: '988c1b1b5cc81d9409667aa3265930fc'
       },
       success: res => {
         console.log(JSON.stringify(res))
@@ -146,6 +160,38 @@ Page({
   },
 
   releaseQuestionnaire() {
+    var questionnaire = [
+      {
+        type: "SCQ",
+        question: {
+          description: "Which fruit do you like best?",
+          options:
+            [
+              { id: 1, name: "C语言", isSelected: false },
+              { id: 2, name: "Java", isSelected: false },
+              { id: 3, name: "C++", isSelected: false }
+            ]
+        }
+      },
+      {
+        type: "MCQ",
+        question: {
+          description: "Which fruit do you like?",
+          options:
+            [
+              { id: 1, name: "C语言", isSelected: false },
+              { id: 2, name: "Java", isSelected: false },
+              { id: 3, name: "C++", isSelected: false }
+            ]
+        }
+      },
+      {
+        type: "SAQ",
+        question: {
+          description: "What's your name?"
+        }
+      }
+    ]    
     wx.cloud.callFunction({
       name: 'release_questionnaire',
       data: {
@@ -155,7 +201,7 @@ Page({
         reward: 20,
         position: '体育馆',
         total_amount: 100,
-        content: '{你的名字:xxx}',
+        content: JSON.stringify(questionnaire),
         description: '康乐杯是。。。'
       },
       success: res => {
@@ -179,10 +225,10 @@ Page({
     wx.cloud.callFunction({
       name: 'get_questionnaire_detail',
       data: {
-        qid: '6dec3bfa-8851-4a3c-ac24-ef28ff302600'
+        qid: '988c1b1b5cc81d9409667aa3265930fc'
       },
       success: res => {
-        console.log(JSON.stringify(util.deBlocking(res)))
+        console.log(JSON.parse(util.deBlocking(res)[0].content))
         wx.showToast({
           title: '调用成功',
         })

@@ -1,4 +1,4 @@
-<view id = "back">
+<view id = "back" bindtap='goBack'>
   <view class="arrow"></view>
   <view class='backContent'> 返回</view>
 </view>
@@ -49,6 +49,6 @@
       </view>
     </view>
 
-    <textarea class = "SAQAnswer"></textarea>
+    <textarea class = "SAQAnswer">{{test}}</textarea>
   </view>
 </view>

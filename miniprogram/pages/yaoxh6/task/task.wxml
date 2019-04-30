@@ -1,8 +1,4 @@
 <view class="page">
-  <view class="page__hd">
-    <!-- <view class="page__title">SearchBar</view>
-        <view class="page__desc">搜索栏</view> -->
-  </view>
   <view class="page__bd">
     <view class="weui-search-bar">
       <view class="weui-search-bar__form">
@@ -45,7 +41,23 @@
   </view>
 </view>
 
+<view class="weui-btn-area">
+    <picker class='areaPicker' value="{{areaIndex}}" range='{{areaArray}}' bindchange="bindAreaChange">
+        <view >{{areaArray[areaIndex]}} </view>
+        <view class="areaArrow"></view>
+    </picker>
+    <picker class='typePicker' value="{{typeIndex}}" range='{{typeArray}}' bindchange="bindTypeChange">
+        <view >{{typeArray[typeIndex]}} </view>
+        <view class="typeArrow"></view>
+    </picker>
+    <picker class='timePicker' value="{{timeIndex}}" range='{{timeArray}}' bindchange="bindTimeChange">
+        <view >{{timeArray[timeIndex]}} </view>
+        <view class="timeArrow"></view>
+    </picker>
+</view>
+
 <view class="questionnaire">
+  <view class='questionnaireOne' bindtap='goDetail'>
     <view class="questionnaireTitle">眼动仪实验被试招募</view>
     <view class="questionnaireDetail">
       <view class="dateBlock">
@@ -61,5 +73,6 @@
         <view class="priceClass">{{price}} </view>
       </view>
     </view>
+  </view>
 </view>
 

@@ -7,12 +7,18 @@ Page({
   data: {
       inputShowed:false,
       inputVal:"",
-      DateIcon:"../../../images/时间.png",
+      DateIcon:"../../../images/time.png",
       date:"2019/4/10/16:00",
-      AddressIcon:"../../../images/地点.png",
+      AddressIcon:"../../../images/destination.png",
       address:"心理学院楼",
-      PriceIcon:"../../../images/价格.png",
-      price:"25元"
+      PriceIcon:"../../../images/price.png",
+      price:"25元",
+      areaArray: ['东校', '南校','珠海','深圳','北校'],
+      areaIndex: 0,
+      typeArray: ['全部', '问卷', '被试', '问卷'],
+      typeIndex: 0,
+      timeArray: ['时间顺序', '时间逆序', '佣金顺序', '佣金逆序'],
+      timeIndex: 0,
   },
 
   /**
@@ -91,6 +97,29 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
-  }
+  },
 
+  bindAreaChange: function (e) {
+    this.setData({
+      areaIndex: e.detail.value
+    })
+  },
+  bindTypeChange: function (e) {
+    this.setData({
+      typeIndex: e.detail.value
+    })
+  },
+  bindTimeChange: function (e) {
+    this.setData({
+      timeIndex: e.detail.value
+    })
+  },
+  goDetail : function(){
+    wx.navigateTo({
+      url: '../item/item',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  }
 })

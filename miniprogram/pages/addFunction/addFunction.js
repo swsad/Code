@@ -20,7 +20,7 @@ Page({
 
   },
 
-  copyCode: function() {
+  copyCode: function () {
     wx.setClipboardData({
       data: code,
       success: function () {
@@ -57,4 +57,3 @@ Page({
   },
 
 })
-

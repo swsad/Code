@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/yaoxh6/task/task",
     "pages/yaoxh6/mine/mine",
     "pages/yaoxh6/publish/publish",
     "pages/yaoxh6/item/item",
-    "pages/index/index",
+    
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",

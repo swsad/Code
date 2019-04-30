@@ -4,6 +4,9 @@
     name: string 问卷名
     time: string 问卷的截止时间
     reward: string 报酬
+    position: string 地点
+    amount: number 问卷发布的分数
+    category: string 问卷的类型
     content: string 问卷内容（JSON转string）
     description: string 对问卷的简要描述
   返回情况：
@@ -35,7 +38,10 @@ exports.main = async (event, context) => {
         qid: _id,
         name: event.name,
         time: event.time,
-        reward: event.reward
+        reward: event.reward,
+        position: event.position,
+        category: event.category,
+        amount: event.amount
       }
     })
     await db.collection('qu_relation').add({

@@ -1,5 +1,7 @@
 // pages/testCloudFunction/testCloudFunction.js
 
+var util = require('../../utils.js')
+
 Page({
 
   data: {
@@ -85,7 +87,7 @@ Page({
     wx.cloud.callFunction({
       name: 'get_all_questionnaire',
       success: res => {
-        console.log(JSON.stringify(res))
+        console.log(JSON.stringify(util.deBlocking(res)))
         wx.showToast({
           title: '调用成功',
         })
@@ -127,7 +129,14 @@ Page({
     wx.cloud.callFunction({
       name: 'release_questionnaire',
       data: {
-        content: JSON.parse(this.data)
+        name: '康乐杯',
+        time: '2019/5/1',
+        category: 'c1',
+        reward: 20,
+        position: '体育馆',
+        amount: 100,
+        content: JSON.parse(this.data),
+        description: '康乐杯是。。。'
       },
       success: res => {
         console.log(JSON.stringify(res))
@@ -145,4 +154,26 @@ Page({
       }
     })
   },
+
+  getQuestionnaireDetail() {
+    wx.cloud.callFunction({
+      name: 'get_questionnaire_detail',
+      data: {
+        qid: '6dec3bfa-8851-4a3c-ac24-ef28ff302600'
+      },
+      success: res => {
+        console.log(JSON.stringify(util.deBlocking(res)))
+        wx.showToast({
+          title: '调用成功',
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [releaseQuestionnaire] 调用失败：', err)
+      }
+    })
+  }
 })

@@ -1,18 +1,11 @@
-// pages/yaoxh6/mine/mine.js
+// miniprogram/pages/yaoxh6/posted/posted.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    MyPurseIcon:"../../../images/myWallet.png",
-    MyCollectionIcon:"../../../images/myFavourite.png",
-    CallCenterIcon:"../../../images/customerService.png",
-    PersonalSettingIcon:"",
-    WaitToFinishIcon:"../../../images/waitToFinish.png",
-    HasBeenFinishedIcon:"../../../images/hasFinished.png",
-    HasBeenPublishedIcon:"../../../images/hasPublished.png",
-    name:"Yaoxh6"
+
   },
 
   /**
@@ -70,12 +63,6 @@ Page({
   onShareAppMessage: function () {
 
   },
-  goPosted: function () {
-    wx.navigateTo({
-      url: '../posted/posted',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-  } 
+
+
 })

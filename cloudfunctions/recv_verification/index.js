@@ -18,6 +18,7 @@ cloud.init()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const db = cloud.database()
+  console.log("[参数]: ", event)
   try{
     const ver_info = await db.collection('verification').where({
       uid: wxContext.OPENID
@@ -36,6 +37,7 @@ exports.main = async (event, context) => {
         await db.collection('verification').where({
           uid: wxContext.OPENID
         }).remove();
+        console.log('[完成]: 用户身份验证成功')
         return {
           success: true
         }
@@ -48,6 +50,7 @@ exports.main = async (event, context) => {
       throw "code out of date";
     }
   } catch(err){
+    console.log('[错误]: ', err)
     return {
       success: false,
       error: err

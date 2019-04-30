@@ -18,6 +18,7 @@ cloud.init()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const db = cloud.database()
+  const _ = db.command
   console.log('[参数]: ', event)
 
   try {
@@ -35,6 +36,15 @@ exports.main = async (event, context) => {
         uid: wxContext.OPENID
       }
     })
+    var questionnaire = await db.collection('questionnaire_info').doc(event.qid).get()
+    var completed = (questionnaire.data.total_amount - questionnaire.data.completed_amount == 1)
+    await db.collection('questionnaire_info').doc(event.qid).update({
+      data: {
+        completed_amount: _.inc(1),
+        is_all_completed: completed
+      }
+    })
+    console.log(completed)
     console.log('[完成]: 完成填写问卷')
     return {
       success: true

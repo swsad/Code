@@ -38,7 +38,7 @@ Page({
     wx.cloud.callFunction({
       name: 'recv_verification',
       data: {
-        code: 94590
+        code: 77018
       },
       complete: res => {
         console.log(res)
@@ -63,6 +63,24 @@ Page({
         console.log(res)
       }
     })
+  },
+
+  test_update_info: ()=> {
+    wx.cloud.callFunction({
+      name: 'update_info',
+      data: {
+        user_type: 0,
+        user_info: {
+          collage: "数据科学与计算机学院",
+          major: "软件工程",
+          sid: 16341236,
+          sname: "胡嘉鹏"
+        }
+      },
+      complete: res => {
+        console.log(res)
+      }
+    })    
   },
 
   sendEmail() {

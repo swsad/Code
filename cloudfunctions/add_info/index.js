@@ -16,9 +16,8 @@ cloud.init()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  console.log(event)
-  console.log(event.user_info.major)
-  console.log(event.user_info.collage)
+  console.log("[参数]: ", event)
+
   const wxContext = cloud.getWXContext()
   const db = cloud.database()
   try {
@@ -35,7 +34,9 @@ exports.main = async (event, context) => {
         data: {
           collage: event.user_info.collage,
           major: event.user_info.major,
-          uid: wxContext.OPENID
+          uid: wxContext.OPENID,
+          sid: event.user_info.sid,
+          sname: event.user_info.sname
         }
       });
     }
@@ -47,10 +48,12 @@ exports.main = async (event, context) => {
         }
       });
     }
+    console.log('[完成]: 成功添加信息')
     return {
       success: true
     }
   } catch (err) {
+    console.log('[错误]: ', err)
     return {
       success: false,
       error: err

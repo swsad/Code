@@ -54,7 +54,9 @@ Page({
         user_type: 0,
         user_info: {
           collage: "数据科学与计算机学院",
-          major: "软件工程"
+          major: "软件工程",
+          sid: 16340076,
+          sname: "胡嘉鹏"
         }
       },
       complete: res => {

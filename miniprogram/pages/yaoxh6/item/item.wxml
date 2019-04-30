@@ -1,8 +1,3 @@
-<view id = "back" bindtap='goBack'>
-  <view class="arrow"></view>
-  <view class='backContent'> 返回</view>
-</view>
-
 <view id="title">
   <view class='titleContent'>问卷</view>
   <image class='titlePriceIcon' src='{{priceIcon}}' mode='widthFix'></image>

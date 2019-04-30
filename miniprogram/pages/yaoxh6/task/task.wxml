@@ -16,22 +16,7 @@
       </view>
       <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
     </view>
-    <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
-      <navigator url="" class="weui-cell" hover-class="weui-cell_active">
-        <view class="weui-cell__bd">
-          <view>实时搜索文本</view>
-        </view>
-      </navigator>
-      <navigator url="" class="weui-cell" hover-class="weui-cell_active">
-        <view class="weui-cell__bd">
-          <view>实时搜索文本</view>
-        </view>
-      </navigator>
-      <navigator url="" class="weui-cell" hover-class="weui-cell_active">
-        <view class="weui-cell__bd">
-          <view>实时搜索文本</view>
-        </view>
-      </navigator>
+    <view class="weui-cells searchbar-result" wx:for="{{searchArray}}" wx:key="id">
       <navigator url="" class="weui-cell" hover-class="weui-cell_active">
         <view class="weui-cell__bd">
           <view>实时搜索文本</view>
@@ -50,27 +35,27 @@
         <view >{{typeArray[typeIndex]}} </view>
         <view class="typeArrow"></view>
     </picker>
-    <picker class='timePicker' value="{{timeIndex}}" range='{{timeArray}}' bindchange="bindTimeChange">
-        <view >{{timeArray[timeIndex]}} </view>
-        <view class="timeArrow"></view>
+    <picker class='orderPicker' value="{{orderIndex}}" range='{{orderArray}}' bindchange="bindOrderChange">
+        <view >{{orderArray[orderIndex]}} </view>
+        <view class="orderArrow"></view>
     </picker>
 </view>
 
-<view class="questionnaire">
-  <view class='questionnaireOne' bindtap='goDetail'>
-    <view class="questionnaireTitle">眼动仪实验被试招募</view>
+<view class="questionnaire" wx:for="{{questionnairesArray}}" wx:key="id">
+  <view class='questionnaireItem' bindtap='goDetail' data-id="{{index}}">
+    <view class="questionnaireTitle">{{item.name}}</view>
     <view class="questionnaireDetail">
       <view class="dateBlock">
         <image class="dateIconClass" src="{{DateIcon}}" mode='widthFix'></image>
-        <view class="dateClass">{{date}} </view>
+        <view class="dateClass">{{item.time}} </view>
       </view>
       <view class="addressBlock">
         <image class="addressIconClass" src="{{AddressIcon}}" mode='widthFix'></image>
-        <view class="addressClass">{{address}} </view>
+        <view class="addressClass">{{item.position}} </view>
       </view>
       <view class="priceBlock">
         <image class="priceIconClass" src="{{PriceIcon}}" mode='widthFix'></image>
-        <view class="priceClass">{{price}} </view>
+        <view class="priceClass">{{item.reward}} </view>
       </view>
     </view>
   </view>

@@ -8,7 +8,7 @@
     success: bool 是否调用成功
     isNew: bool 是否为新用户
     type: num 用户类型
-    info: object 用户所有信息(学生：年级专业/机构：名字)
+    info: object 用户所有信息(学生：学号、姓名、年级、专业；机构：机构名)
     openid: string
     error：系统内部错误
   }
@@ -20,13 +20,13 @@ const db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-
+  console.log("[参数]: ", event)
   try {
     const basicInfo = await db.collection('users').where({
       uid: wxContext.OPENID
     }).get();
     if (basicInfo.data.length == 0) {
-      console.log("add new user ", wxContext.OPENID)
+      console.log('[完成]: 增加新用户')
       var addResult = await db.collection("users").add({
         data: {
           type: -1,
@@ -46,7 +46,7 @@ exports.main = async (event, context) => {
         var userInfo = await db.collection("student_info").where({
           uid: wxContext.OPENID
         }).get()
-        console.log("return student info")
+        console.log('[完成]: 学生用户登入，返回用户信息 ')
         return {
           success: true,
           isNew: false,
@@ -59,7 +59,7 @@ exports.main = async (event, context) => {
         var userInfo = await db.collection("organization_info").where({
           uid: wxContext.OPENID
         }).get();
-        console.log("return organization info")
+        console.log('[完成]: 机构用户登入，返回机构信息 ')
         return {
           success: true,
           isNew: false,
@@ -70,6 +70,7 @@ exports.main = async (event, context) => {
       }
     }
   } catch(err) {
+    console.log('[错误]: ', err)
     return {
       success: false,
       error: err

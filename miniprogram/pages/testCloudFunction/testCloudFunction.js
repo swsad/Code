@@ -107,7 +107,7 @@ Page({
       name: 'fill_in_questionnaire',
       data: {
         content: 'content',
-        qid: 'qid'
+        qid: '6dc9aa7d-1947-4104-92b9-07e125a0dc30'
       },
       success: res => {
         console.log(JSON.stringify(res))
@@ -134,8 +134,8 @@ Page({
         category: 'c1',
         reward: 20,
         position: '体育馆',
-        amount: 100,
-        content: JSON.parse(this.data),
+        total_amount: 100,
+        content: '{你的名字:xxx}',
         description: '康乐杯是。。。'
       },
       success: res => {

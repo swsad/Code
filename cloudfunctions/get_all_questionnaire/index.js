@@ -16,10 +16,13 @@ cloud.init()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const db = cloud.database()
+  const _ = db.command
   console.log('[参数]: ', event)
 
   try {
-    const result = await db.collection('questionnaire_info').get()
+    const result = await db.collection('questionnaire_info').where({
+      is_all_completed: _.eq(false)
+    }).get()
     console.log('[完成]: 完成获取所有问卷')
     return {
       success: true,

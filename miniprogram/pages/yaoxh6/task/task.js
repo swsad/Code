@@ -164,9 +164,10 @@ Page({
       questionnairesArray: tempArray
     })
   },
-  goDetail : function () {
+  goDetail: function (content) {
+    var tempIndex = content.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../item/item',
+      url: '../item/item?id=' + this.data.taskArray[tempIndex]._id,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

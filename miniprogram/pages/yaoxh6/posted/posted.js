@@ -5,14 +5,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    taskArray: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var tempArray = this.data.taskArray
+    tempArray.push({
+      name: 'name',
+      time: '2019/4/30',
+      reward: 100,
+      completedAmount: 67,
+      totalAmount: 100
+    })
+    tempArray.push({
+      name: 'name2',
+      time: '2019/4/30',
+      reward: 100,
+      completedAmount: 67,
+      totalAmount: 100
+    })
+    this.setData({
+      taskArray: tempArray
+    })
   },
 
   /**

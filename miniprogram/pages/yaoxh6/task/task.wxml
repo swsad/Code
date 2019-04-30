@@ -42,7 +42,7 @@
 </view>
 
 <view class="questionnaire" wx:for="{{questionnairesArray}}" wx:key="id">
-  <view class='questionnaireItem' bindtap='goDetail'>
+  <view class='questionnaireItem' bindtap='goDetail' data-id="{{index}}">
     <view class="questionnaireTitle">{{item.name}}</view>
     <view class="questionnaireDetail">
       <view class="dateBlock">

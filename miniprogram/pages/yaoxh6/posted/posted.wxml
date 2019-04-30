@@ -1,2 +1,9 @@
-<!--miniprogram/pages/yaoxh6/posted/posted.wxml-->
-<text>miniprogram/pages/yaoxh6/posted/posted.wxml</text>
+<view class="task" wx:for="{{taskArray}}" wx:key="id">
+  <view class='taskItem'>
+    <view class="taskName">{{item.name}}</view>
+    <view class="taskTime">{{item.time}}</view>
+    <view class="taskReward">{{item.reward}}</view>
+    <view class="taskCompletedAmount">{{item.completed_amount}}</view>
+    <view class="taskTotalAmount">{{item.total_amount}}</view>
+  </view>
+</view>

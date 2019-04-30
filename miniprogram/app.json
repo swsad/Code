@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/testCloudFunction/testCloudFunction",
+    
     "pages/yaoxh6/task/task",
     "pages/yaoxh6/mine/mine",
     "pages/yaoxh6/publish/publish",
@@ -11,7 +11,8 @@
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
+    "pages/chooseLib/chooseLib",
+    "pages/yaoxh6/posted/posted"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -21,7 +22,6 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-
   "tabBar": {
     "color": "#a9b7b7",
     "selectedColor": "#11cd6e",

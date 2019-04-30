@@ -1,4 +1,10 @@
 // pages/yaoxh6/task/task.js
+var Orders = {
+  ORDER_TIME: '最新发布',
+  ORDER_CLICK: '最多点击',
+  ORDER_REWARD: '最多报酬'
+}
+
 Page({
 
   /**
@@ -15,17 +21,36 @@ Page({
       price:"25元",
       areaArray: ['东校', '南校','珠海','深圳','北校'],
       areaIndex: 0,
-      typeArray: ['全部', '问卷', '被试', '问卷'],
+      typeArray: ['全部', '问卷', '问答'],
       typeIndex: 0,
-      timeArray: ['时间顺序', '时间逆序', '佣金顺序', '佣金逆序'],
-      timeIndex: 0,
+      orderArray: [Orders.ORDER_TIME, Orders.ORDER_CLICK, Orders.ORDER_REWARD],
+      orderIndex: 0,
+      taskArray: [],
+      questionnairesArray: [],
+      searchArray: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.cloud.callFunction({
+      name: 'get_all_questionnaire',
+      success: res => {
+        this.setData({
+          taskArray: res.result.value.data,
+          questionnairesArray: res.result.value.data
+        })
+        this.sortItem()
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.log('[云函数][getAllQuestionnaire] 调用失败：', err)
+      }
+    })
   },
 
   /**
@@ -87,16 +112,19 @@ Page({
       inputVal: "",
       inputShowed: false
     });
+    this.search()
   },
   clearInput: function () {
     this.setData({
       inputVal: ""
     });
+    this.search()
   },
   inputTyping: function (e) {
     this.setData({
       inputVal: e.detail.value
     });
+    this.search()
   },
 
   bindAreaChange: function (e) {
@@ -109,17 +137,50 @@ Page({
       typeIndex: e.detail.value
     })
   },
-  bindTimeChange: function (e) {
+  bindOrderChange: function (e) {
     this.setData({
-      timeIndex: e.detail.value
+      orderIndex: e.detail.value
+    })
+    this.sortItem()
+  },
+  sortItem: function () {
+    var tempArray = this.data.questionnairesArray
+    switch (this.data.orderArray[this.data.orderIndex]) {
+      case Orders.ORDER_TIME:
+        tempArray.sort(function (q1, q2) {
+          return q2.time.localeCompare(q1.time)
+        })
+        break
+      case Orders.ORDER_CLICK:
+        break
+      case Orders.ORDER_REWARD:
+        tempArray.sort(function (q1, q2) {
+          return q1.reward < q2.reward
+        })
+        break
+      default:
+    }
+    this.setData({
+      questionnairesArray: tempArray
     })
   },
-  goDetail : function(){
+  goDetail : function () {
     wx.navigateTo({
       url: '../item/item',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
+    })
+  },
+  search : function () {
+    var tempArray = []
+    for (var i = 0; i < this.data.taskArray.length; ++i) {
+      if (this.data.taskArray[i].name.indexOf(this.data.inputVal) >= 0) {
+        tempArray.push(this.data.taskArray[i])
+      }
+    }
+    this.setData({
+      questionnairesArray: tempArray
     })
   }
 })

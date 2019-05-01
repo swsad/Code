@@ -16,6 +16,10 @@
     </view>
 
     <view class="list-item" bindtap="test_add_info">
+      <text>添加用户信息</text>
+    </view>
+
+    <view class="list-item" bindtap="test_update_info">
       <text>更新用户信息</text>
     </view>
 
@@ -33,6 +37,10 @@
 
     <view class="list-item" bindtap="fillInQuestionnaire">
       <text>填问卷</text>
+    </view>
+
+    <view class="list-item" bindtap="getQuestionnaireDetail">
+      <text>获取问卷详情</text>
     </view>
   </view>
 

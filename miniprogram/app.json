@@ -4,6 +4,9 @@
     "pages/yaoxh6/questionnaire/questionnaire",
     "pages/yaoxh6/test/test",
     "pages/yaoxh6/task/task",
+    "pages/yaoxh6/item/item",
+    "pages/yaoxh6/posted/posted",
+    "pages/yaoxh6/test/test",
     "pages/yaoxh6/mine/mine",
     "pages/yaoxh6/publish/publish",
     "pages/index/index",
@@ -22,7 +25,6 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-
   "tabBar": {
     "color": "#a9b7b7",
     "selectedColor": "#11cd6e",

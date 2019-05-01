@@ -21,7 +21,7 @@ const UPPERBOUNDCODE = 99999;
 exports.main = async (event, context) => {
   const db = cloud.database()
   const wxContext = cloud.getWXContext()
-
+  console.log("[参数]: ", event)
   const code = Math.floor(Math.random() * (UPPERBOUNDCODE - LOWERBOUNDCODE + 1) + LOWERBOUNDCODE);
 
   var transporter = nodemailer.createTransport({
@@ -71,14 +71,15 @@ exports.main = async (event, context) => {
       subject: '招财猫中大学生验证', // 标题
       // text和html两者只支持一种
       // text: 'Hello world ?', // 标题
-      html: "helloword" + code // html 内容
+      html: "验证码: " + code + " 五分钟内有效" // html 内容
     };    
     const info = await transporter.sendMail(mailOptions);
-    console.log('Message sent: ' + info.response);
+    console.log('[完成]: 邮件发送成功', info.response)
     return {
       success: true,
     }
   } catch(err) {
+    console.log('[错误]: ', err)
     return {
       success: false,
       error: err

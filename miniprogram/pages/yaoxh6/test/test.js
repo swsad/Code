@@ -15,6 +15,11 @@ Page({
       {index:2, name: '手动仪实验被试招募', time: '2018/4/10/16:00', destination:'物理学院楼', price:'30元'}
     ],
     temp : { index: 3, name: 'hello仪实验被试招募', time: '2019/4/10/16:00', destination: '心理学院楼', price: '25元' },
+    items: [
+      { name: 'CHN', value: '中国', checked: 'true' },
+      { name: 'BRA', value: '巴西', checked:'false' },
+      { name: 'TUR', value: '法国', checked:'false'},
+    ]
   },
 
   /**
@@ -93,5 +98,13 @@ Page({
     this.setData({
       array: tempArray,
     });
-  }
+  },
+
+  indicate:function(input){
+    console.log(this.data.date);
+  },
+
+  radioChange: function (e) {
+    console.log('radio发生change事件，携带value值为：', e.detail.value)
+  },
 })

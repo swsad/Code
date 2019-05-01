@@ -39,7 +39,8 @@ Page({
       {
         "type": "SAQ",
         "content": {
-          "description": "What's your name?"
+          "description": "What's your name?",
+          "answer":"i dont know"
         }
       }
     ],
@@ -227,6 +228,67 @@ Page({
     var tempMCQ = { "id": 1, "name": "Lua", "isSelected": false };
     console.log(tempIndex);
     tempArray[tempIndex].content.options.push(tempMCQ);
+    this.setData({
+      questionnaireArray: tempArray,
+    });
+  },
+
+  showQ:function(){
+    console.log(this.data.questionnaireArray);
+  },
+
+  bindblurSCQ:function(input){
+    var tempIndex = input.currentTarget.dataset.id;
+    var tempArray = this.data.questionnaireArray;
+    tempArray[tempIndex].content.description = input.detail.value;
+    this.setData({
+      questionnaireArray: tempArray,
+    });
+  },
+
+  bindblurOneOfSCQ:function(input){
+    var tempFatherIndex = this.data.currentFatherIndex;
+    var tempSonIndex = input.target.dataset.id;
+    var tempArray = this.data.questionnaireArray;
+    tempArray[tempFatherIndex].content.options[tempSonIndex].name = input.detail.value;
+    this.setData({
+      questionnaireArray: tempArray,
+    });
+  },
+
+  bindblurMCQ:function(input){
+    var tempIndex = input.currentTarget.dataset.id;
+    var tempArray = this.data.questionnaireArray;
+    tempArray[tempIndex].content.description = input.detail.value;
+    this.setData({
+      questionnaireArray: tempArray,
+    });
+  },
+
+  bindblurOneOfMCQ:function(input){
+    var tempFatherIndex = this.data.currentFatherIndex;
+    var tempSonIndex = input.target.dataset.id;
+    var tempArray = this.data.questionnaireArray;
+    tempArray[tempFatherIndex].content.options[tempSonIndex].name = input.detail.value;
+    this.setData({
+      questionnaireArray: tempArray,
+    });
+  },
+
+  bindblurSAQ:function(input){
+    var tempIndex = input.currentTarget.dataset.id;
+    var tempArray = this.data.questionnaireArray;
+    tempArray[tempIndex].content.description = input.detail.value;
+    this.setData({
+      questionnaireArray: tempArray,
+    });
+  },
+
+  bindblurAnswerOfSAQ:function(input){
+    var tempIndex = input.currentTarget.dataset.id;
+    var tempArray = this.data.questionnaireArray;
+    tempArray[tempIndex].content.answer = input.detail.value;
+    // console.log(tempArray[tempIndex].content);
     this.setData({
       questionnaireArray: tempArray,
     });

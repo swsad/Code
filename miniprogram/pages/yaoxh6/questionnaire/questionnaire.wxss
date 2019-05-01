@@ -51,7 +51,7 @@ page{
 }
 .SCQText{
   margin-left: 20rpx;
-  color: #E3E3E3;
+  /* color: #E3E3E3; */
   border: 2rpx solid #999;
   width: 80%;
 }
@@ -62,7 +62,7 @@ page{
 
 .MCQText{
   margin-left: 20rpx;
-  color: #E3E3E3;
+  /* color: #E3E3E3; */
   border: 2rpx solid #999;
   width: 80%;
 }

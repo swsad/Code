@@ -1,4 +1,4 @@
-<view class="questionnaire" wx:for="{{array}}" wx:key="id">
+<!-- <view class="questionnaire" wx:for="{{array}}" wx:key="id">
   <view class='questionnaireOne' bindtap='getName' bindlongpress='deleteSelf' data-id="{{index}}" >
     <view class="questionnaireTitle">{{item.name}}</view>
     <view class="questionnaireDetail">
@@ -16,6 +16,26 @@
       </view>
     </view>
   </view>
-</view>
+</view> -->
 
-<button class="weui-btn" type="primary" bindtap='addQuestionnaire'>确认发布</button>
+<!-- <button class="weui-btn" type="primary" bindtap='addQuestionnaire'>确认发布</button> -->
+
+<input value='{{date}}' class='testInput' bindblur='indicate'></input>
+<!-- <radio-group class="radio-group" bindchange="radioChange">
+ <label class="radio" wx:for="{{items}}">
+   <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+ </label>
+</radio-group> -->
+
+
+<checkbox-group class="radio-group" bindchange="radioChange">
+ <block class="radio" wx:for="{{items}}">
+   <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+ </block>
+</checkbox-group>
+
+<checkbox-group bindchange="checkboxgroupBindchange" name="fl">
+  <checkbox value="五险一金">五险一金</checkbox>
+  <checkbox value="加班补助">加班补助</checkbox>
+  <checkbox value="双休">双 休</checkbox>
+</checkbox-group>

@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/yaoxh6/item/item",
+    "pages/yaoxh6/questionnaire/questionnaire",
+    "pages/yaoxh6/test/test",
     "pages/yaoxh6/task/task",
     "pages/yaoxh6/item/item",
     "pages/yaoxh6/posted/posted",
@@ -18,7 +21,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "Fuck You Asshole",
+    "navigationBarTitleText": "publish",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
@@ -36,7 +39,7 @@
       {
         "selectedIconPath": "images/publish2.png",
         "iconPath": "images/publish1.png",
-        "pagePath": "pages/yaoxh6/publish/publish",
+        "pagePath": "pages/yaoxh6/questionnaire/questionnaire",
         "text": "发布"
       },
       {

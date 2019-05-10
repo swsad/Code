@@ -13,23 +13,33 @@ Page({
    */
   onLoad: function (options) {
     var tempArray = this.data.taskArray
-    tempArray.push({
-      name: 'name',
-      time: '2019/4/30',
-      reward: 100,
-      completedAmount: 67,
-      totalAmount: 100
+    wx.cloud.callFunction({
+      name: 'get_all_questionnaire',
+      success: res => {
+        var data = res.result.value.data;
+        for(let i = 0; i < data.length; i++ ) {
+          var item = data[i];
+          tempArray.push({
+            name: item['name'],
+            time: item['time'],
+            reward: item['reward'],
+            completedAmount: item['completed_amount'],
+            totalAmount: item['total_amount']
+          })
+        }
+        this.setData({
+          taskArray: tempArray
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [getAllQuestionnaire] 调用失败：', err)
+      }
     })
-    tempArray.push({
-      name: 'name2',
-      time: '2019/4/30',
-      reward: 100,
-      completedAmount: 67,
-      totalAmount: 100
-    })
-    this.setData({
-      taskArray: tempArray
-    })
+ 
   },
 
   /**

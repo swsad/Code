@@ -1,25 +1,39 @@
-// pages/yaoxh6/mine/mine.js
+// miniprogram/pages/yaoxh6/myinfo/myInfo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    MyPurseIcon:"../../../images/myWallet.png",
-    MyCollectionIcon:"../../../images/myFavourite.png",
-    CallCenterIcon:"../../../images/customerService.png",
-    PersonalSettingIcon:"",
-    WaitToFinishIcon:"../../../images/waitToFinish.png",
-    HasBeenFinishedIcon:"../../../images/hasFinished.png",
-    HasBeenPublishedIcon:"../../../images/hasPublished.png",
-    name:"Yaoxh6"
+    personInfo: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    /*
+      在登入之后服务器会返回个人信息，保存下来，在这里不用继续请求
+    */
+    var tempArray = this.data.personInfo;
+    tempArray.push({
+      infoName: '我的姓名',
+      infoValue: '胡嘉鹏'
+    })
 
+    tempArray.push({
+      infoName: '我的学号',
+      infoValue: '16340076'
+    })
+
+    tempArray.push({
+      infoName: '我的邮箱',
+      infoValue: '1254086477@qq.com'
+    })
+
+    this.setData({
+      personInfo: tempArray
+    })
   },
 
   /**
@@ -70,21 +84,8 @@ Page({
   onShareAppMessage: function () {
 
   },
-  goPosted: function () {
-    wx.navigateTo({
-      url: '../posted/posted',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
-  },
 
-  goMyInfo: function () {
-    wx.navigateTo({
-      url: '../myInfo/myInfo',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+  updateInfo: function() {
+    
   }
 })

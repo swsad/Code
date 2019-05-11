@@ -1,9 +1,13 @@
 <view class="task" wx:for="{{taskArray}}" wx:key="id">
   <view class='taskItem'>
-    <view class="taskName">{{item.name}}</view>
-    <view class="taskTime">{{item.time}}</view>
-    <view class="taskReward">{{item.reward}}</view>
-    <view class="taskCompletedAmount">{{item.completed_amount}}</view>
-    <view class="taskTotalAmount">{{item.total_amount}}</view>
+    <view class='taskInfo'>
+      <view class="taskName">{{item.name}}</view>
+      <view class="taskReward">{{item.reward}}<span class="unit">元</span></view>
+      <view class="taskTime">{{item.time}}</view>
+    </view>
+    <view class='taskProgress'>
+      <view class="taskTotalAmount">/{{item.totalAmount}}</view>
+      <view class="taskCompletedAmount">{{item.completedAmount}}</view>
+    </view>
   </view>
 </view>

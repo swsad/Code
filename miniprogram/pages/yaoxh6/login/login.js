@@ -1,40 +1,42 @@
-// miniprogram/pages/yaoxh6/myinfo/myInfo.js
+// miniprogram/pages/yaoxh6/login/login.js
 const app = getApp();
 
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    personInfo: [],
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    /*
-      在登入之后服务器会返回个人信息，保存下来，在这里不用继续请求
-    */
-    var tempArray = this.data.personInfo;
-    tempArray.push({
-      infoName: '我的姓名',
-      infoValue: app.globalData.name
-    })
-
-    tempArray.push({
-      infoName: '我的学号',
-      infoValue: app.globalData.sid
-    })
-
-    tempArray.push({
-      infoName: '我的邮箱',
-      infoValue: '1254086477@qq.com'
-    })
-
-    this.setData({
-      personInfo: tempArray
+    var that = this;
+    // 查看是否授权   
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},  
+      complete: res => {
+        console.log(res);
+        var result = res.result;
+        if(!result.isNew && result.type != -1) {
+          app.globalData.type = result.type;
+          if(result.type == 0) {
+            app.globalData.name = result.info[0].sname;
+            app.globalData.collage = result.info[0].collage;
+            app.globalData.sid = result.info[0].sid;
+            app.globalData.major = result.info[0].major;
+            // wx.switchTab({
+            //   url: '../mine/mine',
+            // })            
+          }
+          else {
+            console.log('机构');
+          }         
+        }
+      }
     })
   },
 
@@ -85,9 +87,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  updateInfo: function() {
-    
   }
 })

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/yaoxh6/login/login",
     "pages/yaoxh6/mine/mine",
     "pages/yaoxh6/myInfo/myInfo",
     "pages/yaoxh6/posted/posted",
@@ -14,8 +15,7 @@
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/yaoxh6/myinfo/myInfo"
+    "pages/chooseLib/chooseLib"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

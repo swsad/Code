@@ -1,4 +1,6 @@
 // miniprogram/pages/yaoxh6/myinfo/myInfo.js
+const app = getApp();
+
 Page({
 
   /**
@@ -18,18 +20,23 @@ Page({
     var tempArray = this.data.personInfo;
     tempArray.push({
       infoName: '我的姓名',
-      infoValue: '胡嘉鹏'
+      infoValue: app.globalData.name
     })
 
     tempArray.push({
       infoName: '我的学号',
-      infoValue: '16340076'
+      infoValue: app.globalData.sid
     })
 
     tempArray.push({
-      infoName: '我的邮箱',
-      infoValue: '1254086477@qq.com'
+      infoName: '我的专业',
+      infoValue: app.globalData.major
     })
+
+    tempArray.push({
+      infoName: '我的学院',
+      infoValue: app.globalData.collage
+    })  
 
     this.setData({
       personInfo: tempArray

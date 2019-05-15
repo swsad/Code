@@ -1,0 +1,75 @@
+<view class="person"> 
+  <view class='picAndName'>
+    <open-data  class='pic' type="userAvatarUrl"></open-data>
+    <open-data class='name' type="userNickName"></open-data>
+  </view>
+</view>
+<!--
+<div class= "weui-cells__title">您的身份是</div>
+<div class="weui-cells weui-cells_radio">
+  <label class="weui-cell weui-check__label" for="x11">
+      <div class="weui-cell__bd">
+          <p>学生</p>
+      </div>
+      <div class="weui-cell__ft">
+          <input type="radio" class="weui-check" name="radio1" id="x11"/>
+          <span class="weui-icon-checked"></span>
+      </div>
+  </label>
+  <label class="weui-cell weui-check__label" for="x12">
+      <div class="weui-cell__bd">
+          <p>组织负责人</p>
+      </div>
+      <div class="weui-cell__ft">
+          <input type="radio" name="radio1" class="weui-check" id="x12" checked="checked"/>
+          <span class="weui-icon-checked"></span>
+      </div>
+  </label>
+</div>
+-->
+<div class="weui-cells weui-cells_form">
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+        <div class="weui-cell__bd">
+            <input data-name='sname' bindinput='bindKeyInput' class="weui-input" value="{{sname}}" placeholder="请输入姓名"/>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">学号</label></div>
+        <div class="weui-cell__bd">
+            <input data-name='sid' bindinput='bindKeyInput' class="weui-input" type="number" value="{{sid}}" pattern="[0-9]*" placeholder="请输入学号"/>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">专业</label></div>
+        <div class="weui-cell__bd">
+            <input data-name='major' bindinput='bindKeyInput' class="weui-input" value="{{major}}" placeholder="请输入专业"/>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">学院</label></div>
+        <div class="weui-cell__bd">
+            <input data-name='collage' bindinput='bindKeyInput' class="weui-input" value="{{collage}}" placeholder="请输入学院"/>
+        </div>
+    </div>        
+    <div class="weui-cell weui-cell_vcode">
+        <div class="weui-cell__hd">
+            <label class="weui-label">中大邮箱</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input data-name='mail' bindinput='bindKeyInput' class="weui-input" style="color:{{mailInputColor}};" name='mailValue' bindblur='mailDetector' value="{{mail}}" placeholder="请输入中大邮箱"/>
+        </div>
+        <div class="weui-cell__ft">
+            <button class="weui-vcode-btn" disabled="{{buttonDisbale}}" bindtap="sendCode">获取验证码</button>
+            <!-- <a href="javascript:;" class="weui-vcode-btn" bindtap="sendCode" disable="true">获取验证码</a> -->
+        </div>
+    </div>
+    <div class="weui-cell weui-cell_vcode">
+        <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
+        <div class="weui-cell__bd">
+            <input data-name='code' bindinput='bindKeyInput' class="weui-input" type="number" value="{{code}}" placeholder="请输入验证码"/>
+        </div>
+    </div>
+</div>
+
+<button class="weui-btn" type="primary" bindtap='doRegister'>完成注册</button>

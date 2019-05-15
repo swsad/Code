@@ -17,6 +17,9 @@ page{
 }
 .pic{
   width: 200rpx;
+  height: 200rpx;
+  overflow:hidden; 
+  border-radius: 50%;
 }
 
 .name{

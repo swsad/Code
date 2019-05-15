@@ -29,9 +29,14 @@ Page({
     })
 
     tempArray.push({
-      infoName: '我的邮箱',
-      infoValue: '1254086477@qq.com'
+      infoName: '我的专业',
+      infoValue: app.globalData.major
     })
+
+    tempArray.push({
+      infoName: '我的学院',
+      infoValue: app.globalData.collage
+    })  
 
     this.setData({
       personInfo: tempArray

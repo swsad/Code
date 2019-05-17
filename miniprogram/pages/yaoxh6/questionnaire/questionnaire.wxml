@@ -1,11 +1,12 @@
+  <text>标题：</text>
   <view id="title">
-    <text>标题:</text>
-    <input class='titleContent' value='描述概况'></input>
+    <input class='titleContent' placeholder='描述概况' bindblur='bindblurTitle'></input>
   </view>
   <!-- <view class="divLine"></view> -->
 
+  <text>要求：</text>
   <view id="request">
-    <textarea  class='requestContent' value='要求：描述任务详情'></textarea >
+    <textarea  class='requestContent' placeholder='描述任务详情' bindblur='bindblurDescription'></textarea >
   </view>
   <!-- <view class="divLine"></view> -->
 

@@ -192,6 +192,7 @@ Page({
         }
       }
     ]    
+    console.log(questionnaire)
     wx.cloud.callFunction({
       name: 'release_questionnaire',
       data: {

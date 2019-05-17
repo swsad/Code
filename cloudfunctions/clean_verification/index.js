@@ -9,9 +9,12 @@ cloud.init()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const db = cloud.database()
+  const _ = db.command
 
-  var stats = await db.collection('verification').where({
-    send_date: _.lt(db.serverDate() - 1000 * 60 * 5)
+  var result = await db.collection('verification').where({
+    send_date: _.lt(db.serverDate({
+      offset: -1000 * 60 * 60
+    }))
   }).remove();
-  console.log("remove useless record:", stats.removed);
+  console.log("remove useless record:", result.stats.removed);
 }

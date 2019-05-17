@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/yaoxh6/task/task",
-    "pages/yaoxh6/item/item",
+    "pages/yaoxh6/questionnaire/questionnaire",
+    "pages/testCloudFunction/testCloudFunction",
+    "pages/yaoxh6/login/login",
     "pages/yaoxh6/mine/mine",
     "pages/yaoxh6/myInfo/myInfo",
     "pages/yaoxh6/posted/posted",
-    
-    "pages/yaoxh6/questionnaire/questionnaire",
+    "pages/yaoxh6/item/item",
     "pages/yaoxh6/test/test",
     "pages/yaoxh6/publish/publish",
     "pages/index/index",

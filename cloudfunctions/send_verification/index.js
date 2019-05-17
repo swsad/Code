@@ -46,7 +46,7 @@ exports.main = async (event, context) => {
       var addResult = await db.collection('verification').add({
         data: {
           email: event.receiver,
-          send_date: Date(),
+          send_date: new Date(),
           uid: wxContext.OPENID,
           ver_code: code
         }
@@ -59,7 +59,7 @@ exports.main = async (event, context) => {
       }).update({
         data: {
           ver_code: code,
-          send_date: Date()
+          send_date: new Date()
         }
       })
     }

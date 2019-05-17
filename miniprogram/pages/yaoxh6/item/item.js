@@ -1,4 +1,6 @@
 // pages/yaoxh6/item/item.js
+var util = require('../../../utils.js')
+
 Page({
 
   /**
@@ -7,11 +9,12 @@ Page({
   data: {
     priceIcon: "../../../images/price.png",
     currentFatherIndex: 0,
+    qid: '',
     questionnaireArray: [
       {
         "type": "SCQ",
         "content": {
-          "description": "Which fruit do you like best?2222222222222222222222222222222222222222222222222222222222222222",
+          "description": "Which fruit do you like best?",
           "options":
             [
               { "id": 1, "name": "Lua", "isSelected": false },
@@ -47,6 +50,28 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id)
+    this.setData({
+      qid: options.id
+    })
+    wx.cloud.callFunction({
+      name: 'get_questionnaire_detail',
+      data: {
+        qid: options.id
+      },
+      success: res => {
+        console.log(JSON.stringify(util.deBlocking(res)))
+        // wx.showToast({
+        //   title: '调用成功',
+        // })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [releaseQuestionnaire] 调用失败：', err)
+      }
+    })
   },
 
   /**
@@ -197,5 +222,25 @@ Page({
 
   complete :function(){
     console.log(this.data.questionnaireArray);
+    wx.cloud.callFunction({
+      name: 'fill_in_questionnaire',
+      data: {
+        content: JSON.stringify(this.data.questionnaireArray),
+        qid: this.data.qid
+      },
+      success: res => {
+        console.log(JSON.stringify(res))
+        wx.showToast({
+          title: '调用成功',
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [fillInQuestionnaire] 调用失败：', err)
+      }
+    })
   },
 })

@@ -1,21 +1,22 @@
 {
   "pages": [
+    "pages/yaoxh6/task/task",
+    "pages/yaoxh6/item/item",
     "pages/yaoxh6/mine/mine",
     "pages/yaoxh6/myInfo/myInfo",
     "pages/yaoxh6/posted/posted",
-    "pages/yaoxh6/item/item",
+    
     "pages/yaoxh6/questionnaire/questionnaire",
     "pages/yaoxh6/test/test",
-    "pages/yaoxh6/task/task",
     "pages/yaoxh6/publish/publish",
     "pages/index/index",
+
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/yaoxh6/myinfo/myInfo"
+    "pages/chooseLib/chooseLib"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

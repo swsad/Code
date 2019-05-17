@@ -21,7 +21,7 @@ exports.main = async (event, context) => {
   
   try {
     const result = await db.collection('questionnaire_detail').where({
-      _id: event.qid
+      qid: event._id
     }).get()
     console.log('[完成]: 完成获取问卷详情')
     return {

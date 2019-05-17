@@ -1,4 +1,6 @@
 // pages/yaoxh6/item/item.js
+var util = require('../../../utils.js')
+
 Page({
 
   /**
@@ -15,6 +17,25 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id)
+    wx.cloud.callFunction({
+      name: 'get_questionnaire_detail',
+      data: {
+        _id: options.id
+      },
+      success: res => {
+        console.log(JSON.stringify(util.deBlocking(res)))
+        // wx.showToast({
+        //   title: '调用成功',
+        // })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [releaseQuestionnaire] 调用失败：', err)
+      }
+    })
   },
 
   /**

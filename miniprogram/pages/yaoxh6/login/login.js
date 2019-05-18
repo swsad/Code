@@ -29,7 +29,7 @@ Page({
       complete: res => {
         //console.log(res);
         var result = res.result;
-        if(!result.isNew && result.type != -1) {
+        if(!result.isNew) {
           app.globalData.type = result.type;
           if(result.type == 0) {
             app.globalData.name = result.info[0].sname;
@@ -40,9 +40,9 @@ Page({
               url: '../mine/mine',
             })            
           }
-          else {
+          else if (result.type){
             console.log('机构');
-          }         
+          }     
         }
       }
     })
@@ -145,7 +145,10 @@ Page({
       var data = this.data;
       var mailVer = this.data.mail.match(this.data.reg) != null;
       if (!data.sname || !data.sid || !data.major || !data.collage || !mailVer) {
-        return reject("请完整填写信息");
+        return reject("请完整填写正确信息");
+      }
+      if(!data.buttonDisbale) {
+        return reject("请先获取验证码");
       }
       wx.cloud.callFunction({
         name: 'recv_verification',
@@ -178,6 +181,7 @@ Page({
           }
         },
         complete: res => {
+          console.log(res);
           if (res.result.success) {
             app.globalData.name = data.sname;
             app.globalData.collage = data.collage;
@@ -203,7 +207,7 @@ Page({
     var func1 = this.verifyCode;
     var func2 = this.insertInfo;
     func1()
-    .then(func2())
+    .then(func2)
     .catch((err) => {
       wx.showModal({
         title: "提示",

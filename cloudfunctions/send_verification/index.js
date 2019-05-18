@@ -58,6 +58,7 @@ exports.main = async (event, context) => {
         uid: wxContext.OPENID
       }).update({
         data: {
+          email: event.receiver,
           ver_code: code,
           send_date: new Date()
         }

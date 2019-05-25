@@ -11,7 +11,7 @@ Page({
       {
         "type": "SCQ",
         "content": {
-          "description": "Which fruit do you like best?2222222222222222222222222222222222222222222222222222222222222222",
+          "description": "Which fruit do you like best?",
           "options":
             [
               { "id": 1, "name": "Lua", "isSelected": false },
@@ -197,5 +197,12 @@ Page({
 
   complete :function(){
     console.log(this.data.questionnaireArray);
+    const tempFilePaths = res.tempFilePaths
+    wx.saveFile({
+      tempFilePath: tempFilePaths[0],
+      success(res) {
+        const savedFilePath = res.savedFilePath
+      }
+    })
   },
 })

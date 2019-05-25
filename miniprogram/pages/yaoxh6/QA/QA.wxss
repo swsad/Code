@@ -1,0 +1,12 @@
+.support{
+  display: flex;
+  justify-content:flex-end;
+}
+.supportPic{
+  width: 40rpx;
+}
+
+.numOfSupport{
+  font-size: 35rpx;
+  margin-left: 20rpx;
+}

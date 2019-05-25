@@ -40,7 +40,7 @@ Page({
     wx.cloud.callFunction({
       name: 'recv_verification',
       data: {
-        code: 77018
+        code: 28766
       },
       complete: res => {
         console.log(res)
@@ -192,6 +192,7 @@ Page({
         }
       }
     ]    
+    console.log(questionnaire)
     wx.cloud.callFunction({
       name: 'release_questionnaire',
       data: {

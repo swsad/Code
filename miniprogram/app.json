@@ -7,12 +7,15 @@
     "pages/yaoxh6/posted/posted",
     "pages/yaoxh6/questionnaire/questionnaire",
     "pages/yaoxh6/test/test",
+    "pages/testCloudFunction/testCloudFunction",
+    "pages/yaoxh6/login/login",
+    "pages/yaoxh6/myInfo/myInfo",
+    "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
-    "pages/index/index",
     "pages/chooseLib/chooseLib"
   ],
   "window": {

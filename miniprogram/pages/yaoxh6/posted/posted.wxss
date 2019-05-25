@@ -1,1 +1,54 @@
 /* miniprogram/pages/yaoxh6/posted/posted.wxss */
+
+
+
+.taskInfo {
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  background-color: lightgray;
+  position: relative;
+}
+
+.taskProgress {
+  width: 100%;
+  height: 60rpx;  
+  background-color: #E8E8E8;
+  color: gray;
+}
+
+.taskName {
+  text-align: center;
+  float: left;
+  padding-left: 30rpx;
+  font-size: 40rpx;  
+}
+
+.taskTime {
+  float: right;
+  padding-right: 30rpx;
+  color: gray;
+}
+
+.taskReward {
+  height: 100%;
+  float: right;
+  color: red;
+  font-size: 60rpx;
+  padding-right: 20rpx;
+}
+
+.unit {
+  font-size: 30rpx;
+  margin: 0rpx;
+  padding: 0rpx;
+}
+
+.taskCompletedAmount {
+  float: right;
+}
+
+.taskTotalAmount {
+  float: right;
+  padding-right: 20rpx;
+}

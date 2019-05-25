@@ -1,9 +1,12 @@
+var util = require('../../../utils.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    titleContent: '',
+    descriptionContent: '',
     addIconPath1:'../../../images/addIcon1.png',
     deletePath: '../../../images/delete.png',
     deletePath1: '../../../images/cancel.png',
@@ -234,7 +237,46 @@ Page({
   },
 
   showQ:function(){
-    console.log(this.data.questionnaireArray);
+    // console.log(this.data.questionnaireArray);
+    wx.cloud.callFunction({
+      name: 'release_questionnaire',
+      data: {
+        name: this.data.titleContent,
+        time: util.questionnaireDate(new Date()),
+        category: 'c1',
+        reward: 20,
+        position: '待定',
+        total_amount: 100,
+        content: JSON.stringify(this.data.questionnaireArray),
+        description: this.data.descriptionContent
+      },
+      success: res => {
+        console.log(JSON.stringify(res))
+        console.log(res)
+        wx.showToast({
+          title: '调用成功',
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [releaseQuestionnaire] 调用失败：', err)
+      }
+    })
+  },
+
+  bindblurTitle: function (input) {
+    this.setData({
+      titleContent: input.detail.value
+    });
+  },
+
+  bindblurDescription: function (input) {
+    this.setData({
+      descriptionContent: input.detail.value
+    });
   },
 
   bindblurSCQ:function(input){

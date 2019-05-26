@@ -42,6 +42,14 @@
     <view class="list-item" bindtap="getQuestionnaireDetail">
       <text>获取问卷详情</text>
     </view>
+
+    <view class="list-item" bindtap="downToLocal">
+      <text>下载存储</text>
+    </view>
+
+    <view class="list-item" bindtap="getInfo">
+      <text>查看文件</text>
+    </view>         
   </view>
 
 </view>

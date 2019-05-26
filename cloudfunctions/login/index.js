@@ -42,7 +42,15 @@ exports.main = async (event, context) => {
       }
     }
     else {
-      if (basicInfo.data[0].type == 0) {
+      if (basicInfo.data[0].type == -1) {
+        console.log('[完成]：未完成注册用户')
+        return {
+          success: true,
+          isNew: true,
+          openid: wxContext.OPENID
+        }
+      }      
+      else if (basicInfo.data[0].type == 0) {
         var userInfo = await db.collection("student_info").where({
           uid: wxContext.OPENID
         }).get()

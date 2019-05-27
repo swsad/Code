@@ -1,14 +1,11 @@
-// pages/yaoxh6/QA/QA.js
+// pages/yaoxh6/publish2.0/publish2.0.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    answerIcon: "../../../images/price.png",
-    questionIcon: "../../../images/price.png",
-    supportIcon: "../../../images/support1.png",
-    question:''
+
   },
 
   /**
@@ -60,27 +57,22 @@ Page({
 
   },
 
+
+  gotoQA: function () {
+    wx.navigateTo({
+      url: '../QA/QA',
+    })
+  },
+
+  gotoQues: function () {
+    wx.navigateTo({
+      url: '../questionnaire/questionnaire',
+    })
+  },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
 
-  },
-
-  complete:function(){
-    console.log(this.data.question);
-    if(this.data.question == ''){
-      wx.showToast({
-        title: '输入不能为空',
-        icon:'none'
-      })
-    }
-  },
-
-  bindblur:function(input){
-    var tempQuestion = input.detail.value;
-    this.setData({
-      question: tempQuestion,
-    });
   }
 })

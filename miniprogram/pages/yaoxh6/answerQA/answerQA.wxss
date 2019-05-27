@@ -1,3 +1,6 @@
+page{
+  height:100%;
+}
 .support{
   display: flex;
   justify-content:flex-end;
@@ -18,4 +21,14 @@
 
 .answerBackGround{
   background-color: 	#F0F0F0;
+}
+
+#comment{
+  width: 100%;
+  position: fixed;
+  bottom:0px;
+}
+
+#commentContent{
+  height: 65%;
 }

@@ -8,7 +8,6 @@ Page({
     answerIcon: "../../../images/price.png",
     questionIcon: "../../../images/price.png",
     supportIcon: "../../../images/support1.png",
-    question:''
   },
 
   /**
@@ -65,22 +64,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  complete:function(){
-    console.log(this.data.question);
-    if(this.data.question == ''){
-      wx.showToast({
-        title: '输入不能为空',
-        icon:'none'
-      })
-    }
-  },
-
-  bindblur:function(input){
-    var tempQuestion = input.detail.value;
-    this.setData({
-      question: tempQuestion,
-    });
   }
 })

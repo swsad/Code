@@ -8,6 +8,11 @@ Page({
     answerIcon: "../../../images/price.png",
     questionIcon: "../../../images/price.png",
     supportIcon: "../../../images/support1.png",
+    question:'',
+    answer:[
+      
+    ],
+    comment:'',
   },
 
   /**

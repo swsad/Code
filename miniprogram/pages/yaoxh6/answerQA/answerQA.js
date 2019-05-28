@@ -1,4 +1,4 @@
-// pages/yaoxh6/QA/QA.js
+var util = require('../../../utils.js');
 Page({
 
   /**
@@ -8,10 +8,17 @@ Page({
     answerIcon: "../../../images/price.png",
     questionIcon: "../../../images/price.png",
     supportIcon: "../../../images/support1.png",
-    question:'',
-    answer:[
-      
-    ],
+    answerData:{
+      questionPic : "../../../images/price.png",
+      questionContent: "由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。",
+      answerArray:[
+        {
+          answerPic: "../../../images/price.png",
+          answerContent: "鸡你太美",
+          answerDate:"2018.05.18 14:24",
+        }
+      ]
+    },
     comment:'',
   },
 
@@ -69,5 +76,31 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  commentBindBlur:function(input){
+    var tempComment = input.detail.value;
+    this.setData({
+      comment: tempComment,
+    });
+  },
+  addComment:function(){
+    console.log(this.data.comment);
+    if(this.data.comment == ''){
+      wx.showToast({
+        title: '输入不能为空',
+        icon: 'none'
+      })
+    }
+    else{
+      var tempAnserPic = '../../../images/price.png';
+      var tempAnswerContent = this.data.comment;
+      var tempAnswerDate = util.formatTime(new Date());
+      var tempAnswer = { "answerPic": tempAnserPic, 'answerContent': tempAnswerContent, 'answerDate':tempAnswerDate};
+      var tempAnswerData = this.data.answerData;
+      tempAnswerData.answerArray.push(tempAnswer);
+      this.setData({
+        answerData : tempAnswerData,
+      });
+    }
+  },
 })

@@ -1,0 +1,39 @@
+page{
+  height:100%;
+}
+
+#wholePage{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.support{
+  display: flex;
+  justify-content:flex-end;
+}
+.supportPic{
+  width: 40rpx;
+}
+
+.numOfSupport{
+  font-size: 35rpx;
+  margin-left: 20rpx;
+}
+
+.weui-btn{
+  width: 50%;
+  margin-bottom: 20rpx;
+}
+
+.answerBackGround{
+  background-color: 	#F0F0F0;
+}
+
+#comment{
+  height: 20%;
+}
+
+#commentContent{
+  height: 60%;
+}

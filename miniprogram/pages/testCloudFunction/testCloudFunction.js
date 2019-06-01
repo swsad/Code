@@ -29,7 +29,7 @@ Page({
       data: {
         receiver: '1254086477@qq.com'
       },
-      complete: res => {
+      complete: res => { 
         console.log(res)
       }
     })

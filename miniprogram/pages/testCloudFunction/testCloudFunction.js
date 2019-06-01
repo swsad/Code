@@ -327,14 +327,23 @@ Page({
       })
     })
   }, 
-  getInfo: function() {
-    wx.getSavedFileList({
-      success(res) {
-        wx.showModal({
-          title: "路径",
-          content: res.fileList[0].filePath,
-          showCancel: false
+  getAnswer() {
+    wx.cloud.callFunction({
+      name: 'get_answer',
+      data: {
+        qid: '57896b495cde699c000443be53c91d9b'
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
         })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_answer] 调用失败：', err)
       }
     })
   }

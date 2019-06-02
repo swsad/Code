@@ -11,37 +11,6 @@ Page({
     currentFatherIndex: 0,
     qid: '',
     questionnaireArray: [
-      {
-        "type": "SCQ",
-        "content": {
-          "description": "Which fruit do you like best?",
-          "options":
-            [
-              { "id": 1, "name": "Lua", "isSelected": false },
-              { "id": 2, "name": "Java", "isSelected": false },
-              { "id": 3, "name": "C++", "isSelected": false }
-            ]
-        }
-      },
-      {
-        "type": "MCQ",
-        "content": {
-          "description": "Which fruit do you like?",
-          "options":
-            [
-              { "id": 1, "name": "OK", "isSelected": false },
-              { "id": 2, "name": "Java", "isSelected": false },
-              { "id": 3, "name": "C++", "isSelected": false }
-            ]
-        }
-      },
-      {
-        "type": "SAQ",
-        "content": {
-          "description": "What's your name?",
-          "answer": "i dont know"
-        }
-      }
     ],
   },
 
@@ -59,10 +28,17 @@ Page({
         qid: options.id
       },
       success: res => {
-        console.log(JSON.stringify(util.deBlocking(res)))
+        var json = util.deBlocking(res)
+        var content = json[0].content
+        // console.log(content)
+        // console.log(JSON.parse(content))
+        
         // wx.showToast({
         //   title: '调用成功',
         // })
+        this.setData({
+          questionnaireArray: JSON.parse(content),
+        });
       },
       fail: err => {
         wx.showToast({
@@ -221,7 +197,7 @@ Page({
   },
 
   complete :function(){
-    console.log(this.data.questionnaireArray);
+    // console.log(this.data.questionnaireArray);
     wx.cloud.callFunction({
       name: 'fill_in_questionnaire',
       data: {
@@ -229,7 +205,7 @@ Page({
         qid: this.data.qid
       },
       success: res => {
-        console.log(JSON.stringify(res))
+        // console.log(JSON.stringify(res))
         wx.showToast({
           title: '调用成功',
         })

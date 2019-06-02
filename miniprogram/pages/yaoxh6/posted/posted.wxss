@@ -25,17 +25,17 @@
 }
 
 .taskTime {
-  float: right;
-  padding-right: 30rpx;
+  float: left;
+  padding-left: 60rpx;
   color: gray;
 }
 
 .taskReward {
+  float: left;
   height: 100%;
-  float: right;
-  color: red;
-  font-size: 60rpx;
-  padding-right: 20rpx;
+  color: #63B8FF;
+  font-size: 40rpx;
+  padding-left: 20rpx;
 }
 
 .unit {
@@ -51,4 +51,16 @@
 .taskTotalAmount {
   float: right;
   padding-right: 20rpx;
+}
+
+.weui-btn {
+  color: white;
+  float: right;
+  font-size: 30rpx; 
+  height: 60rpx;
+  line-height: 60rpx;
+  vertical-align: middle;
+  width: 24%;
+  margin-right: 25rpx;
+  background-color: #63B8FF !important;
 }

@@ -1,17 +1,19 @@
 {
   "pages": [
     "pages/yaoxh6/task/task",
+    "pages/yaoxh6/item/item",
     "pages/yaoxh6/questionnaire/questionnaire",
+    "pages/yaoxh6/QA/QA",
+    "pages/yaoxh6/answerQA/answerQA",
+    "pages/yaoxh6/mine/mine",
+    "pages/yaoxh6/publish/publish",
+    "pages/yaoxh6/publish2/publish2",
+    "pages/yaoxh6/posted/posted",
     "pages/testCloudFunction/testCloudFunction",
     "pages/yaoxh6/login/login",
-    "pages/yaoxh6/mine/mine",
-    "pages/yaoxh6/myInfo/myInfo",
-    "pages/yaoxh6/posted/posted",
-    "pages/yaoxh6/item/item",
     "pages/yaoxh6/test/test",
-    "pages/yaoxh6/publish/publish",
+    "pages/yaoxh6/myInfo/myInfo",
     "pages/index/index",
-
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -41,7 +43,7 @@
       {
         "selectedIconPath": "images/publish2.png",
         "iconPath": "images/publish1.png",
-        "pagePath": "pages/yaoxh6/questionnaire/questionnaire",
+        "pagePath": "pages/yaoxh6/publish2/publish2",
         "text": "发布"
       },
       {

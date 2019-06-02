@@ -1,0 +1,12 @@
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" bindblur='bindblur'></textarea>
+    </view>
+  <!-- <view id="request">
+    <textarea  class='requestContent' placeholder='描述任务详情' bindblur='bindblur'></textarea >
+  </view> -->
+  </view>
+</view>
+
+<button class="weui-btn" type="primary" bindtap='complete'>完成</button>

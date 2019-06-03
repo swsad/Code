@@ -331,7 +331,7 @@ Page({
     wx.cloud.callFunction({
       name: 'get_answer',
       data: {
-        qid: '57896b495cde699c000443be53c91d9b'
+        qid: '57896b495cf4c8ae0adcb0cc773f59fe'
       },
       success: res => {
         wx.showToast({

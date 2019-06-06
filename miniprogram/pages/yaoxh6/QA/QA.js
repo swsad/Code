@@ -78,9 +78,8 @@ Page({
   },
 
   bindblur:function(input){
-    var tempQuestion = input.detail.value;
     this.setData({
-      question: tempQuestion,
+      question: input.detail.value
     });
   }
 })

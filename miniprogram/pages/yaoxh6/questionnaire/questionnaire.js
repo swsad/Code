@@ -238,6 +238,7 @@ Page({
 
   showQ:function(){
     // console.log(this.data.questionnaireArray);
+    console.log(this.data.descriptionContent)
     wx.cloud.callFunction({
       name: 'release_questionnaire',
       data: {
@@ -251,8 +252,6 @@ Page({
         description: this.data.descriptionContent
       },
       success: res => {
-        console.log(JSON.stringify(res))
-        console.log(res)
         wx.showToast({
           title: '调用成功',
         })

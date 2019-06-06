@@ -166,6 +166,7 @@ Page({
   },
   goDetail: function (content) {
     var tempIndex = content.currentTarget.dataset.id;
+    console.log(1)
     wx.navigateTo({
       url: '../item/item?id=' + this.data.taskArray[tempIndex]._id,
       success: function (res) { },

@@ -10,9 +10,9 @@
     "pages/yaoxh6/publish2/publish2",    
     "pages/testCloudFunction/testCloudFunction",
     "pages/yaoxh6/login/login",
+    "pages/yaoxh6/myInfo/myInfo",
     "pages/yaoxh6/posted/posted",
     "pages/yaoxh6/test/test",
-    "pages/yaoxh6/myInfo/myInfo",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -43,7 +43,7 @@
       {
         "selectedIconPath": "images/publish2.png",
         "iconPath": "images/publish1.png",
-        "pagePath": "pages/yaoxh6/publish2/publish2",
+        "pagePath": "pages/yaoxh6/questionnaire/questionnaire",
         "text": "发布"
       },
       {

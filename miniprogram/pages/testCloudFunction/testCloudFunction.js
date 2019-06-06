@@ -29,7 +29,7 @@ Page({
       data: {
         receiver: '1254086477@qq.com'
       },
-      complete: res => {
+      complete: res => { 
         console.log(res)
       }
     })
@@ -243,12 +243,95 @@ Page({
       }
     })
   },
-
+  downloadFromCloud: function() {
+    wx.cloud.downloadFile({
+      fileID: 'cloud://test-8a2767.7465-test-8a2767/test.xlsx',
+      success: res => {
+        // get temp file path
+        const tempFilePath = res.tempFilePath
+        console.log(res.tempFilePath)
+        wx.saveFile({
+          tempFilePath: tempFilePath,
+          success(res) {
+            const savedPath = res.savedFilePath;
+            console.log(savedPath)
+            wx.openDocument({
+              filePath: savedPath,
+              fileType: 'xlsx',
+              success(res) {
+                console.log('打开文档成功')
+              },
+              fail(res) {
+                console.log("失败")
+              },
+              complete(res) {
+                console.log("完成函数")
+              }
+            })
+          }
+        })
+        
+      },
+      fail: err => {
+        // handle error
+      }
+    })    
+  },
+  downToLocal: function() {
+    this.getTempUrl()
+    .then(this.download)
+    .then(res => {
+      console.log(res)
+      if (res.statusCode == 200) {
+        wx.openDocument({
+          filePath: res.filePath,
+          fileType: 'xlsx',
+          success(res) {
+            console.log('打开文档成功')
+          },
+          fail(res) {
+            console.log("失败")
+          },
+          complete(res) {
+            console.log("完成函数")
+          }
+        })
+      }
+      else {
+        throw new Error(res.errMsg);
+      }
+    })
+    .catch(error => {
+        console.log(error);
+    })
+  },
+  getTempUrl: function() {
+    return wx.cloud.getTempFileURL({
+      fileList: [{
+        fileID: 'cloud://test-8a2767.7465-test-8a2767/test.xlsx',
+        maxAge: 60 * 60, // one hour
+      }]
+    })
+  },
+  download: function(res) {
+    return new Promise((resolve, reject) => {
+      wx.downloadFile({
+        url: res.fileList[0].tempFileURL,
+        filePath: wx.env.USER_DATA_PATH + '问卷结果.xlsx',
+        success: res => {
+          resolve(res)
+        },
+        fail: err => {
+          reject(err)
+        }
+      })
+    })
+  }, 
   getAnswer() {
     wx.cloud.callFunction({
       name: 'get_answer',
       data: {
-        qid: '57896b495cde699c000443be53c91d9b'
+        qid: '57896b495cf4c8ae0adcb0cc773f59fe'
       },
       success: res => {
         wx.showToast({

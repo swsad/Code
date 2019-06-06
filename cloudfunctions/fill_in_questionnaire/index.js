@@ -22,16 +22,16 @@ exports.main = async (event, context) => {
   console.log('[参数]: ', event)
 
   try {
-    const _id = await db.collection('answer').add({
+    const result = await db.collection('answer').add({
       data: {
         content: event.content,
         qid: event.qid
       }
     })
-    console.log(_id)
+    console.log('[result]: ', result)
     await db.collection('au_relation').add({
       data: {
-        anid: _id,
+        anid: result._id,
         qid: event.qid,
         uid: wxContext.OPENID
       }

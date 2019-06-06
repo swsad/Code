@@ -22,6 +22,25 @@ exports.main = async (event, context) => {
   console.log('[参数]: ', event)
 
   try {
+    // 发布者对问卷的填写情况
+    const quResult = await db.collection('qu_relation').where({
+      qid: event.qid
+    }).get();
+    console.log(quResult);
+    const uid = quResult.data[0]['uid'];
+    if (wxContext.OPENID == uid) {
+      throw "发布者不能填写问卷哦~";
+    }
+
+    // 重复填写情况
+    const auResult = await db.collection('au_relation').where({
+      qid: event.qid,
+      uid: wxContext.OPENID
+    }).count();
+    console.log(auResult);
+    if (auResult.total > 0) {
+      throw "不能重复填写问卷哦~";
+    }
     const result = await db.collection('answer').add({
       data: {
         content: event.content,

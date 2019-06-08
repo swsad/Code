@@ -237,8 +237,14 @@ Page({
   },
 
   showQ:function(){
-    // console.log(this.data.questionnaireArray);
-    console.log(this.data.descriptionContent)
+    if (this.data.descriptionContent == '' || this.data.titleContent == ''){
+      wx.showToast({
+        title: '标题或要求为空',
+      })
+      return;
+    }
+    //console.log(this.data.questionnaireArray);
+    //console.log("test" + this.data.descriptionContent)
     wx.cloud.callFunction({
       name: 'release_questionnaire',
       data: {

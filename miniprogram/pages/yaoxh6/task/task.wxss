@@ -103,7 +103,7 @@
   border-right: 2px solid #999;
   transform: rotate(135deg);
   position: relative;
-  left: 160rpx;
+  left: 130rpx;
   bottom: 50rpx;
 }
 
@@ -115,7 +115,7 @@
   border-right: 2px solid #999;
   transform: rotate(135deg);
   position: relative;
-  left: 160rpx;
+  left: 130rpx;
   bottom: 50rpx;
 }
 
@@ -128,4 +128,8 @@
   position: relative;
   left: 160rpx;
   bottom: 50rpx;
+}
+
+.questionnaireItem{
+  margin-bottom: 20rpx;
 }

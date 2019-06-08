@@ -156,8 +156,8 @@ page{
 #bottomButton{
   display: flex;
   flex-direction: row;
-  margin-top: 50rpx;
-  margin-bottom: 50rpx;
+  margin-top: 200rpx;
+  /* margin-bottom: 50rpx; */
 }
 
 .newQuestionButton{
@@ -167,4 +167,11 @@ page{
 
 .nextButton{
   width: 40%;
+  background-color: #5CACEE;
+  color: white;
+}
+
+.newButton{
+  background-color: #5CACEE;
+  color: white;
 }

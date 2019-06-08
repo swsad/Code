@@ -66,7 +66,7 @@
 
 <view id='bottomButton'>
   <picker class='newQuestionButton' value="{{newIndex}}" range='{{typeArray}}' bindchange="bindTypeChange">
-      <button type='primary' >新增问题</button>
+      <button class='newButton' >新增问题</button>
   </picker>
-  <button class="nextButton" type="primary" bindtap='showQ'>发布问卷</button>
+  <button class="nextButton" bindtap='showQ'>下一步</button>
 </view>

@@ -9,14 +9,6 @@ page{
  margin-top: 20rpx;
 } */
 
-.addNewQuestion{
-  position: fixed;
-  width: 80rpx;
-  height: 80rpx;
-  right: 20rpx;
-  top:20rpx;
-}
-
 #title{
   height: 12%;
   /* color:#D4D4D4; */
@@ -156,6 +148,30 @@ page{
 }
 
 .weui-btn{
-  width: 50%;
-  margin-bottom: 20rpx;
+  width: 40%;
+  border: 1rpx solid black;
+  /* margin-bottom: 20rpx; */
+}
+
+#bottomButton{
+  display: flex;
+  flex-direction: row;
+  margin-top: 200rpx;
+  /* margin-bottom: 50rpx; */
+}
+
+.newQuestionButton{
+  width: 40%;
+  margin-left: 5%;
+}
+
+.nextButton{
+  width: 40%;
+  background-color: #5CACEE;
+  color: white;
+}
+
+.newButton{
+  background-color: #5CACEE;
+  color: white;
 }

@@ -15,37 +15,37 @@ Page({
     addIconPath: "../../../images/addIcon.png",
     currentFatherIndex : 0,
     questionnaireArray : [
-      {
-        "type": "SCQ",
-        "content": {
-          "description": "Which fruit do you like best?",
-          "options":
-            [
-              { "id": 1, "name": "Lua", "isSelected": false },
-              { "id": 2, "name": "Java", "isSelected": true },
-              { "id": 3, "name": "C++", "isSelected": false }
-            ]
-        }
-      },
-      {
-        "type": "MCQ",
-        "content": {
-          "description": "Which fruit do you like?",
-          "options":
-            [
-              { "id": 1, "name": "OK", "isSelected": true },
-              { "id": 2, "name": "Java", "isSelected": false },
-              { "id": 3, "name": "C++", "isSelected": true }
-            ]
-        }
-      },
-      {
-        "type": "SAQ",
-        "content": {
-          "description": "What's your name?",
-          "answer":"i dont know"
-        }
-      }
+      // {
+      //   "type": "SCQ",
+      //   "content": {
+      //     "description": "Which fruit do you like best?",
+      //     "options":
+      //       [
+      //         { "id": 1, "name": "Lua", "isSelected": false },
+      //         { "id": 2, "name": "Java", "isSelected": true },
+      //         { "id": 3, "name": "C++", "isSelected": false }
+      //       ]
+      //   }
+      // },
+      // {
+      //   "type": "MCQ",
+      //   "content": {
+      //     "description": "Which fruit do you like?",
+      //     "options":
+      //       [
+      //         { "id": 1, "name": "OK", "isSelected": true },
+      //         { "id": 2, "name": "Java", "isSelected": false },
+      //         { "id": 3, "name": "C++", "isSelected": true }
+      //       ]
+      //   }
+      // },
+      // {
+      //   "type": "SAQ",
+      //   "content": {
+      //     "description": "What's your name?",
+      //     "answer":"i dont know"
+      //   }
+      // }
     ],
   },
 
@@ -115,10 +115,10 @@ Page({
       var temp0 = {
         "type": "SCQ",
         "content": {
-          "description": "Which fruit do you like best?",
+          "description": "",
           "options":
             [
-              { "id": 1, "name": "Lua", "isSelected": false },
+              { "id": 1, "name": "", "isSelected": false },
             ]
         }
       };
@@ -128,10 +128,10 @@ Page({
       var temp0 = {
         "type": "MCQ",
         "content": {
-          "description": "Which fruit do you like best?",
+          "description": "",
           "options":
             [
-              { "id": 1, "name": "Lua", "isSelected": false },
+              { "id": 1, "name": "", "isSelected": false },
             ]
         }
       };
@@ -141,7 +141,7 @@ Page({
       var temp0 = {
         "type": "SAQ",
         "content": {
-          "description": "Which fruit do you like best?",
+          "description": "",
         }
       };
       tempArray.push(temp0);
@@ -217,7 +217,7 @@ Page({
   addSCQ:function(input){
     var tempIndex = input.currentTarget.dataset.id;
     var tempArray = this.data.questionnaireArray;
-    var tempSCQ = { "id": 1, "name": "Lua", "isSelected": false };
+    var tempSCQ = { "id": 1, "name": "", "isSelected": false };
     console.log(tempIndex);
     tempArray[tempIndex].content.options.push(tempSCQ);
     this.setData({
@@ -228,7 +228,7 @@ Page({
   addMCQ: function (input) {
     var tempIndex = input.currentTarget.dataset.id;
     var tempArray = this.data.questionnaireArray;
-    var tempMCQ = { "id": 1, "name": "Lua", "isSelected": false };
+    var tempMCQ = { "id": 1, "name": "", "isSelected": false };
     console.log(tempIndex);
     tempArray[tempIndex].content.options.push(tempMCQ);
     this.setData({
@@ -237,8 +237,14 @@ Page({
   },
 
   showQ:function(){
-    // console.log(this.data.questionnaireArray);
-    console.log(this.data.descriptionContent)
+    if (this.data.descriptionContent == '' || this.data.titleContent == ''){
+      wx.showToast({
+        title: '标题或要求为空',
+      })
+      return;
+    }
+    //console.log(this.data.questionnaireArray);
+    //console.log("test" + this.data.descriptionContent)
     wx.cloud.callFunction({
       name: 'release_questionnaire',
       data: {

@@ -29,8 +29,8 @@ Page({
       },
       success: res => {
         var json = util.deBlocking(res)
+        console.log(json)
         var content = json[0].content
-        // console.log(content)
         // console.log(JSON.parse(content))
         
         // wx.showToast({

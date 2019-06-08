@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/yaoxh6/task/task",
-    "pages/yaoxh6/item/item",
-    "pages/yaoxh6/questionnaire/questionnaire",
     "pages/yaoxh6/QA/QA",
     "pages/yaoxh6/answerQA/answerQA",
+    "pages/yaoxh6/item/item",
+    "pages/yaoxh6/questionnaire/questionnaire",
     "pages/yaoxh6/mine/mine",
     "pages/yaoxh6/publish/publish",
     "pages/yaoxh6/publish2/publish2",
@@ -24,8 +24,7 @@
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "publish",
+    "navigationBarBackgroundColor": "#58B2DC",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",

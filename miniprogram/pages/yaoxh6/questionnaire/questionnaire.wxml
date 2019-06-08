@@ -64,4 +64,4 @@
   </block>
 </view>
 
-<button class="weui-btn" type="primary" bindtap='showQ'>下一步</button>
+<button type="primary" bindtap='showQ'>下一步</button>

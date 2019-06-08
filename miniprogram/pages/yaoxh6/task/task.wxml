@@ -27,10 +27,6 @@
 </view>
 
 <view class="weui-btn-area">
-    <picker class='areaPicker' value="{{areaIndex}}" range='{{areaArray}}' bindchange="bindAreaChange">
-        <view >{{areaArray[areaIndex]}} </view>
-        <view class="areaArrow"></view>
-    </picker>
     <picker class='typePicker' value="{{typeIndex}}" range='{{typeArray}}' bindchange="bindTypeChange">
         <view >{{typeArray[typeIndex]}} </view>
         <view class="typeArrow"></view>

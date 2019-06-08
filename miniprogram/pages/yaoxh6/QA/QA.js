@@ -1,3 +1,5 @@
+var util = require('../../../utils.js');
+
 // pages/yaoxh6/QA/QA.js
 Page({
 
@@ -75,6 +77,31 @@ Page({
         icon:'none'
       })
     }
+    // wx.cloud.callFunction({
+    //   name: 'release_questionnaire',
+    //   data: {
+    //     name: '',
+    //     time: util.questionnaireDate(new Date()),
+    //     category: 'c2',
+    //     reward: 20,
+    //     position: '',
+    //     total_amount: 100,
+    //     content: JSON.stringify(this.data.questionnaireArray),
+    //     description: this.data.descriptionContent
+    //   },
+    //   success: res => {
+    //     wx.showToast({
+    //       title: '调用成功',
+    //     })
+    //   },
+    //   fail: err => {
+    //     wx.showToast({
+    //       icon: 'none',
+    //       title: '调用失败',
+    //     })
+    //     console.error('[云函数] [releaseQuestionnaire] 调用失败：', err)
+    //   }
+    // })
   },
 
   bindblur:function(input){

@@ -7,10 +7,10 @@
 
 <view class="state">
   <view class='stateDetail'>
-    <view class="waitToFinishBlock">
+    <!-- <view class="waitToFinishBlock">
       <image class="waitToFinishIcon" src="{{WaitToFinishIcon}}" mode='widthFix'></image>
       <text class="waitToFinishText">待完成</text>
-    </view>
+    </view> -->
     <view class="hasBeenFinishedBlock">
       <image class="hasBeenFinishedIcon" src="{{HasBeenFinishedIcon}}" mode='widthFix'></image>
       <text class="hasBeenFinishedText">已完成</text>

@@ -346,5 +346,114 @@ Page({
         console.error('[云函数] [get_answer] 调用失败：', err)
       }
     })
+  },
+
+  askQuestion: function() {
+    wx.cloud.callFunction({
+      name: 'ask_question',
+      data: {
+        time: '2019/06/07',
+        content: '测试？'
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [ask_question] 调用失败：', err)
+      }
+    })
+  },
+
+  replyQuestion: function() {
+    wx.cloud.callFunction({
+      name: 'reply_question',
+      data: {
+        qid: '2d9d2d8c5cfa14850117e89e463bd468',
+        time: '2019/06/07',
+        title: '测试',
+        content: '测试'
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [reply_question] 调用失败：', err)
+      }
+    })
+  },
+
+  getQuestion: function() {
+    wx.cloud.callFunction({
+      name: 'get_question',
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        console.log(util.deBlocking(res))
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_question] 调用失败：', err)
+      }
+    })
+  }, 
+
+  getReply: function() {
+    wx.cloud.callFunction({
+      name: 'get_reply',
+      data: {
+        qid: '2d9d2d8c5cfa14850117e89e463bd468'
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        console.log(util.deBlocking(res))
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_reply] 调用失败：', err)
+      }
+    })
+  },
+
+  updateLike: function () {
+    wx.cloud.callFunction({
+      name: 'update_like',
+      data: {
+        rid: 'dec80a9e5cfa14ef0116065b1fdb7996'
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        console.log(res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [update_like] 调用失败：', err)
+      }
+    })
   }
 })

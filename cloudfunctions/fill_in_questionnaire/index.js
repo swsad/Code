@@ -10,7 +10,7 @@
     }
 */
 
-// 云函数入口文件
+// 初始化
 const cloud = require('wx-server-sdk')
 cloud.init()
 

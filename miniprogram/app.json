@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/yaoxh6/login/login",
     "pages/yaoxh6/task/task",
     "pages/yaoxh6/questionnaire/questionnaire",
@@ -11,7 +12,7 @@
     "pages/yaoxh6/item/item",
     "pages/yaoxh6/test/test",
     "pages/yaoxh6/publish/publish",
-    "pages/index/index",
+    
 
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",

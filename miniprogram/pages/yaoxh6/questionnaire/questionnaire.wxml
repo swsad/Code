@@ -10,9 +10,9 @@
   </view>
   <!-- <view class="divLine"></view> -->
 
-<picker value="{{newIndex}}" range='{{typeArray}}' bindchange="bindTypeChange">
+<!-- <picker value="{{newIndex}}" range='{{typeArray}}' bindchange="bindTypeChange">
     <image class='addNewQuestion' src='{{addIconPath}}'></image>
-</picker>
+</picker> -->
 
 
 <view id = 'body' wx:for="{{questionnaireArray}}" wx:key="id" wx:for-index='fatherIndex'>
@@ -22,13 +22,13 @@
         <view class='SCQQ'>Q</view>
         <view class='SCQindex'>{{fatherIndex+1}}</view>
         <view class='SCQquto'>:</view>
-        <textarea auto-height='true' class='SCQDiscription' value='{{item.content.description}}' bindblur='bindblurSCQ' data-id='{{fatherIndex}}'></textarea>
+        <textarea placeholder='单选题问题输入' auto-height='true' class='SCQDiscription' value='{{item.content.description}}' bindblur='bindblurSCQ' data-id='{{fatherIndex}}'></textarea>
         <image class='SCQaddIcon1' src='{{addIconPath1}}' mode='widthFix' catchtap='addSCQ' data-id='{{fatherIndex}}'></image>
         <image class='SCQdeleteIcon1' src='{{deletePath1}}' mode='widthFix' catchtap='deleteSCQ' data-id='{{fatherIndex}}'></image>
       </view>
       <view class='SCQOption' wx:for="{{item.content.options}}" wx:key="SCQID" data-id='{{fatherIndex}}' bindtouchstart='getTempFatherIndex'>
-        <!-- <image class='SCQselectIcon' src="{{item.isSelected?'../../../images/SAQ2.png':'../../../images/SAQ1.png'}}" mode='widthFix'></image> -->
-        <textarea auto-height='true' value='{{item.name}}' class='SCQText' bindblur='bindblurOneOfSCQ' data-id='{{index}}'></textarea>
+        <image class='SCQselectIcon' src="{{item.isSelected?'../../../images/SAQ1.png':'../../../images/SAQ1.png'}}" mode='widthFix'></image>
+        <textarea placeholder='单选题选项' auto-height='true' value='{{item.name}}' class='SCQText' bindblur='bindblurOneOfSCQ' data-id='{{index}}'></textarea>
         <image class='SCQdeleteIcon' src='{{deletePath}}' mode='widthFix' data-id='{{index}}' catchtap='deleteOneOfSCQ'></image>
       </view>
     </view>
@@ -39,13 +39,13 @@
         <view class='MCQQ'>Q</view>
         <view class='MCQindex'>{{fatherIndex+1}}</view>
         <view class='MCQquto'>:</view>
-        <textarea auto-height='true' class='MCQDiscription' value='{{item.content.description}}' data-id='{{fatherIndex}}' bindblur='bindblurMCQ'></textarea>
+        <textarea placeholder='多选题问题输入' auto-height='true' class='MCQDiscription' value='{{item.content.description}}' data-id='{{fatherIndex}}' bindblur='bindblurMCQ'></textarea>
         <image class='MCQaddIcon1' src='{{addIconPath1}}' mode='widthFix' bindtap='addMCQ' data-id='{{fatherIndex}}'></image>
         <image class='MCQdeleteIcon1' src='{{deletePath1}}' mode='widthFix' bindtap='deleteMCQ' data-id='{{fatherIndex}}'></image>
       </view>
       <view class='MCQOption' wx:for="{{item.content.options}}" wx:key="MCQID" data-id='{{fatherIndex}}' bindtouchstart='getTempFatherIndex'>
-        <!-- <image class='MCQselectIcon' src="{{item.isSelected?'../../../images/MAQ2.png':'../../../images/MAQ1.png'}}" mode='widthFix'></image> -->
-        <textarea auto-height='true' class='MCQText' value='{{item.name}}' data-id='{{index}}' bindblur='bindblurOneOfMCQ'></textarea>
+        <image class='MCQselectIcon' src="{{item.isSelected?'../../../images/MAQ1.png':'../../../images/MAQ1.png'}}" mode='widthFix'></image>
+        <textarea placeholder='多选题选项' auto-height='true' class='MCQText' value='{{item.name}}' data-id='{{index}}' bindblur='bindblurOneOfMCQ'></textarea>
         <image class='MCQdeleteIcon' src='{{deletePath}}' mode='widthFix' catchtap='deleteOneOfMCQ' data-id='{{index}}'></image>
       </view>
     </view>
@@ -56,12 +56,17 @@
         <view class='SAQQ'>Q</view>
         <view class='SAQindex'>{{fatherIndex+1}}</view>
         <view class='SAQquto'>:</view>
-        <textarea auto-height='true' class='SAQDiscription' value='{{item.content.description}}' data-id='{{fatherIndex}}' bindblur='bindblurSAQ'></textarea>
+        <textarea placeholder='问答题问题输入' auto-height='true' class='SAQDiscription' value='{{item.content.description}}' data-id='{{fatherIndex}}' bindblur='bindblurSAQ'></textarea>
         <image class='SAQdeleteIcon' src='{{deletePath1}}' mode='widthFix' bindtap='deleteSAQ' data-id='{{fatherIndex}}'></image>
       </view>
-      <textarea auto-height='true' class = "SAQAnswer" value='{{item.content.answer}}' bindblur='bindblurAnswerOfSAQ' data-id='{{fatherIndex}}'></textarea>
+      <textarea placeholder='问答题回答' auto-height='true' class = "SAQAnswer" value='{{item.content.answer}}' bindblur='bindblurAnswerOfSAQ' data-id='{{fatherIndex}}'></textarea>
     </view>
   </block>
 </view>
 
-<button type="primary" bindtap='showQ'>下一步</button>
+<view id='bottomButton'>
+  <picker class='newQuestionButton' value="{{newIndex}}" range='{{typeArray}}' bindchange="bindTypeChange">
+      <button type='primary' >新增问题</button>
+  </picker>
+  <button class="nextButton" type="primary" bindtap='showQ'>发布问卷</button>
+</view>

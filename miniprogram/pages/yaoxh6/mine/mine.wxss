@@ -111,9 +111,6 @@ page{
 
 .hasBeenPublishedText{
   text-align: center;
-  font-size: 30rpx;
-  margin-left: 20rpx;
-  margin-top: 10rpx;
 }
 
 .weui-cell{

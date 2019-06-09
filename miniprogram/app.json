@@ -1,7 +1,8 @@
 {
-  "pages": [
-    "pages/yaoxh6/mine/mine",   
+  "pages": [ 
     "pages/yaoxh6/questionnaire/questionnaire",
+    "pages/yaoxh6/publish/publish",       
+    "pages/yaoxh6/mine/mine",   
     "pages/yaoxh6/answerQA/answerQA",
     "pages/yaoxh6/QA/QA",
     "pages/yaoxh6/item/item",
@@ -10,8 +11,6 @@
     "pages/yaoxh6/publish2/publish2",
     "pages/yaoxh6/task/task",
     "pages/yaoxh6/posted/posted",
-    "pages/yaoxh6/publish/publish",
-    "pages/index/index",
     "pages/testCloudFunction/testCloudFunction",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -19,6 +18,7 @@
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
     "pages/chooseLib/chooseLib",
+    "pages/index/index",    
     "pages/yaoxh6/test/test"
   ],
   "window": {

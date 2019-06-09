@@ -5,9 +5,9 @@
   </view>
 </view>
 
-<view class="state" bindtap='goMyAnsw'>
+<view class="state">
   <view class='stateDetail'>
-    <view class="myAnswerBlock">
+    <view class="myAnswerBlock" bindtap='goMyAnsw'>
       <image class="myAnswerIcon" src="{{myAnswerIcon}}" mode='widthFix'></image>
       <text class="myAnswerText">我的回答</text>
     </view>

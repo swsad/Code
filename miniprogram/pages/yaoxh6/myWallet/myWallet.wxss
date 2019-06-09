@@ -9,6 +9,9 @@
 .infoName {
   float: left;
   padding-left: 30rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;  
 }
 
 .infoValue {

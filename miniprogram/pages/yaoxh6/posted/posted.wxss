@@ -1,41 +1,60 @@
 /* miniprogram/pages/yaoxh6/posted/posted.wxss */
 
 
-
 .taskInfo {
   width: 100%;
-  height: 120rpx;
-  line-height: 120rpx;
+  height: 140rpx;
+  line-height: 140rpx;
   background-color: lightgray;
   position: relative;
+  margin: 0rpx 0rpx 35rpx 0rpx;
 }
 
-.taskProgress {
-  width: 100%;
-  height: 60rpx;  
-  background-color: #E8E8E8;
-  color: gray;
+.nameAprogress {
+  padding: 10rpx 15rpx 10rpx 15rpx;
+  height: 140rpx;
+  width: 25%;
+  line-height: 60rpx;
+  float: left;
+  text-align: center;
+  font-size: 35rpx; 
 }
+
 
 .taskName {
+  width: 100%;
+  text-align: left;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;   
+  vertical-align: text-bottom;
+  height: 70rpx;   
+}
+
+.taskCompletedAmount {
+  height: 70rpx;  
+  color: gray;
   float: left;
-  /* padding-left: 30rpx; */
-  font-size: 40rpx; 
-  width: 150rpx; 
+}
+
+.taskTotalAmount {
+  height: 70rpx;  
+  float: left;
+  color: gray;
 }
 
 .taskTime {
   margin: 0rpx;
-  float: left;
-  padding-left: 60rpx;
+  float: right;
+  width: 30%;
   color: gray;
 }
 
 .taskReward {
+  width: 10%;
   float: left;
   height: 100%;
   color: #63B8FF;
-  padding-left: 20rpx;
 }
 
 .unit {
@@ -44,23 +63,17 @@
   padding: 0rpx;
 }
 
-.taskCompletedAmount {
-  float: right;
-}
-
-.taskTotalAmount {
-  float: right;
-  padding-right: 20rpx;
-}
 
 .weui-btn {
   color: white;
   float: right;
   font-size: 30rpx; 
-  height: 60rpx;
   line-height: 60rpx;
   vertical-align: middle;
-  width: 24%;
-  margin-right: 25rpx;
+  width: 22%;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  height: 60rpx;
+  margin: 40rpx 20rpx 40rpx 20rpx;
   background-color: #63B8FF !important;
 }

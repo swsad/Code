@@ -29,37 +29,41 @@ page{
 }
 
 .stateDetail{
+  font-size: 30rpx;
+  color: gray;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   background-color: #E3E3E3;
 }
 
-.waitToFinishBlock{
+.myAnswerBlock{
   display: flex;
   flex-direction: column;
   margin-top: 20rpx;
   margin-bottom: 20rpx;
 }
-.waitToFinishIcon{
-  width: 120rpx;
-}
-.waitToFinishText{
-  margin-left: 10rpx;
+
+.myAnswerIcon{
+  width: 110rpx;
 }
 
-.hasBeenFinishedBlock{
+.myAnswerText{
+  text-align: center;
+}
+
+.questionManageBlock{
   display: flex;
   flex-direction: column;
   margin-top: 20rpx;
   margin-bottom: 20rpx;
 }
-.hasBeenFinishedIcon{
-  width: 120rpx;
+.questionManageIcon{
+  width: 110rpx;
 }
 
-.hasBeenFinishedText{
-  margin-left: 10rpx;
+.questionManageText{
+  text-align: center;
 }
 
 .hasBeenPublishedBlock{
@@ -70,11 +74,11 @@ page{
 }
 
 .hasBeenPublishedIcon{
-  width: 120rpx;
+  width: 110rpx;
 }
 
 .hasBeenPublishedText{
-  margin-left: 10rpx;
+  text-align: center;
 }
 
 .weui-cell{

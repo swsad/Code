@@ -355,24 +355,24 @@ Page({
     });
   },
   bindDateChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    //console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       date: e.detail.value
     })
   },
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    //console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       campusIndex: e.detail.value
     })
   },
   bindKeyInput: function (e) {
-    console.log(e);
+    //console.log(e);
     var name = e.currentTarget.dataset.name;
     var value = e.detail.value;
     var temp = new Object();
     temp[name] = value;
     this.setData(temp);
-    console.log(this.data[name])
+    //console.log(this.data[name])
   },  
 })

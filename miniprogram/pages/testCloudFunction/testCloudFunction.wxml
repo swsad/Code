@@ -68,6 +68,14 @@
     <view class="list-item" bindtap="updateLike">
       <text>点赞/取消点赞</text>
     </view>
+
+    <view class="list-item" bindtap="getUserPublishQuestionnaire">
+      <text>获取当前用户发布的所有问卷</text>
+    </view>
+
+    <view class="list-item" bindtap="getUserFillInQuestionnaire">
+      <text>获取当前用户填写的所有问卷</text>
+    </view>
   </view>
 
 </view>

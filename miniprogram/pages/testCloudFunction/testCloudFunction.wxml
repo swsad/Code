@@ -52,6 +52,22 @@
     <view class="list-item" bindtap="getAnswer">
       <text>获取问卷结果</text>
     </view>
+
+    <view class="list-item" bindtap="askQuestion">
+      <text>提问</text>
+    </view>
+    <view class="list-item" bindtap="replyQuestion">
+      <text>回答</text>
+    </view>
+    <view class="list-item" bindtap="getQuestion">
+      <text>获取问答列表</text>
+    </view>
+    <view class="list-item" bindtap="getReply">
+      <text>获取回答列表</text>
+    </view>
+    <view class="list-item" bindtap="updateLike">
+      <text>点赞/取消点赞</text>
+    </view>
   </view>
 
 </view>

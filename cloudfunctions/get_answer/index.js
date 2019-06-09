@@ -169,6 +169,7 @@ exports.main = async (event, context) => {
     if (data.statusCode != 200) {
       throw data.errMsg
     }
+    console.log('[完成]: 完成获取问卷结果')
     return {
       success: true,
       fileID: data.fileID

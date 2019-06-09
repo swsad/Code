@@ -10,7 +10,7 @@
     }
 */
 
-// 云函数入口文件
+// 初始化
 const cloud = require('wx-server-sdk')
 cloud.init()
 
@@ -22,16 +22,35 @@ exports.main = async (event, context) => {
   console.log('[参数]: ', event)
 
   try {
-    const _id = await db.collection('answer').add({
+    // 发布者对问卷的填写情况
+    const quResult = await db.collection('qu_relation').where({
+      qid: event.qid
+    }).get();
+    console.log(quResult);
+    const uid = quResult.data[0]['uid'];
+    if (wxContext.OPENID == uid) {
+      throw "发布者不能填写问卷哦~";
+    }
+
+    // 重复填写情况
+    const auResult = await db.collection('au_relation').where({
+      qid: event.qid,
+      uid: wxContext.OPENID
+    }).count();
+    console.log(auResult);
+    if (auResult.total > 0) {
+      throw "不能重复填写问卷哦~";
+    }
+    const result = await db.collection('answer').add({
       data: {
         content: event.content,
         qid: event.qid
       }
     })
-    console.log(_id)
+    console.log('[result]: ', result)
     await db.collection('au_relation').add({
       data: {
-        anid: _id,
+        anid: result._id,
         qid: event.qid,
         uid: wxContext.OPENID
       }

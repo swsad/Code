@@ -7,9 +7,9 @@ Page({
   data: {
     titleContent: '',
     descriptionContent: '',
-    addIconPath1:'../../../images/addIcon1.png',
-    deletePath: '../../../images/delete.png',
-    deletePath1: '../../../images/cancel.png',
+    addIconPath1:'../../../images/plus.png',
+    deletePath: '../../../images/minus.png',
+    deletePath1: '../../../images/delete.png',
     typeArray: ['单选', '多选', '问答'],
     newIndex: 0,
     addIconPath: "../../../images/addIcon.png",

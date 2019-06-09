@@ -5,15 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    answerIcon: "../../../images/price.png",
-    questionIcon: "../../../images/price.png",
+    answerIcon: "../../../images/anonymous.png",
+    questionIcon: "../../../images/anonymous.png",
     supportIcon: "../../../images/support1.png",
     answerData:{
-      questionPic : "../../../images/price.png",
+      questionPic: "../../../images/anonymous.png",
       questionContent: "由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。",
       answerArray:[
         {
-          answerPic: "../../../images/price.png",
+          answerPic: "../../../images/anonymous.png",
           answerContent: "鸡你太美",
           answerDate:"2018.05.18 14:24",
         }

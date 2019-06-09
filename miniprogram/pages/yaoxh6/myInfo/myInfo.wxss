@@ -1,11 +1,14 @@
 /* miniprogram/pages/yaoxh6/myinfo/myInfo.wxss */
 
 .infoItem {
-  width: 100%;
+  width: 94%;
   height: 120rpx;
   line-height: 120rpx;
-  background-color: #E8E8E8;
-  margin-bottom: 5rpx;
+  background-color: #F6F6F6;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
 }
 
 .infoName {
@@ -15,10 +18,5 @@
 
 .infoValue {
   float: right;
-  color: gray;
   padding-right: 20rpx;
-}
-
-.weui-btn{
-  width: 50%;
 }

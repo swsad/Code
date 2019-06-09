@@ -1,11 +1,11 @@
 .arrow{
-width: 10px;
-height: 10px;
-border-top: 2px solid #999;
-border-right: 2px solid #999;
-transform: rotate(-135deg);
-margin-top:60rpx;
-margin-left: 60rpx;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+  transform: rotate(-135deg);
+  margin-top:60rpx;
+  margin-left: 60rpx;
 }
 
 .backContent{
@@ -22,8 +22,10 @@ margin-left: 60rpx;
 #title{
   display: flex;
   flex-direction: row;
-  background-color: #E3E3E3;
+  background-color: #F6F6F6;
   padding: 30rpx;
+  border-radius: 10rpx;
+  width: 95%;
 }
 
 .titlePriceIcon{
@@ -33,7 +35,7 @@ margin-left: 60rpx;
 }
 
 .titleContent{
-  margin-left: 50rpx;
+  margin-left: 20rpx;
 }
 
 .priceContent{
@@ -52,7 +54,7 @@ margin-left: 60rpx;
 
 .SCQOption{
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   margin-top: 20rpx;
 }
 
@@ -60,8 +62,10 @@ margin-left: 60rpx;
   width: 60rpx;
 }
 .SCQ{
+  margin: 20rpx;
   padding: 20rpx;
-  border: 2rpx solid #999;
+  border: 1rpx solid #F6F6F6;
+  border-radius: 10rpx;
 }
 .SCQText{
   margin-left: 20rpx;
@@ -72,8 +76,10 @@ margin-left: 60rpx;
   word-wrap: break-word;
 }
 .MCQ{
+  margin: 20rpx;
   padding: 20rpx;
-  border: 2rpx solid #999;
+  border: 1rpx solid #F6F6F6;
+  border-radius: 10rpx;
 }
 
 .MCQText{
@@ -86,8 +92,11 @@ margin-left: 60rpx;
 }
 
 .SAQ{
+  margin-left: 20rpx;
+  margin-right: 20rpx; 
   padding: 20rpx;
-    border: 2rpx solid #999;
+  border: 1rpx solid #F6F6F6;
+  border-radius: 10rpx;
 }
 
 .SCQTitle{
@@ -112,7 +121,10 @@ margin-left: 60rpx;
 }
 
 .SAQAnswer{
-  border: 2px solid #999;
+  border: 1rpx solid #F6F6F6;
+  border-radius: 10rpx;
+  padding: 10rpx;
+  width: 95%;
 }
 
 .SCQDiscription{
@@ -120,6 +132,7 @@ margin-left: 60rpx;
   width: 90%;
   word-break: keep-all;
   word-wrap: break-word;
+  margin-left: 5rpx;
 }
 
 .MCQDiscription{
@@ -127,6 +140,7 @@ margin-left: 60rpx;
   width: 90%;
   word-break: keep-all;
   word-wrap: break-word;
+  margin-left: 5rpx;
 }
 
 .SAQDiscription{
@@ -134,6 +148,7 @@ margin-left: 60rpx;
   width: 90%;
   word-break: keep-all;
   word-wrap: break-word;
+  margin-left: 5rpx;
 }
 
 .SCQdeleteIcon{
@@ -172,10 +187,12 @@ margin-left: 60rpx;
 }
 
 #body{
-  margin-top: 100rpx;
+  margin-top: 20rpx;
 }
 
 .weui-btn{
   width: 50%;
+  background-color: #5CACEE;
+  color: white;
   margin-bottom: 20rpx;
 }

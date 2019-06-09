@@ -11,9 +11,32 @@
   margin-left: 20rpx;
 }
 
+.session {
+  margin: 20rpx;
+}
+
+#title{
+  height: 100rpx;
+  padding: 20rpx;
+  margin-top: 10rpx;
+  /* color:#D4D4D4; */
+  border-radius: 10rpx;
+  border: 1rpx solid #E3E3E3;
+}
+#request{
+  height: 200rpx;
+  padding: 20rpx;
+  margin-top: 10rpx;
+  /* color:#D4D4D4; */
+  border-radius: 10rpx;
+  border: 1rpx solid #E3E3E3;
+}
+
 .weui-btn{
   width: 50%;
   margin-bottom: 20rpx;
+  background-color: #5CACEE;
+  color: white;
 }
 
 .answerBackGround{

@@ -5,5 +5,3 @@
       <view class="infoValue">{{item.infoValue}}</view>
   </view>
 </view>
-
-<button class="weui-btn" type="primary" bindtap='updateInfo'>保存更改</button>

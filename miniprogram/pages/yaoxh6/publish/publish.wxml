@@ -6,7 +6,7 @@
   <view class="divLine"></view>
 
   <view id="request">
-    <textarea  class='requestContent' value='要求：描述任务详情'></textarea >
+    <textarea class='requestContent' value='要求：描述任务详情'></textarea >
   </view>
   <view class="divLine"></view>
 

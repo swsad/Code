@@ -37,6 +37,6 @@
         </view>
       </view>
     </view>
-    <button class="weui-btn" type="primary" bindtap='addComment'>发布评论</button>
+    <button class="weui-btn" bindtap='addComment'>发布评论</button>
   </view>
 </view>

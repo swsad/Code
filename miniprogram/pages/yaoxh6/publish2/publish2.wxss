@@ -1,7 +1,12 @@
 .weui-btn{
   width: 50%;
+  color: white;
+  background-color: #5CACEE;
 }
 
-#buttons{
-  margin-top: 40%;
+.buttons{
+  margin-top: 400rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

@@ -141,7 +141,7 @@ Page({
       name: 'fill_in_questionnaire',
       data: {
         content: JSON.stringify(answer),
-        qid: '988c1b1b5cc81d9409667aa3265930fc'
+        qid: 'cbdb4c165cfb9aa401eb025a422ce8e5'
       },
       success: res => {
         console.log(JSON.stringify(res))
@@ -453,6 +453,52 @@ Page({
           title: '调用失败',
         })
         console.error('[云函数] [update_like] 调用失败：', err)
+      }
+    })
+  },
+
+  getUserPublishQuestionnaire: function() {
+    wx.cloud.callFunction({
+      name: 'get_user_questionnaire',
+      data: {
+        self_publish: true,
+        self_fill_in: false
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        console.log(res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_user_questionnaire] 调用失败：', err)
+      }
+    })
+  },
+
+  getUserFillInQuestionnaire: function () {
+    wx.cloud.callFunction({
+      name: 'get_user_questionnaire',
+      data: {
+        self_publish: false,
+        self_fill_in: true
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        console.log(res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_user_questionnaire] 调用失败：', err)
       }
     })
   }

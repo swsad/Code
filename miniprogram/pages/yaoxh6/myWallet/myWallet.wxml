@@ -1,0 +1,7 @@
+<view class="info" wx:for="{{walletInfo}}" wx:key="id">
+  <view class='infoItem'>
+      <view class="infoName">{{item.infoName}}</view>
+      <view class="infoValue">{{item.infoValue}}</view>
+  </view>
+</view>
+<view class='moneyInfo'>总共赚了 <view class='moneyNum'>{{moneyNum}}元</view></view>

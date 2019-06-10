@@ -1,0 +1,9 @@
+<view class='infoItem'>
+    <view class="infoName">客服电话</view>
+    <view class="infoValue">020-84561234</view>
+</view>
+<view class='infoItem'>
+    <view class="infoName">客服邮箱</view>
+    <view class="infoValue">84561234@163.com</view>
+</view>
+<view class='note'>备注：如果您遇到任何问题，请联系客服。包括地球不自转等问题。</view>

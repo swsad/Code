@@ -37,3 +37,8 @@
   background-color: #5CACEE;
   color: white;
 }
+
+.weui-cell {
+  margin-right: 30rpx;
+  height: 80rpx;
+}

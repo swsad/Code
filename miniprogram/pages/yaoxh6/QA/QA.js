@@ -72,7 +72,7 @@ Page({
 
   complete:function(){
     console.log("complete")
-    console.log(this.data.question);
+    console.log(this.data.question)
     console.log(this.data.description)
     if(this.data.question == ''){
       wx.showToast({

@@ -132,6 +132,9 @@
   margin-left: 30rpx;
   margin-top: 10px;
   /* margin-bottom: 30rpx; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
 }
 
 .questionnaireItem{

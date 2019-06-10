@@ -80,11 +80,26 @@ Page({
       })
     }
 
-    // wx.cloud.callFunction({
-    //   time: this.data.
-    //   title: this.data.question,
-    //   content: this.data.description
-    // })
+    wx.cloud.callFunction({
+      name: 'ask_question',
+      data: {
+        time: util.getTime(),
+        title: this.data.question,
+        content: this.data.description
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [ask_question] 调用失败：', err)
+      }
+    })
   },
 
   bindinputQuestion: function(input) {

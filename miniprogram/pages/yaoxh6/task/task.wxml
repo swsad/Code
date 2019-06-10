@@ -37,13 +37,30 @@
     </picker>
 </view>
 
-<view class="questionnaire" wx:for="{{questionnairesArray}}" wx:key="id">
+<wxs module="tools">
+  var timeToDate = function (time) {
+    return time.substring(0, 10)
+  }
+  var isQN = function (list) {
+    return list == '问卷'
+  }
+  var isQA = function (list) {
+    return list == '问答'
+  }
+  module.exports = { 
+    timeToDate: timeToDate,
+    isQN: isQN,
+    isQA: isQA 
+  }
+</wxs>
+
+<view class="questionnaire" wx:for="{{questionnairesArray}}" wx:key="id" hidden="{{!tools.isQN(typeArray[typeIndex])}}">
   <view class='questionnaireItem' bindtap='goDetail' data-id="{{index}}">
     <view class="questionnaireTitle">{{item.name}}</view>
     <view class="questionnaireDetail">
       <view class="dateBlock">
         <image class="dateIconClass" src="{{DateIcon}}" mode='widthFix'></image>
-        <view class="dateClass">{{item.time}} </view>
+        <view class="dateClass">{{tools.timeToDate(item.publish_time)}} </view>
       </view>
       <view class="addressBlock">
         <image class="addressIconClass" src="{{AddressIcon}}" mode='widthFix'></image>

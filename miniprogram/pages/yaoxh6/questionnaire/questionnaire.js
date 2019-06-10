@@ -8,10 +8,10 @@ Page({
     price: "1",
     qNum: "100",
     campusArray: ["全部", "东校", "南校", "北校", "珠海", "深圳"],
-    campusIndex: 1,
+    campusIndex: 0,
     endDate: "",
     startDate: "",
-    startDateDetail: "",
+    startTime: "",
     maxEndDate: "", 
     titleContent: '',
     descriptionContent: '',
@@ -29,10 +29,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.updateStartDate()
-    console.log(this.data.startDate)
     this.setData({
-      endDate: this.data.startDate,
+      startTime: util.getTime(),
+    })
+    this.setData({
+      startDate: this.data.startTime.substring(0, 10),
+      endDate: this.data.startTime.substring(0, 10)
     })
     this.updateMaxEndDate()
   },
@@ -229,22 +231,15 @@ Page({
     var position = this.data.campusArray[this.data.campusIndex];
 
     // publish time
-    var currDate = new Date()
-    var year = currDate.getFullYear()
-    var month = currDate.getMonth() + 1
-    var day = currDate.getDate()
-    var hour = currDate.getHours()
-    var minute = currDate.getMinutes()
-    var second = currDate.getSeconds()
     this.setData({
-      startDateDetail: [year, month, day, hour, minute, second].join("-")
+      startTime: util.getTime
     })
 
     wx.cloud.callFunction({
       name: 'release_questionnaire',
       data: {
         name: this.data.titleContent,
-        publish_time: this.data.startDateDetail,
+        publish_time: this.data.startTime,
         deadline: this.data.date,
         category: 'c1',
         reward: this.data.price,
@@ -339,11 +334,10 @@ Page({
   bindDateChange: function (e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)
     // 截止日期最迟为一年后
-    this.updateStartDate()
-    this.updateMaxEndDate()
     this.setData({
       endDate: e.detail.value
     })
+    this.updateMaxEndDate()
   },
   bindPickerChange: function (e) {
     //console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -360,15 +354,6 @@ Page({
     this.setData(temp);
     //console.log(this.data[name])
   },  
-  updateStartDate: function () {
-    var date = new Date();
-    var options = { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: "Asia/Shanghai" };
-    var y = date.toLocaleDateString('default', options);
-    var dateString = y.replace(/\//g, '-');
-    this.setData({
-      startDate: dateString,
-    })
-  },
   updateMaxEndDate: function () {
     var currDate = new Date()
     var year = currDate.getFullYear() + 10

@@ -1,7 +1,6 @@
 // pages/yaoxh6/task/task.js
 var Orders = {
   ORDER_TIME: '最新发布',
-  ORDER_CLICK: '最多点击',
   ORDER_REWARD: '最多报酬'
 }
 
@@ -21,9 +20,9 @@ Page({
       price:"25元",
       areaArray: ['东校', '南校','珠海','深圳','北校'],
       areaIndex: 0,
-      typeArray: ['全部', '问卷', '问答'],
+      typeArray: ['问卷', '问答'],
       typeIndex: 0,
-      orderArray: [Orders.ORDER_TIME, Orders.ORDER_CLICK, Orders.ORDER_REWARD],
+      orderArray: [Orders.ORDER_TIME, Orders.ORDER_REWARD],
       orderIndex: 0,
       taskArray: [],
       questionnairesArray: [],
@@ -148,7 +147,7 @@ Page({
     switch (this.data.orderArray[this.data.orderIndex]) {
       case Orders.ORDER_TIME:
         tempArray.sort(function (q1, q2) {
-          return q2.time.localeCompare(q1.time)
+          return q1.publish_time < q2.publish_time
         })
         break
       case Orders.ORDER_CLICK:

@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/yaoxh6/questionnaire/questionnaire",
     "pages/yaoxh6/item/item",
+    "pages/yaoxh6/questionnaire/questionnaire",
     "pages/yaoxh6/task/task",
     "pages/yaoxh6/publish/publish",
     "pages/yaoxh6/mine/mine",

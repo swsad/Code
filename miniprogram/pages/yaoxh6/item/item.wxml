@@ -5,6 +5,9 @@
   <view class='priceUnit'>元</view>
 </view>
 
+<view id="description">
+</view>
+
 <view id = 'body' wx:for="{{questionnaireArray}}" wx:key="id" wx:for-index='fatherIndex'>
   <block wx:if="{{item.type === 'SCQ'}}">
     <view class = 'SCQ' data-id='{{fatherIndex}}'>

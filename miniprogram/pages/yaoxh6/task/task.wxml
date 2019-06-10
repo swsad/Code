@@ -74,3 +74,19 @@
   </view>
 </view>
 
+<view class="questionnaire" wx:for="{{QAsArray}}" wx:key="id" hidden="{{!tools.isQA(typeArray[typeIndex])}}">
+  <view class='questionnaireItem' bindtap='goQADetail' data-id="{{index}}">
+    <view class="questionnaireTitle">{{item.title}}</view>
+    <view class="questionnaireDetail">
+      <view class="dateBlock">
+        <image class="dateIconClass" src="{{DateIcon}}" mode='widthFix'></image>
+        <view class="dateClass">{{tools.timeToDate(item.time)}} </view>
+      </view>
+      <view class="addressBlock">
+      </view>
+      <view class="priceBlock">
+      </view>
+    </view>
+  </view>
+</view>
+

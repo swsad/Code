@@ -1,3 +1,5 @@
+var util = require('../../../utils.js')
+
 // pages/yaoxh6/task/task.js
 var Orders = {
   ORDER_TIME: '最新发布',
@@ -26,6 +28,7 @@ Page({
       orderIndex: 0,
       taskArray: [],
       questionnairesArray: [],
+      QAsArray: [],
       searchArray: []
   },
 
@@ -51,10 +54,9 @@ Page({
       name: 'get_all_questionnaire',
       success: res => {
         this.setData({
-          taskArray: res.result.value.data,
           questionnairesArray: res.result.value.data
         })
-        this.sortItem()
+        this.sortQN()
       },
       fail: err => {
         wx.showToast({
@@ -62,6 +64,25 @@ Page({
           title: '调用失败',
         })
         console.log('[云函数][getAllQuestionnaire] 调用失败：', err)
+      }
+    })
+    wx.cloud.callFunction({
+      name: 'get_question',
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        this.setData({
+          QAsArray: util.deBlocking(res)
+        })
+        this.sortQA()
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_question] 调用失败：', err)
       }
     })
   },
@@ -140,17 +161,16 @@ Page({
     this.setData({
       orderIndex: e.detail.value
     })
-    this.sortItem()
+    this.sortQN()
+    this.sortQA()
   },
-  sortItem: function () {
+  sortQN: function () {
     var tempArray = this.data.questionnairesArray
     switch (this.data.orderArray[this.data.orderIndex]) {
       case Orders.ORDER_TIME:
         tempArray.sort(function (q1, q2) {
           return q1.publish_time < q2.publish_time
         })
-        break
-      case Orders.ORDER_CLICK:
         break
       case Orders.ORDER_REWARD:
         tempArray.sort(function (q1, q2) {
@@ -163,11 +183,35 @@ Page({
       questionnairesArray: tempArray
     })
   },
+  sortQA: function () {
+    var tempArray = this.data.QAsArray
+    switch (this.data.orderArray[this.data.orderIndex]) {
+      case Orders.ORDER_TIME:
+        tempArray.sort(function (q1, q2) {
+          return q1.time < q2.time
+        })
+        break
+      default:
+    }
+    this.setData({
+      QAsArray: tempArray
+    })
+  },
   goDetail: function (content) {
     var tempIndex = content.currentTarget.dataset.id;
-    console.log(1)
+    console.log(this.data.questionnairesArray[tempIndex]._id)
     wx.navigateTo({
-      url: '../item/item?id=' + this.data.taskArray[tempIndex]._id,
+      url: '../item/item?id=' + this.data.questionnairesArray[tempIndex]._id,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  goQADetail: function (content) {
+    var tempIndex = content.currentTarget.dataset.id;
+    console.log(this.data.QAsArray[tempIndex]._id)
+    wx.navigateTo({
+      url: '../answerQA/answerQA?id=' + this.data.QAsArray[tempIndex]._id,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

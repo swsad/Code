@@ -197,8 +197,8 @@ Page({
       name: 'release_questionnaire',
       data: {
         name: '康乐杯',
-        time: '2019/5/1',
-        category: 'c1',
+        publish_time: '2019/05/01',
+        deadline: '2019/06/10',
         reward: 20,
         position: '体育馆',
         total_amount: 100,

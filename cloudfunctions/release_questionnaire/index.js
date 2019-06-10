@@ -2,10 +2,10 @@
   功能：发布问卷
   接受参数：
     name: string 问卷名
-    time: string 问卷的发布时间
+    publish_time: string 问卷的发布时间
+    deadline: string 问卷的截止时间
     reward: string 报酬
     position: string 地点
-    category: string 问卷的类型
     total_amount: number 问卷发布的总份数
     content: string 问卷内容（JSON转string）
     description: string 对问卷的简要描述
@@ -30,10 +30,10 @@ exports.main = async (event, context) => {
     const result = await db.collection('questionnaire_info').add({
       data: {
         name: event.name,
-        time: event.time,
+        publish_time: event.publish_time,
+        deadline: event.deadline,
         reward: event.reward,
         position: event.position,
-        category: event.category,
         total_amount: event.total_amount,
         completed_amount: 0,
         is_all_completed: false

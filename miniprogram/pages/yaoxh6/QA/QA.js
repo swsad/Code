@@ -71,7 +71,6 @@ Page({
   },
 
   complete:function(){
-    console.log("complete")
     console.log(this.data.question)
     console.log(this.data.description)
     if(this.data.question == ''){
@@ -80,15 +79,21 @@ Page({
         icon:'none'
       })
     }
+
+    wx.cloud.callFunction({
+      time: this.data.
+      title: this.data.question,
+      content: this.data.description
+    })
   },
 
-  bindblurQuestion: function(input) {
+  bindinputQuestion: function(input) {
     this.setData({
       question: input.detail.value
     });
   },
 
-  bindblurDescription: function(input) {
+  bindinputDescription: function(input) {
     this.setData({
       description: input.detail.value
     })

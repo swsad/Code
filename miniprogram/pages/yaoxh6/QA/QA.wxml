@@ -1,20 +1,22 @@
-<view class='session'>
-  <view>
-    <text style='color: #CD0000'>* </text>
-    <text>问题：</text>
+<form bindsubmit="complete">
+  <view class='session'>
+    <view>
+      <text style='color: #CD0000'>* </text>
+      <text>问题：</text>
+    </view>
+    <view id='title'>
+      <textarea class="weui-textarea" style="height: 100rpx" placeholder="请输入文本" bindblur='bindblurQuestion'></textarea>
+    </view>
+    <view style='margin-top: 20rpx'>
+      <text style='color: #CD0000'>* </text>
+      <text>描述：</text>
+    </view>
+    <view id="request">
+      <textarea  class='weui-textarea' style="height: 200rpx" placeholder='请输入问题描述' bindblur='bindblurDescription'></textarea>
+    </view>
   </view>
-  <view id='title'>
-    <textarea class="weui-textarea" style="height: 100rpx" placeholder="请输入文本" bindblur='bindblurQuestion'></textarea>
-  </view>
-  <view style='margin-top: 20rpx'>
-    <text style='color: #CD0000'>* </text>
-    <text>描述：</text>
-  </view>
-  <view id="request">
-    <textarea  class='weui-textarea' style="height: 200rpx" placeholder='请输入问题描述' bindblur='bindblurDescription'></textarea>
-  </view>
-</view>
 
-<view>
-  <button class="weui-btn" bindtap='complete'>完成</button>
-</view>
+  <view>
+    <button class="weui-btn" form-type="submit">完成</button>
+  </view>
+</form>

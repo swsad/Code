@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/yaoxh6/task/task",
     "pages/yaoxh6/questionnaire/questionnaire",
     "pages/yaoxh6/item/item",
-    "pages/yaoxh6/task/task",
     "pages/yaoxh6/QA/QA",
     "pages/testCloudFunction/testCloudFunction",
     "pages/yaoxh6/mine/mine",
@@ -42,7 +42,7 @@
       {
         "selectedIconPath": "images/publish_selected.png",
         "iconPath": "images/publish_unselected.png",
-        "pagePath": "pages/yaoxh6/questionnaire/questionnaire",
+        "pagePath": "pages/yaoxh6/publish2/publish2",
         "text": "发布"
       },
       {

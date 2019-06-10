@@ -1,10 +1,10 @@
 <view class='session'>
   <view>
     <text style='color: #CD0000'>* </text>
-    <text>问题：</text>
+    <text>标题：</text>
   </view>
   <view id='title'>
-    <textarea class="weui-textarea" style="height: 100rpx" placeholder="请输入文本" bindinput='bindinputQuestion'></textarea>
+    <textarea class="weui-textarea" style="height: 100rpx" placeholder="请输入问题标题" bindinput='bindinputQuestion'></textarea>
   </view>
   <view style='margin-top: 20rpx'>
     <text style='color: #CD0000'>* </text>

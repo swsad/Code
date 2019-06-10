@@ -10,7 +10,8 @@ Page({
     campusArray: ["全部", "东校", "南校", "北校", "珠海", "深圳"],
     campusIndex: 0,
     date: "",
-    startDate: "",    
+    startDate: "",
+    maxEndDate: "", 
     titleContent: '',
     descriptionContent: '',
     addIconPath1:'../../../images/plus.png',
@@ -67,6 +68,8 @@ Page({
       date: dateString,
       startDate: dateString
     })
+
+    this.updateMaxEndDate()
   },
 
   /**
@@ -355,7 +358,9 @@ Page({
     });
   },
   bindDateChange: function (e) {
-    //console.log('picker发送选择改变，携带值为', e.detail.value)
+    // console.log('picker发送选择改变，携带值为', e.detail.value)
+    // 截止日期最迟为一年后
+    this.updateMaxEndDate()
     this.setData({
       date: e.detail.value
     })
@@ -375,4 +380,17 @@ Page({
     this.setData(temp);
     //console.log(this.data[name])
   },  
+  updateMaxEndDate: function () {
+    var currDate = new Date()
+    var year = currDate.getFullYear() + 1
+    var month = currDate.getMonth() + 1
+    var day = currDate.getDate()
+    this.setData({
+      maxEndDate: [year, month, day].map(this.formatNumber).join('-')
+    })
+  },
+  formatNumber: function (n) {
+    n = n.toString()
+    return n[1] ? n : '0' + n
+  }
 })

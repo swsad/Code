@@ -80,11 +80,11 @@ Page({
       })
     }
 
-    wx.cloud.callFunction({
-      time: this.data.
-      title: this.data.question,
-      content: this.data.description
-    })
+    // wx.cloud.callFunction({
+    //   time: this.data.
+    //   title: this.data.question,
+    //   content: this.data.description
+    // })
   },
 
   bindinputQuestion: function(input) {

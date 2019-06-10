@@ -48,7 +48,7 @@ exports.main = async (event, context) => {
     }) 
     await db.collection('qu_relation').add({
       data: {
-        qid: _id,
+        qid: result._id,
         uid: wxContext.OPENID
       }
     })

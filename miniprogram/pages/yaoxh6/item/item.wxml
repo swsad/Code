@@ -19,7 +19,7 @@
       </view>
       <radio-group class="SCQOption" bindchange="radioChangeSCQ">
         <label class="SCQText" wx:for="{{item.content.options}}" wx:key="SCQID" data-id='{{fatherIndex}}' bindtouchstart='getTempFatherIndex'>
-          <radio value="{{item.name}}" checked="{{item.isSelected}}"/>{{item.name}}
+          <radio value="{{item.name}}" color="#5CACEE" checked="{{item.isSelected}}"/>{{item.name}}
         </label>
       </radio-group>
     </view>
@@ -35,7 +35,7 @@
 
       <checkbox-group class="MCQOption" bindchange="checkboxChangeMCQ">
         <label class="MCQText" wx:for="{{item.content.options}}" wx:key="MCQID" data-id='{{fatherIndex}}' bindtouchstart='getTempFatherIndex'>
-          <checkbox value="{{item.name}}" checked="{{item.isSelected}}" data-id='{{index}}'/>{{item.name}}
+          <checkbox value="{{item.name}}" color="#5CACEE" checked="{{item.isSelected}}" data-id='{{index}}'/>{{item.name}}
         </label>
       </checkbox-group>
     </view>
@@ -53,4 +53,4 @@
   </block>
 </view>
 
-<button class="weui-btn" type="primary" bindtap='complete'>完成</button>
+<button class="weui-btn" bindtap='complete'>完成</button>

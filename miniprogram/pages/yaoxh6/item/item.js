@@ -206,8 +206,17 @@ Page({
       },
       success: res => {
         // console.log(JSON.stringify(res))
+        console.log(res);
+        var msg = "";
+        var icon = "success";
+        if(res.result.success) msg = "填写成功!";
+        else {
+          msg = res.result.error;
+          icon = "none";
+        }
         wx.showToast({
-          title: '调用成功',
+          icon: icon,
+          title: msg,
         })
       },
       fail: err => {

@@ -5,11 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
+    price: "",
+    qNum: "",
+    campusArray: ["全部", "东校", "南校", "北校", "珠海", "深圳"],
+    campusIndex: 0,
+    date: "",
+    startDate: "",    
     titleContent: '',
     descriptionContent: '',
-    addIconPath1:'../../../images/addIcon1.png',
-    deletePath: '../../../images/delete.png',
-    deletePath1: '../../../images/cancel.png',
+    addIconPath1:'../../../images/plus.png',
+    deletePath: '../../../images/minus.png',
+    deletePath1: '../../../images/delete.png',
     typeArray: ['单选', '多选', '问答'],
     newIndex: 0,
     addIconPath: "../../../images/addIcon.png",
@@ -53,7 +59,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var date = new Date();
+    var options = { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: "Asia/Shanghai" };
+    var y = date.toLocaleDateString('default', options);
+    var dateString = y.replace(/\//g, '-');
+    this.setData({
+      date: dateString,
+      startDate: dateString
+    })
   },
 
   /**
@@ -237,17 +250,24 @@ Page({
   },
 
   showQ:function(){
-    // console.log(this.data.questionnaireArray);
-    console.log(this.data.descriptionContent)
+    if (this.data.descriptionContent == '' || this.data.titleContent == ''){
+      wx.showToast({
+        title: '标题或要求为空',
+      })
+      return;
+    }
+    //console.log(this.data.questionnaireArray);
+    //console.log("test" + this.data.descriptionContent)
+    var position = this.data.campusArray[this.data.campusIndex];
     wx.cloud.callFunction({
       name: 'release_questionnaire',
       data: {
         name: this.data.titleContent,
-        time: util.questionnaireDate(new Date()),
+        time: this.data.date.replace(/-/g, '/'),
         category: 'c1',
-        reward: 20,
-        position: '待定',
-        total_amount: 100,
+        reward: this.data.price,
+        position: position,
+        total_amount: this.data.qNum,
         content: JSON.stringify(this.data.questionnaireArray),
         description: this.data.descriptionContent
       },
@@ -334,4 +354,25 @@ Page({
       questionnaireArray: tempArray,
     });
   },
+  bindDateChange: function (e) {
+    //console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
+  },
+  bindPickerChange: function (e) {
+    //console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      campusIndex: e.detail.value
+    })
+  },
+  bindKeyInput: function (e) {
+    //console.log(e);
+    var name = e.currentTarget.dataset.name;
+    var value = e.detail.value;
+    var temp = new Object();
+    temp[name] = value;
+    this.setData(temp);
+    //console.log(this.data[name])
+  },  
 })

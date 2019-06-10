@@ -24,6 +24,8 @@ page{
 .weui-btn{
   width: 50%;
   margin-bottom: 20rpx;
+  background-color: #5CACEE;
+  color: white;
 }
 
 .answerBackGround{

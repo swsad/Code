@@ -2,6 +2,17 @@ page{
   height: 100%;
 }
 
+.options {
+  width: 94%;
+  border-radius: 20rpx;
+  background-color: #fff;
+  border: 1rpx solid #E3E3E3;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 100rpx;
+  margin-bottom: 20rpx;
+}
+
 /* .divLine{
  background: #E0E3DA;
  width: 100%;
@@ -9,25 +20,34 @@ page{
  margin-top: 20rpx;
 } */
 
+.session {
+  margin: 20rpx;
+}
+
+.Index {
+  font-size: 30rpx;
+  margin-top: 10rpx;
+}
+
 #title{
-  height: 12%;
+  height: 100rpx;
+  padding: 20rpx;
+  margin-top: 10rpx;
   /* color:#D4D4D4; */
-  border: 1rpx solid #999;
+  border-radius: 10rpx;
+  border: 1rpx solid #E3E3E3;
 }
 #request{
-  height: 15%;
+  height: 200rpx;
+  padding: 20rpx;
+  margin-top: 10rpx;
   /* color:#D4D4D4; */
-  border: 1rpx solid #999;
+  border-radius: 10rpx;
+  border: 1rpx solid #E3E3E3;
 }
-
-.SCQDiscription{
-  border: 2rpx solid #999;
-  width: 70%;
-}
-
 
 .SCQselectIcon{
-  width: 60rpx;
+  width: 40rpx;
 }
 
 .SCQOption{
@@ -38,33 +58,41 @@ page{
 }
 
 .MCQselectIcon{
-  width: 60rpx;
+  width: 40rpx;
 }
 .SCQ{
+  margin: 20rpx;
+  border-radius: 10rpx;
   padding: 20rpx;
-  border: 2rpx dashed #999;
+  border: 1rpx dashed #E3E3E3;
 }
 .SCQText{
   margin-left: 20rpx;
+  padding: 5rpx;
   /* color: #E3E3E3; */
-  border: 2rpx solid #999;
+  border: 1rpx solid #E3E3E3;
   width: 80%;
 }
 .MCQ{
+  margin: 20rpx;
+  border-radius: 10rpx;
   padding: 20rpx;
-  border: 2rpx dashed #999;
+  border: 1rpx dashed #E3E3E3;
 }
 
 .MCQText{
   margin-left: 20rpx;
+  padding: 5rpx;
   /* color: #E3E3E3; */
-  border: 2rpx solid #999;
+  border: 1rpx solid #E3E3E3;
   width: 80%;
 }
 
 .SAQ{
+  margin: 20rpx;
+  border-radius: 10rpx;
   padding: 20rpx;
-    border: 2rpx dashed #999;
+  border: 1rpx dashed #E3E3E3;
 }
 
 .SCQTitle{
@@ -90,61 +118,77 @@ page{
 }
 
 .SAQAnswer{
-  border: 2px solid #999;
+  width: 90%;
+  margin-left: 55rpx;
+  margin-top: 20rpx;
+  padding: 5rpx;
+  border: 1px solid #E3E3E3;
 }
 
 .SCQDiscription{
-  border: 2rpx solid #999;
+  margin-left: 10rpx;
+  margin-top: 5rpx;
+  border: 1rpx solid #E3E3E3;
   width: 70%;
+  padding: 5rpx;
 }
 
 .MCQDiscription{
-  border: 2rpx solid #999;
+  margin-left: 10rpx;
+  margin-top: 5rpx;
+  border: 1rpx solid #E3E3E3;
   width: 70%;
+  padding: 5rpx;
 }
 
 .SAQDiscription{
-  border: 2rpx solid #999;
-  width: 70%;
+  margin-left: 10rpx;
+  margin-top: 5rpx;
+  border: 1rpx solid #E3E3E3;
+  width: 90%;
+  padding: 5rpx;
 }
 
 .SCQdeleteIcon{
-  width: 80rpx;
+  width: 60rpx;
   margin-left: 20rpx;
 }
 
 .MCQdeleteIcon{
-  width: 80rpx;
+  width: 60rpx;
   margin-left: 20rpx;
 }
 
 .SCQdeleteIcon1{
   width: 60rpx;
   margin-left: 20rpx;
+  margin-top: 5rpx;
 }
 
 .MCQdeleteIcon1{
   width: 60rpx;
   margin-left: 20rpx;
+  margin-top: 5rpx;
 }
 
 .SAQdeleteIcon{
   width: 60rpx;
-  margin-left: 50rpx;
+  margin-left: 20rpx;
+  margin-top: 5rpx;
 }
 
 .SCQaddIcon1{
-  width:60rpx;
+  width: 70rpx;
   margin-left: 20rpx;
 }
 
 .MCQaddIcon1{
-  width:60rpx;
+  width: 70rpx;
   margin-left: 20rpx;
 }
 
 #body{
-  margin-top: 100rpx;
+  margin-top: 50rpx;
 }
 
 .weui-btn{
@@ -162,9 +206,41 @@ page{
 
 .newQuestionButton{
   width: 40%;
-  margin-left: 5%;
+  margin-left: 6.66%;
 }
 
 .nextButton{
   width: 40%;
+  background-color: #5CACEE;
+  color: white;
+}
+
+.newButton{
+  background-color: #5CACEE;
+  color: white;
+}
+
+#detail{
+  height: 40%;
+}
+
+.weui-btn{
+  width: 50%;
+}
+
+.weui-cell{
+  margin-right: 20rpx;
+  height:80rpx;
+}
+.section {
+  height: 80rpx;
+  padding-left: 33rpx;
+}
+
+.picker {
+  float: left;
+}
+
+.section__title {
+  float: left;
 }

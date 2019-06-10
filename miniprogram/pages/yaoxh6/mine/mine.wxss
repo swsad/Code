@@ -1,9 +1,10 @@
 page{
   height: 100%;
+  background-color: #F6F6F6;
 }
 
 .person{
-  height: 30%;
+  height: 25%;
   background-color: #5CACEE;
   padding-top: 50rpx;
   padding-bottom: 50rpx;
@@ -20,6 +21,7 @@ page{
   height: 200rpx;
   overflow:hidden; 
   border-radius: 50%;
+  margin-bottom: 10px;
 }
 
 .name{
@@ -28,38 +30,73 @@ page{
   justify-content: center;
 }
 
+.state {
+  width: 95%;
+  border-radius: 20rpx;
+  background-color: #fff;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+
+.options {
+  width: 95%;
+  border-radius: 20rpx;
+  background-color: #fff;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
 .stateDetail{
+  font-size: 30rpx;
+  color: gray;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: #E3E3E3;
+  background-color: #fff;
+  border-radius: 40rpx;
 }
 
-.waitToFinishBlock{
+.myAnswerBlock{
   display: flex;
   flex-direction: column;
   margin-top: 20rpx;
   margin-bottom: 20rpx;
 }
-.waitToFinishIcon{
-  width: 120rpx;
+
+.myAnswerIcon{
+  width: 110rpx;
 }
+
+.myAnswerText{
+  text-align: center;
+}
+
 .waitToFinishText{
-  margin-left: 10rpx;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
 }
 
-.hasBeenFinishedBlock{
+.questionManageBlock{
   display: flex;
   flex-direction: column;
   margin-top: 20rpx;
   margin-bottom: 20rpx;
 }
-.hasBeenFinishedIcon{
-  width: 120rpx;
+.questionManageIcon{
+  width: 110rpx;
 }
 
+
+.questionManageText{
+  text-align: center;
+}
 .hasBeenFinishedText{
-  margin-left: 10rpx;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
 }
 
 .hasBeenPublishedBlock{
@@ -70,13 +107,14 @@ page{
 }
 
 .hasBeenPublishedIcon{
-  width: 120rpx;
+  width: 110rpx;
 }
 
 .hasBeenPublishedText{
-  margin-left: 10rpx;
+  text-align: center;
 }
 
 .weui-cell{
   height: 100rpx;
+  margin-right: 30rpx;
 }

@@ -141,7 +141,7 @@ Page({
       name: 'fill_in_questionnaire',
       data: {
         content: JSON.stringify(answer),
-        qid: '988c1b1b5cc81d9409667aa3265930fc'
+        qid: 'cbdb4c165cfb9aa401eb025a422ce8e5'
       },
       success: res => {
         console.log(JSON.stringify(res))
@@ -344,6 +344,207 @@ Page({
           title: '调用失败',
         })
         console.error('[云函数] [get_answer] 调用失败：', err)
+      }
+    })
+  },
+
+  askQuestion: function() {
+    wx.cloud.callFunction({
+      name: 'ask_question',
+      data: {
+        time: '2019/06/07',
+        content: '测试？'
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [ask_question] 调用失败：', err)
+      }
+    })
+  },
+
+  replyQuestion: function() {
+    wx.cloud.callFunction({
+      name: 'reply_question',
+      data: {
+        qid: 'cbdb4c165cfdc3d402de69ae5dd734af',
+        time: '2019/06/07',
+        title: '测试',
+        content: '测试'
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [reply_question] 调用失败：', err)
+      }
+    })
+  },
+
+  getQuestion: function() {
+    wx.cloud.callFunction({
+      name: 'get_question',
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        console.log(util.deBlocking(res))
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_question] 调用失败：', err)
+      }
+    })
+  }, 
+
+  getReply: function() {
+    wx.cloud.callFunction({
+      name: 'get_reply',
+      data: {
+        qid: '2d9d2d8c5cfa14850117e89e463bd468'
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        console.log(util.deBlocking(res))
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_reply] 调用失败：', err)
+      }
+    })
+  },
+
+  updateLike: function () {
+    wx.cloud.callFunction({
+      name: 'update_like',
+      data: {
+        rid: 'dec80a9e5cfa14ef0116065b1fdb7996'
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        console.log(res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [update_like] 调用失败：', err)
+      }
+    })
+  },
+
+  getUserPublishQuestionnaire: function() {
+    wx.cloud.callFunction({
+      name: 'get_user_questionnaire',
+      data: {
+        self_publish: true,
+        self_fill_in: false
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        console.log(res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_user_questionnaire] 调用失败：', err)
+      }
+    })
+  },
+
+  getUserFillInQuestionnaire: function () {
+    wx.cloud.callFunction({
+      name: 'get_user_questionnaire',
+      data: {
+        self_publish: false,
+        self_fill_in: true
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        console.log(res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_user_questionnaire] 调用失败：', err)
+      }
+    })
+  },
+
+  getUserAskQuestion: function () {
+    wx.cloud.callFunction({
+      name: 'get_user_question',
+      data: {
+        self_ask: true,
+        self_answer: false
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        console.log(res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_user_question] 调用失败：', err)
+      }
+    })
+  },
+
+  getUserAnswerQuestion: function () {
+    wx.cloud.callFunction({
+      name: 'get_user_question',
+      data: {
+        self_ask: false,
+        self_answer: true
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        console.log(res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_user_question] 调用失败：', err)
       }
     })
   }

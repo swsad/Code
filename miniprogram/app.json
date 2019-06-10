@@ -1,10 +1,9 @@
 {
   "pages": [
-    "pages/yaoxh6/questionnaire/questionnaire",
     "pages/testCloudFunction/testCloudFunction",
+    "pages/yaoxh6/questionnaire/questionnaire",
     "pages/yaoxh6/mine/mine",
     "pages/yaoxh6/posted/posted",     
-    
     "pages/yaoxh6/publish/publish",        
     "pages/yaoxh6/answerQA/answerQA",
     "pages/yaoxh6/QA/QA",

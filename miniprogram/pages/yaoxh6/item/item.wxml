@@ -1,5 +1,5 @@
 <view id="title">
-  <view class='titleContent'>问卷</view>
+  <view class='titleContent'>{{title}}</view>
   <image class='titlePriceIcon' src='{{priceIcon}}' mode='widthFix'></image>
   <view class='priceContent'>25</view>
   <view class='priceUnit'>元</view>

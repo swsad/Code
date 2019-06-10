@@ -9,6 +9,7 @@ Page({
   data: {
     priceIcon: "../../../images/price.png",
     currentFatherIndex: 0,
+    title: "title",
     qid: '',
     questionnaireArray: [
     ],

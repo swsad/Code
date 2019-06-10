@@ -1,0 +1,6 @@
+<view class="info" wx:for="{{questionInfo}}" wx:key="id">
+  <view class='infoItem'>
+      <view class="infoName">{{item.infoName}}</view>
+      <button class="weui-btn inLineButton" data-qid="{{item.qid}}" bindtap='showQADetail'>问题详情</button>
+  </view>
+</view>

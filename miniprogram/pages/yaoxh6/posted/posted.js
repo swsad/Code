@@ -14,9 +14,13 @@ Page({
   onLoad: function (options) {
     var tempArray = this.data.taskArray
     wx.cloud.callFunction({
-      name: 'get_all_questionnaire',
+      name: 'get_user_questionnaire',
+      data: {
+        self_publish: true
+      },
       success: res => {
-        var data = res.result.value.data;
+        //console.log(res);
+        var data = res.result.value;
         for(let i = 0; i < data.length; i++ ) {
           var item = data[i];
           tempArray.push({

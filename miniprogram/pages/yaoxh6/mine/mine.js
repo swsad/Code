@@ -8,9 +8,9 @@ Page({
     MyPurseIcon:"../../../images/myWallet.png",
     MyCollectionIcon:"../../../images/aboutUs.png",
     CallCenterIcon:"../../../images/customerService.png",
-    PersonalSettingIcon:"../../../images/personSetting.png",
-    WaitToFinishIcon:"../../../images/waitToFinish.png",
-    HasBeenFinishedIcon:"../../../images/hasFinished.png",
+    PersonalSettingIcon:"../../../images/setting.png",
+    myAnswerIcon:"../../../images/waitToFinish.png",
+    questionManageIcon:"../../../images/hasFinished.png",
     HasBeenPublishedIcon:"../../../images/hasPublished.png",
     name:"Yaoxh6"
   },
@@ -82,6 +82,24 @@ Page({
   goMyInfo: function () {
     wx.navigateTo({
       url: '../myInfo/myInfo',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+
+  goMyAnsw: function() {
+    wx.navigateTo({
+      url: '../myAnswer/myAnswer',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })    
+  },
+
+  goQuestionManage: function() {
+    wx.navigateTo({
+      url: '../myQuestion/myQuestion',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

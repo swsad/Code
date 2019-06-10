@@ -48,6 +48,8 @@ page{
 }
 
 .stateDetail{
+  font-size: 30rpx;
+  color: gray;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -55,31 +57,41 @@ page{
   border-radius: 40rpx;
 }
 
-.waitToFinishBlock{
+.myAnswerBlock{
   display: flex;
   flex-direction: column;
   margin-top: 20rpx;
   margin-bottom: 20rpx;
 }
-.waitToFinishIcon{
-  width: 120rpx;
+
+.myAnswerIcon{
+  width: 110rpx;
 }
+
+.myAnswerText{
+  text-align: center;
+}
+
 .waitToFinishText{
   font-size: 30rpx;
   margin-left: 20rpx;
   margin-top: 10rpx;
 }
 
-.hasBeenFinishedBlock{
+.questionManageBlock{
   display: flex;
   flex-direction: column;
   margin-top: 20rpx;
   margin-bottom: 20rpx;
 }
-.hasBeenFinishedIcon{
-  width: 120rpx;
+.questionManageIcon{
+  width: 110rpx;
 }
 
+
+.questionManageText{
+  text-align: center;
+}
 .hasBeenFinishedText{
   font-size: 30rpx;
   margin-left: 20rpx;
@@ -94,13 +106,11 @@ page{
 }
 
 .hasBeenPublishedIcon{
-  width: 120rpx;
+  width: 110rpx;
 }
 
 .hasBeenPublishedText{
-  font-size: 30rpx;
-  margin-left: 20rpx;
-  margin-top: 10rpx;
+  text-align: center;
 }
 
 .weui-cell{

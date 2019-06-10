@@ -5,10 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    price: "",
-    qNum: "",
+    price: "1",
+    qNum: "100",
     campusArray: ["全部", "东校", "南校", "北校", "珠海", "深圳"],
-    campusIndex: 0,
+    campusIndex: 1,
     endDate: "",
     startDate: "",
     startDateDetail: "",
@@ -22,39 +22,7 @@ Page({
     newIndex: 0,
     addIconPath: "../../../images/addIcon.png",
     currentFatherIndex : 0,
-    questionnaireArray : [
-      // {
-      //   "type": "SCQ",
-      //   "content": {
-      //     "description": "Which fruit do you like best?",
-      //     "options":
-      //       [
-      //         { "id": 1, "name": "Lua", "isSelected": false },
-      //         { "id": 2, "name": "Java", "isSelected": true },
-      //         { "id": 3, "name": "C++", "isSelected": false }
-      //       ]
-      //   }
-      // },
-      // {
-      //   "type": "MCQ",
-      //   "content": {
-      //     "description": "Which fruit do you like?",
-      //     "options":
-      //       [
-      //         { "id": 1, "name": "OK", "isSelected": true },
-      //         { "id": 2, "name": "Java", "isSelected": false },
-      //         { "id": 3, "name": "C++", "isSelected": true }
-      //       ]
-      //   }
-      // },
-      // {
-      //   "type": "SAQ",
-      //   "content": {
-      //     "description": "What's your name?",
-      //     "answer":"i dont know"
-      //   }
-      // }
-    ],
+    questionnaireArray : [],
   },
 
   /**

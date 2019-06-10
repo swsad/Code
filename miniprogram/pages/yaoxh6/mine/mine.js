@@ -6,9 +6,9 @@ Page({
    */
   data: {
     MyPurseIcon:"../../../images/myWallet.png",
-    MyCollectionIcon:"../../../images/myFavourite.png",
+    MyCollectionIcon:"../../../images/aboutUs.png",
     CallCenterIcon:"../../../images/customerService.png",
-    PersonalSettingIcon:"",
+    PersonalSettingIcon:"../../../images/personSetting.png",
     WaitToFinishIcon:"../../../images/waitToFinish.png",
     HasBeenFinishedIcon:"../../../images/hasFinished.png",
     HasBeenPublishedIcon:"../../../images/hasPublished.png",

@@ -2,7 +2,7 @@
   <text style='color: #CD0000'>* </text>
   <text>标题：</text>
   <view id="title">
-    <input class='titleContent' placeholder='请输入问卷标题' bindblur='bindblurTitle'></input>
+    <textarea class='weui-textarea' style='height: 100rpx' placeholder='请输入问卷标题' bindinput='bindblurTitle'></textarea>
   </view>
   <!-- <view class="divLine"></view> -->
 </view>
@@ -10,7 +10,7 @@
   <text style='color: #CD0000'>* </text>
   <text>描述：</text>
   <view id="request">
-    <textarea  class='requestContent' placeholder='请输入问卷详情' bindblur='bindblurDescription'></textarea >
+    <textarea  class='weui-textarea' style='height: 200rpx' placeholder='请输入问卷详情' bindinput='bindblurDescription'></textarea >
   </view>
   <!-- <view class="divLine"></view> -->
 </view>

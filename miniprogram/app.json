@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/yaoxh6/QA/QA",
     "pages/yaoxh6/questionnaire/questionnaire",
+    "pages/yaoxh6/QA/QA",
     "pages/testCloudFunction/testCloudFunction",
     "pages/yaoxh6/mine/mine",
     "pages/yaoxh6/posted/posted",

@@ -1,6 +1,6 @@
 /*
   功能：发布问卷
-  接受参数：
+  接受参数： 
     name: string 问卷名
     publish_time: string 问卷的发布时间
     deadline: string 问卷的截止时间

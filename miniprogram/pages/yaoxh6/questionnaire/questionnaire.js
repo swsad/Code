@@ -5,47 +5,54 @@ Page({
    * 页面的初始数据
    */
   data: {
+    price: "",
+    qNum: "",
+    campusArray: ["全部", "东校", "南校", "北校", "珠海", "深圳"],
+    campusIndex: 0,
+    date: "",
+    startDate: "",
+    maxEndDate: "", 
     titleContent: '',
     descriptionContent: '',
-    addIconPath1:'../../../images/addIcon1.png',
-    deletePath: '../../../images/delete.png',
-    deletePath1: '../../../images/cancel.png',
+    addIconPath1:'../../../images/plus.png',
+    deletePath: '../../../images/minus.png',
+    deletePath1: '../../../images/delete.png',
     typeArray: ['单选', '多选', '问答'],
     newIndex: 0,
     addIconPath: "../../../images/addIcon.png",
     currentFatherIndex : 0,
     questionnaireArray : [
-      {
-        "type": "SCQ",
-        "content": {
-          "description": "Which fruit do you like best?",
-          "options":
-            [
-              { "id": 1, "name": "Lua", "isSelected": false },
-              { "id": 2, "name": "Java", "isSelected": true },
-              { "id": 3, "name": "C++", "isSelected": false }
-            ]
-        }
-      },
-      {
-        "type": "MCQ",
-        "content": {
-          "description": "Which fruit do you like?",
-          "options":
-            [
-              { "id": 1, "name": "OK", "isSelected": true },
-              { "id": 2, "name": "Java", "isSelected": false },
-              { "id": 3, "name": "C++", "isSelected": true }
-            ]
-        }
-      },
-      {
-        "type": "SAQ",
-        "content": {
-          "description": "What's your name?",
-          "answer":"i dont know"
-        }
-      }
+      // {
+      //   "type": "SCQ",
+      //   "content": {
+      //     "description": "Which fruit do you like best?",
+      //     "options":
+      //       [
+      //         { "id": 1, "name": "Lua", "isSelected": false },
+      //         { "id": 2, "name": "Java", "isSelected": true },
+      //         { "id": 3, "name": "C++", "isSelected": false }
+      //       ]
+      //   }
+      // },
+      // {
+      //   "type": "MCQ",
+      //   "content": {
+      //     "description": "Which fruit do you like?",
+      //     "options":
+      //       [
+      //         { "id": 1, "name": "OK", "isSelected": true },
+      //         { "id": 2, "name": "Java", "isSelected": false },
+      //         { "id": 3, "name": "C++", "isSelected": true }
+      //       ]
+      //   }
+      // },
+      // {
+      //   "type": "SAQ",
+      //   "content": {
+      //     "description": "What's your name?",
+      //     "answer":"i dont know"
+      //   }
+      // }
     ],
   },
 
@@ -53,7 +60,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var date = new Date();
+    var options = { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: "Asia/Shanghai" };
+    var y = date.toLocaleDateString('default', options);
+    var dateString = y.replace(/\//g, '-');
+    this.setData({
+      date: dateString,
+      startDate: dateString
+    })
 
+    this.updateMaxEndDate()
   },
 
   /**
@@ -115,10 +131,10 @@ Page({
       var temp0 = {
         "type": "SCQ",
         "content": {
-          "description": "Which fruit do you like best?",
+          "description": "",
           "options":
             [
-              { "id": 1, "name": "Lua", "isSelected": false },
+              { "id": 1, "name": "", "isSelected": false },
             ]
         }
       };
@@ -128,10 +144,10 @@ Page({
       var temp0 = {
         "type": "MCQ",
         "content": {
-          "description": "Which fruit do you like best?",
+          "description": "",
           "options":
             [
-              { "id": 1, "name": "Lua", "isSelected": false },
+              { "id": 1, "name": "", "isSelected": false },
             ]
         }
       };
@@ -141,7 +157,7 @@ Page({
       var temp0 = {
         "type": "SAQ",
         "content": {
-          "description": "Which fruit do you like best?",
+          "description": "",
         }
       };
       tempArray.push(temp0);
@@ -217,7 +233,7 @@ Page({
   addSCQ:function(input){
     var tempIndex = input.currentTarget.dataset.id;
     var tempArray = this.data.questionnaireArray;
-    var tempSCQ = { "id": 1, "name": "Lua", "isSelected": false };
+    var tempSCQ = { "id": 1, "name": "", "isSelected": false };
     console.log(tempIndex);
     tempArray[tempIndex].content.options.push(tempSCQ);
     this.setData({
@@ -228,7 +244,7 @@ Page({
   addMCQ: function (input) {
     var tempIndex = input.currentTarget.dataset.id;
     var tempArray = this.data.questionnaireArray;
-    var tempMCQ = { "id": 1, "name": "Lua", "isSelected": false };
+    var tempMCQ = { "id": 1, "name": "", "isSelected": false };
     console.log(tempIndex);
     tempArray[tempIndex].content.options.push(tempMCQ);
     this.setData({
@@ -237,17 +253,24 @@ Page({
   },
 
   showQ:function(){
-    // console.log(this.data.questionnaireArray);
-    console.log(this.data.descriptionContent)
+    if (this.data.descriptionContent == '' || this.data.titleContent == ''){
+      wx.showToast({
+        title: '标题或要求为空',
+      })
+      return;
+    }
+    //console.log(this.data.questionnaireArray);
+    //console.log("test" + this.data.descriptionContent)
+    var position = this.data.campusArray[this.data.campusIndex];
     wx.cloud.callFunction({
       name: 'release_questionnaire',
       data: {
         name: this.data.titleContent,
-        time: util.questionnaireDate(new Date()),
+        time: this.data.date.replace(/-/g, '/'),
         category: 'c1',
-        reward: 20,
-        position: '待定',
-        total_amount: 100,
+        reward: this.data.price,
+        position: position,
+        total_amount: this.data.qNum,
         content: JSON.stringify(this.data.questionnaireArray),
         description: this.data.descriptionContent
       },
@@ -334,4 +357,40 @@ Page({
       questionnaireArray: tempArray,
     });
   },
+  bindDateChange: function (e) {
+    // console.log('picker发送选择改变，携带值为', e.detail.value)
+    // 截止日期最迟为一年后
+    this.updateMaxEndDate()
+    this.setData({
+      date: e.detail.value
+    })
+  },
+  bindPickerChange: function (e) {
+    //console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      campusIndex: e.detail.value
+    })
+  },
+  bindKeyInput: function (e) {
+    //console.log(e);
+    var name = e.currentTarget.dataset.name;
+    var value = e.detail.value;
+    var temp = new Object();
+    temp[name] = value;
+    this.setData(temp);
+    //console.log(this.data[name])
+  },  
+  updateMaxEndDate: function () {
+    var currDate = new Date()
+    var year = currDate.getFullYear() + 1
+    var month = currDate.getMonth() + 1
+    var day = currDate.getDate()
+    this.setData({
+      maxEndDate: [year, month, day].map(this.formatNumber).join('-')
+    })
+  },
+  formatNumber: function (n) {
+    n = n.toString()
+    return n[1] ? n : '0' + n
+  }
 })

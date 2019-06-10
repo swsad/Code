@@ -5,6 +5,7 @@
   返回情况：
     {
       success: bool 表示是否正确执行
+      value: object 问卷详情
       error: object 错误描述
     }
 */

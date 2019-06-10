@@ -10,34 +10,32 @@
 }
 
 .questionnaire{
-  background-color: #E3E3E3;
-}
-.questionnaireTitle{
-  margin-left: 45rpx;
-  /* margin-bottom: 30rpx; */
+  background-color: #fff;
 }
 
 .questionnaireDetail{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-top: 30rpx;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
 }
 
 .dateBlock{
   display: flex;
   flex-direction: row;
-  margin-bottom: 10rpx;
+  margin-bottom: 5rpx;
 }
 
 .dateIconClass{
   width: 40rpx;
+  margin-top: 5rpx;
 }
 
 .dateClass{
   font-size: 25rpx;
   margin-left: 10rpx;
-  margin-top: 10rpx;
+  margin-top: 5rpx;
 }
 
 .addressBlock{
@@ -53,7 +51,7 @@
 .addressClass{
   font-size: 25rpx;
   margin-left: 10rpx;
-  margin-top: 10rpx;
+  margin-top: 5rpx;
 }
 
 .priceBlock{
@@ -69,7 +67,6 @@
 .priceClass{
   font-size: 25rpx;
   margin-left: 10rpx;
-  margin-top: 10rpx;
 }
 
 .weui-btn-area{
@@ -82,6 +79,7 @@
   /* border: 1px solid #999; */
   width: 33.3%;
   height: 60rpx;
+  
 }
 
 .typePicker{
@@ -103,7 +101,7 @@
   border-right: 2px solid #999;
   transform: rotate(135deg);
   position: relative;
-  left: 160rpx;
+  left: 100rpx;
   bottom: 50rpx;
 }
 
@@ -115,7 +113,7 @@
   border-right: 2px solid #999;
   transform: rotate(135deg);
   position: relative;
-  left: 160rpx;
+  left: 100rpx;
   bottom: 50rpx;
 }
 
@@ -126,6 +124,20 @@
   border-right: 2px solid #999;
   transform: rotate(135deg);
   position: relative;
-  left: 160rpx;
+  left: 170rpx;
   bottom: 50rpx;
+}
+
+.questionnaireTitle{
+  margin-left: 30rpx;
+  margin-top: 10px;
+  /* margin-bottom: 30rpx; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
+
+.questionnaireItem{
+  border-top: 1px solid #F6F6F6;
+  border-bottom: 2px solid #F6F6F6;
 }

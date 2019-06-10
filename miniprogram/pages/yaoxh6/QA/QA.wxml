@@ -1,12 +1,18 @@
-<view class="weui-cells weui-cells_after-title">
-  <view class="weui-cell">
-    <view class="weui-cell__bd">
-      <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" bindblur='bindblur'></textarea>
-    </view>
-  <!-- <view id="request">
-    <textarea  class='requestContent' placeholder='描述任务详情' bindblur='bindblur'></textarea >
-  </view> -->
+<view class='session'>
+  <view>
+    <text style='color: #CD0000'>* </text>
+    <text>标题：</text>
+  </view>
+  <view id='title'>
+    <textarea class="weui-textarea" placeholder="请输入问题标题" style="height: 5em" bindblur='bindblur'></textarea>
+  </view>
+  <view style='margin-top: 20rpx'>
+    <text style='color: #CD0000'>* </text>
+    <text>描述：</text>
+  </view>
+  <view id="request">
+    <textarea  class='requestContent' placeholder='请输入问题描述' bindblur='bindblur'></textarea >
   </view>
 </view>
 
-<button class="weui-btn" type="primary" bindtap='complete'>完成</button>
+<button class="weui-btn" bindtap='complete'>完成</button>

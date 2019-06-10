@@ -1,34 +1,65 @@
+<view class='session'>
+  <text style='color: #CD0000'>* </text>
   <text>标题：</text>
   <view id="title">
-    <input class='titleContent' placeholder='描述概况' bindblur='bindblurTitle'></input>
+    <input class='titleContent' placeholder='请输入问卷标题' bindblur='bindblurTitle'></input>
   </view>
   <!-- <view class="divLine"></view> -->
-
-  <text>要求：</text>
+</view>
+<view class='session'>
+  <text style='color: #CD0000'>* </text>
+  <text>描述：</text>
   <view id="request">
-    <textarea  class='requestContent' placeholder='描述任务详情' bindblur='bindblurDescription'></textarea >
+    <textarea  class='requestContent' placeholder='请输入问卷详情' bindblur='bindblurDescription'></textarea >
   </view>
   <!-- <view class="divLine"></view> -->
+</view>
 
-<picker value="{{newIndex}}" range='{{typeArray}}' bindchange="bindTypeChange">
-    <image class='addNewQuestion' src='{{addIconPath}}'></image>
-</picker>
-
+<view class="options">
+  <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">问卷报酬：</label></div>
+      <div class="weui-cell__bd">
+          <input data-name='price' bindinput='bindKeyInput' class="weui-input" type="number" value="{{price}}" placeholder="请输入每份的报酬/元"/>
+      </div>
+  </div>
+  <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">投递份数：</label></div>
+      <div class="weui-cell__bd">
+          <input data-name='qNum' bindinput='bindKeyInput' class="weui-input" type="number" value="{{qNum}}" placeholder="请输入投递的份数/份"/>
+      </div>
+  </div>    
+  <view class="section weui-cell">
+    <view class="section__title">发放校区：</view>
+    <picker bindchange="bindPickerChange" value="{{campusIndex}}" range="{{campusArray}}">
+      <view class="picker">
+        {{campusArray[campusIndex]}}
+      </view>
+    </picker>
+  </view>
+  <view class="section weui-cell">
+    <view class="section__title">截止时间：</view>
+    <picker mode="date" value="{{date}}" start="{{startDate}}" end="{{maxEndDate}}" bindchange="bindDateChange">
+      <view class="picker" decode="{{true}}">
+        {{date}} 23:59
+      </view>
+    </picker>
+  </view>
+</view>
 
 <view id = 'body' wx:for="{{questionnaireArray}}" wx:key="id" wx:for-index='fatherIndex'>
   <block wx:if="{{item.type === 'SCQ'}}">
     <view class = 'SCQ' data-id='{{fatherIndex}}'>
       <view class='SCQTitle'>
-        <view class='SCQQ'>Q</view>
-        <view class='SCQindex'>{{fatherIndex+1}}</view>
-        <view class='SCQquto'>:</view>
-        <textarea auto-height='true' class='SCQDiscription' value='{{item.content.description}}' bindblur='bindblurSCQ' data-id='{{fatherIndex}}'></textarea>
+        <view class='Index'>Q</view>
+        <view class='Index'>{{fatherIndex+1}}</view>
+        <view class='Index'>: </view>
+        <textarea placeholder='单选题问题输入' auto-height='true' class='SCQDiscription' value='{{item.content.description}}' bindblur='bindblurSCQ' data-id='{{fatherIndex}}'></textarea>
         <image class='SCQaddIcon1' src='{{addIconPath1}}' mode='widthFix' catchtap='addSCQ' data-id='{{fatherIndex}}'></image>
         <image class='SCQdeleteIcon1' src='{{deletePath1}}' mode='widthFix' catchtap='deleteSCQ' data-id='{{fatherIndex}}'></image>
       </view>
       <view class='SCQOption' wx:for="{{item.content.options}}" wx:key="SCQID" data-id='{{fatherIndex}}' bindtouchstart='getTempFatherIndex'>
-        <!-- <image class='SCQselectIcon' src="{{item.isSelected?'../../../images/SAQ2.png':'../../../images/SAQ1.png'}}" mode='widthFix'></image> -->
-        <textarea auto-height='true' value='{{item.name}}' class='SCQText' bindblur='bindblurOneOfSCQ' data-id='{{index}}'></textarea>
+        <image class='SCQselectIcon' src="{{item.isSelected?'../../../images/SAQ1.png':'../../../images/SAQ1.png'}}" mode='widthFix'></image>
+        <textarea placeholder='单选题选项' auto-height='true' value='{{item.name}}' class='SCQText' bindblur='bindblurOneOfSCQ' data-id='{{index}}'></textarea>
         <image class='SCQdeleteIcon' src='{{deletePath}}' mode='widthFix' data-id='{{index}}' catchtap='deleteOneOfSCQ'></image>
       </view>
     </view>
@@ -36,16 +67,16 @@
   <block wx:if="{{item.type === 'MCQ'}}">
     <view class = 'MCQ' data-id='{{fatherIndex}}'>
       <view class='MCQTitle'>
-        <view class='MCQQ'>Q</view>
-        <view class='MCQindex'>{{fatherIndex+1}}</view>
-        <view class='MCQquto'>:</view>
-        <textarea auto-height='true' class='MCQDiscription' value='{{item.content.description}}' data-id='{{fatherIndex}}' bindblur='bindblurMCQ'></textarea>
+        <view class='Index'>Q</view>
+        <view class='Index'>{{fatherIndex+1}}</view>
+        <view class='Index'>:</view>
+        <textarea placeholder='多选题问题输入' auto-height='true' class='MCQDiscription' value='{{item.content.description}}' data-id='{{fatherIndex}}' bindblur='bindblurMCQ'></textarea>
         <image class='MCQaddIcon1' src='{{addIconPath1}}' mode='widthFix' bindtap='addMCQ' data-id='{{fatherIndex}}'></image>
         <image class='MCQdeleteIcon1' src='{{deletePath1}}' mode='widthFix' bindtap='deleteMCQ' data-id='{{fatherIndex}}'></image>
       </view>
       <view class='MCQOption' wx:for="{{item.content.options}}" wx:key="MCQID" data-id='{{fatherIndex}}' bindtouchstart='getTempFatherIndex'>
-        <!-- <image class='MCQselectIcon' src="{{item.isSelected?'../../../images/MAQ2.png':'../../../images/MAQ1.png'}}" mode='widthFix'></image> -->
-        <textarea auto-height='true' class='MCQText' value='{{item.name}}' data-id='{{index}}' bindblur='bindblurOneOfMCQ'></textarea>
+        <image class='MCQselectIcon' src="{{item.isSelected?'../../../images/MAQ1.png':'../../../images/MAQ1.png'}}" mode='widthFix'></image>
+        <textarea placeholder='多选题选项' auto-height='true' class='MCQText' value='{{item.name}}' data-id='{{index}}' bindblur='bindblurOneOfMCQ'></textarea>
         <image class='MCQdeleteIcon' src='{{deletePath}}' mode='widthFix' catchtap='deleteOneOfMCQ' data-id='{{index}}'></image>
       </view>
     </view>
@@ -53,15 +84,20 @@
   <block wx:if="{{item.type === 'SAQ'}}">
     <view class = 'SAQ' data-id='{{fatherIndex}}'>
       <view class='SAQTitle'>
-        <view class='SAQQ'>Q</view>
-        <view class='SAQindex'>{{fatherIndex+1}}</view>
-        <view class='SAQquto'>:</view>
-        <textarea auto-height='true' class='SAQDiscription' value='{{item.content.description}}' data-id='{{fatherIndex}}' bindblur='bindblurSAQ'></textarea>
+        <view class='Index'>Q</view>
+        <view class='Index'>{{fatherIndex+1}}</view>
+        <view class='Index'>:</view>
+        <textarea placeholder='问答题问题输入' auto-height='true' class='SAQDiscription' value='{{item.content.description}}' data-id='{{fatherIndex}}' bindblur='bindblurSAQ'></textarea>
         <image class='SAQdeleteIcon' src='{{deletePath1}}' mode='widthFix' bindtap='deleteSAQ' data-id='{{fatherIndex}}'></image>
       </view>
-      <textarea auto-height='true' class = "SAQAnswer" value='{{item.content.answer}}' bindblur='bindblurAnswerOfSAQ' data-id='{{fatherIndex}}'></textarea>
+      <textarea placeholder='问答题回答' auto-height='true' class = "SAQAnswer" value='{{item.content.answer}}' bindblur='bindblurAnswerOfSAQ' data-id='{{fatherIndex}}'></textarea>
     </view>
   </block>
 </view>
 
-<button class="weui-btn" type="primary" bindtap='showQ'>下一步</button>
+<view id='bottomButton'>
+  <picker class='newQuestionButton' value="{{newIndex}}" range='{{typeArray}}' bindchange="bindTypeChange">
+      <button class='newButton' >新增问题</button>
+  </picker>
+  <button class="nextButton" bindtap='showQ'>发布问卷</button>
+</view>

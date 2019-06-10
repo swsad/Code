@@ -1,54 +1,54 @@
 {
   "pages": [
-    "pages/yaoxh6/task/task",
-    "pages/yaoxh6/item/item",
-    "pages/yaoxh6/questionnaire/questionnaire",
-    "pages/yaoxh6/QA/QA",
-    "pages/yaoxh6/answerQA/answerQA",
-    "pages/yaoxh6/mine/mine",
-    "pages/yaoxh6/publish/publish",
-    "pages/yaoxh6/publish2/publish2",
-    "pages/yaoxh6/posted/posted",
     "pages/testCloudFunction/testCloudFunction",
-    "pages/yaoxh6/login/login",
-    "pages/yaoxh6/test/test",
+    "pages/yaoxh6/questionnaire/questionnaire",
+    "pages/yaoxh6/mine/mine",
+    "pages/yaoxh6/posted/posted",     
+    "pages/yaoxh6/publish/publish",        
+    "pages/yaoxh6/answerQA/answerQA",
+    "pages/yaoxh6/QA/QA",
+    "pages/yaoxh6/item/item",
     "pages/yaoxh6/myInfo/myInfo",
-    "pages/index/index",
+    "pages/yaoxh6/login/login",
+    "pages/yaoxh6/publish2/publish2",
+    "pages/yaoxh6/task/task",
+    
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
+    "pages/chooseLib/chooseLib",
+    "pages/index/index",    
+    "pages/yaoxh6/test/test"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#5CACEE",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "publish",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#5CACEE",
+    "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
     "color": "#a9b7b7",
-    "selectedColor": "#11cd6e",
+    "selectedColor": "#5CACEE",
     "borderStyle": "black",
     "list": [
       {
-        "selectedIconPath": "images/task2.png",
-        "iconPath": "images/task1.png",
+        "selectedIconPath": "images/task_selected.png",
+        "iconPath": "images/task_unselected.png",
         "pagePath": "pages/yaoxh6/task/task",
         "text": "任务"
       },
       {
-        "selectedIconPath": "images/publish2.png",
-        "iconPath": "images/publish1.png",
-        "pagePath": "pages/yaoxh6/publish2/publish2",
+        "selectedIconPath": "images/publish_selected.png",
+        "iconPath": "images/publish_unselected.png",
+        "pagePath": "pages/yaoxh6/questionnaire/questionnaire",
         "text": "发布"
       },
       {
-        "selectedIconPath": "images/mine2.png",
-        "iconPath": "images/mine1.png",
+        "selectedIconPath": "images/mine_selected.png",
+        "iconPath": "images/mine_unselected.png",
         "pagePath": "pages/yaoxh6/mine/mine",
         "text": "我的"
       }

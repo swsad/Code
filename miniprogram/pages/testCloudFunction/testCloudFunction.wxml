@@ -76,6 +76,14 @@
     <view class="list-item" bindtap="getUserFillInQuestionnaire">
       <text>获取当前用户填写的所有问卷</text>
     </view>
+
+    <view class="list-item" bindtap="getUserAskQuestion">
+      <text>获取当前用户的所有提问</text>
+    </view>
+
+    <view class="list-item" bindtap="getUserAnswerQuestion">
+      <text>获取当前用户的所有回答</text>
+    </view>
   </view>
 
 </view>

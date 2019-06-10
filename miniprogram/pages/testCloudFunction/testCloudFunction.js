@@ -374,7 +374,7 @@ Page({
     wx.cloud.callFunction({
       name: 'reply_question',
       data: {
-        qid: '2d9d2d8c5cfa14850117e89e463bd468',
+        qid: 'cbdb4c165cfdc3d402de69ae5dd734af',
         time: '2019/06/07',
         title: '测试',
         content: '测试'
@@ -499,6 +499,52 @@ Page({
           title: '调用失败',
         })
         console.error('[云函数] [get_user_questionnaire] 调用失败：', err)
+      }
+    })
+  },
+
+  getUserAskQuestion: function () {
+    wx.cloud.callFunction({
+      name: 'get_user_question',
+      data: {
+        self_ask: true,
+        self_answer: false
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        console.log(res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_user_question] 调用失败：', err)
+      }
+    })
+  },
+
+  getUserAnswerQuestion: function () {
+    wx.cloud.callFunction({
+      name: 'get_user_question',
+      data: {
+        self_ask: false,
+        self_answer: true
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        console.log(res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_user_question] 调用失败：', err)
       }
     })
   }

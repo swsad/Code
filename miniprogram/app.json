@@ -1,25 +1,24 @@
 {
   "pages": [
-    "pages/testCloudFunction/testCloudFunction",
-    "pages/yaoxh6/questionnaire/questionnaire",
-    "pages/yaoxh6/mine/mine",
-    "pages/yaoxh6/posted/posted",     
-    "pages/yaoxh6/publish/publish",        
+    "pages/yaoxh6/task/task",
     "pages/yaoxh6/answerQA/answerQA",
+    "pages/yaoxh6/questionnaire/questionnaire",
     "pages/yaoxh6/QA/QA",
     "pages/yaoxh6/item/item",
+    "pages/testCloudFunction/testCloudFunction",
+    "pages/yaoxh6/mine/mine",
+    "pages/yaoxh6/posted/posted",
+    "pages/yaoxh6/publish/publish",
     "pages/yaoxh6/myInfo/myInfo",
     "pages/yaoxh6/login/login",
     "pages/yaoxh6/publish2/publish2",
-    "pages/yaoxh6/task/task",
-    
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
     "pages/chooseLib/chooseLib",
-    "pages/index/index",    
+    "pages/index/index",
     "pages/yaoxh6/test/test"
   ],
   "window": {
@@ -43,7 +42,7 @@
       {
         "selectedIconPath": "images/publish_selected.png",
         "iconPath": "images/publish_unselected.png",
-        "pagePath": "pages/yaoxh6/questionnaire/questionnaire",
+        "pagePath": "pages/yaoxh6/publish2/publish2",
         "text": "发布"
       },
       {

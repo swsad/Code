@@ -38,9 +38,9 @@
   </view>
   <view class="section weui-cell">
     <view class="section__title">截止时间：</view>
-    <picker mode="date" value="{{date}}" start="{{startDate}}" end="{{maxEndDate}}" bindchange="bindDateChange">
+    <picker mode="date" value="{{endDate}}" start="{{startDate}}" end="{{maxEndDate}}" bindchange="bindDateChange">
       <view class="picker" decode="{{true}}">
-        {{date}} 23:59
+        {{endDate}} 23:59
       </view>
     </picker>
   </view>

@@ -9,8 +9,8 @@ page{
   border: 1rpx solid #E3E3E3;
   margin-left: 20rpx;
   margin-right: 20rpx;
-  margin-top: 100rpx;
-  margin-bottom: 20rpx;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
 }
 
 /* .divLine{

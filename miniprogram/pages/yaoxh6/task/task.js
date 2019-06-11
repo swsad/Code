@@ -23,7 +23,7 @@ Page({
       areaArray: ['东校', '南校','珠海','深圳','北校'],
       areaIndex: 0,
       typeArray: ['问卷', '问答'],
-      typeIndex: 0,
+      typeIndex: 1,
       orderArray: [Orders.ORDER_TIME, Orders.ORDER_REWARD],
       orderIndex: 0,
       taskArray: [],
@@ -199,9 +199,8 @@ Page({
   },
   goDetail: function (content) {
     var tempIndex = content.currentTarget.dataset.id;
-    console.log(this.data.questionnairesArray[tempIndex])
     wx.navigateTo({
-      url: '../item/item?id=' + this.data.questionnairesArray[tempIndex]._id + '&title=' + this.data.questionnairesArray[tempIndex].name,
+      url: '../item/item?id=' + this.data.questionnairesArray[tempIndex]._id + '&title=' + this.data.questionnairesArray[tempIndex].name + '&reward=' + this.data.questionnairesArray[tempIndex].reward,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
@@ -209,9 +208,8 @@ Page({
   },
   goQADetail: function (content) {
     var tempIndex = content.currentTarget.dataset.id;
-    console.log(this.data.QAsArray[tempIndex]._id)
     wx.navigateTo({
-      url: '../answerQA/answerQA?id=' + this.data.QAsArray[tempIndex]._id,
+      url: '../answerQA/answerQA?id=' + this.data.QAsArray[tempIndex]._id + '&title=' + this.data.QAsArray[tempIndex].title + '&content=' + this.data.QAsArray[tempIndex].content,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

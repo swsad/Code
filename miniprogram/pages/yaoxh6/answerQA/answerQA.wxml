@@ -9,16 +9,26 @@
     </view>
   </view>
 
+  <wxs module="tools">
+    var toStdTime = function (time) {
+      var array = time.split('-')
+      return [array[0], array[1], array[2]].join('-') + ' ' + [array[3], array[4]].join(':')
+    }
+    module.exports = {
+      toStdTime: toStdTime
+    }
+  </wxs>
+
   <scroll-view scroll-y='true' id="commentContent">
-    <view class="weui-panel__bd" wx:for="{{answerData.answerArray}}" wx:key="id">
+    <view class="weui-panel__bd" wx:for="{{answerData}}" wx:key="id">
       <view class="weui-media-box weui-media-box_appmsg">
         <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
           <image class="weui-media-box__thumb" src="{{answerIcon}}" />
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
           <!-- <view class="weui-media-box__title">标题一</view> -->
-          <view class="weui-media-box__desc">{{item.answerContent}}</view>
-          <view class="weui-media-box__desc">{{item.answerDate}}</view>
+          <view class="weui-media-box__desc">{{tools.toStdTime(item.time)}}</view>
+          <view class="weui-media-box__desc">{{item.content}}</view>
           <!-- <view class='support'>
             <image class='supportPic' src='{{supportIcon}}' mode='widthFix'></image>
             <view class='numOfSupport'>17</view>
@@ -29,13 +39,9 @@
   </scroll-view>
 
   <view id='comment'>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell">
-        <view class="weui-cell__bd">
-          <textarea class="weui-textarea" placeholder="请输入评论" style="height: 3.3em" bindinput='commentBindBlur' value='{{comment}}' focus='{{focus}}'></textarea>
-          <!-- <view class="weui-textarea-counter">0/200</view> -->
-        </view>
-      </view>
+    <view id='review'>
+      <textarea class="weui-textarea" placeholder="请输入评论" style="height: 3.3em" bindinput='commentBindBlur' value='{{comment}}' focus='{{focus}}'></textarea>
+      <!-- <view class="weui-textarea-counter">0/200</view> -->
     </view>
     <button class="weui-btn" bindtap='addComment'>发布评论</button>
   </view>

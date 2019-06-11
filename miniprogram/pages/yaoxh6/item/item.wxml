@@ -1,7 +1,7 @@
 <view id="title">
   <view class='titleContent'>{{title}}</view>
   <image class='titlePriceIcon' src='{{priceIcon}}' mode='widthFix'></image>
-  <view class='priceContent'>25</view>
+  <view class='priceContent'>{{reward}}</view>
   <view class='priceUnit'>元</view>
 </view>
 

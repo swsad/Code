@@ -10,6 +10,7 @@ Page({
     priceIcon: "../../../images/price.png",
     currentFatherIndex: 0,
     title: "title",
+    reward: '',
     qid: '',
     questionnaireArray: [
     ],
@@ -19,9 +20,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id)
     this.setData({
       title: options.title,
+      reward: options.reward,
       qid: options.id
     })
     wx.cloud.callFunction({
@@ -31,7 +32,6 @@ Page({
       },
       success: res => {
         var json = util.deBlocking(res)
-        console.log(json)
         var content = json[0].content
         // console.log(JSON.parse(content))
         

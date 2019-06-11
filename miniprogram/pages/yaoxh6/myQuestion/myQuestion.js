@@ -94,10 +94,12 @@ Page({
   showQADetail: function (event) {
     var qid = event.currentTarget.dataset.qid;
     console.log("接下来跳转到", qid);
+    
     wx.cloud.callFunction({
-      name: 'get_questionnaire_detail',
+      name: 'get_user_question',
       data: {
-        qid : qid,
+        self_ask: false,
+        self_answer: true
       },
       success: res => {
         wx.showToast({
@@ -109,7 +111,7 @@ Page({
           icon: 'none',
           title: '调用失败',
         })
-        console.error('[云函数] [get_questionnaire_detail] 调用失败：', err)
+        console.error('[云函数] [get_user_question] 调用失败：', err)
       }
     })
   }  

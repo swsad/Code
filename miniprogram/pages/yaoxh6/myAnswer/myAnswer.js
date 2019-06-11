@@ -1,4 +1,3 @@
-// miniprogram/pages/yaoxh6/myAnswer/myAnswer.js
 Page({
 
   /**
@@ -12,6 +11,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.cloud.callFunction({
+      name: 'get_user_question',
+      data: {
+        self_ask: false,
+        self_answer: true
+      },
+      success: res => {
+        console.log(res);
+        wx.showToast({
+          title: '调用成功',
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_user_question] 调用失败：', err)
+      }
+    })    
     var tempArray = this.data.answerInfo;
     var getInfo = [
       {
@@ -98,26 +117,8 @@ Page({
   },
 
   showQADetail: function (event) {
+
     var qid = event.currentTarget.dataset.qid;
     console.log("接下来跳转到", qid);
-    wx.cloud.callFunction({
-      name: 'get_reply',
-      data: {
-        qid: qid,
-      },
-      success: res => {
-        wx.showToast({
-          title: '调用成功',
-        })
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '调用失败',
-        })
-        console.error('[云函数] [get_reply] 调用失败：', err)
-      }
-    })
   }
-
 })

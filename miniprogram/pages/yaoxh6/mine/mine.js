@@ -6,7 +6,7 @@ Page({
    */
   data: {
     MyPurseIcon:"../../../images/myWallet.png",
-    MyCollectionIcon:"../../../images/myFavourite.png",
+    MyCollectionIcon:"../../../images/aboutUs.png",
     CallCenterIcon:"../../../images/customerService.png",
     PersonalSettingIcon:"../../../images/setting.png",
     myAnswerIcon:"../../../images/waitToFinish.png",

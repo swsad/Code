@@ -1,4 +1,3 @@
-// miniprogram/pages/yaoxh6/myQuestion/myQuestion.js
 Page({
 
   /**
@@ -95,5 +94,25 @@ Page({
   showQADetail: function (event) {
     var qid = event.currentTarget.dataset.qid;
     console.log("接下来跳转到", qid);
+    
+    wx.cloud.callFunction({
+      name: 'get_user_question',
+      data: {
+        self_ask: false,
+        self_answer: true
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_user_question] 调用失败：', err)
+      }
+    })
   }  
 })

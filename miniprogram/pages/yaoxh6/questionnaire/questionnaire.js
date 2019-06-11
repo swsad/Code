@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    canBePublished:false,
     price: "1",
     qNum: "100",
     campusArray: ["全部", "东校", "南校", "北校", "珠海", "深圳"],
@@ -220,9 +221,42 @@ Page({
   },
 
   showQ:function(){
-    if (this.data.descriptionContent == '' || this.data.titleContent == ''){
+    this.setData({
+      canBePublished: true,
+    })
+
+    if(this.data.descriptionContent == '' || this.data.titleContent == '' || this.data.price == '' || this.data.qNum == ''){
+      this.setData({
+        canBePublished : false,
+      })
+    }
+
+    if(this.data.questionnaireArray.length == 0){
+      this.setData({
+        canBePublished: false,
+      })
+    }
+
+    for(var i = 0;i<this.data.questionnaireArray.length;i++){
+      if(this.data.questionnaireArray[i].content.description == ''){
+        this.setData({
+          canBePublished: false,
+        })
+      }
+      else if (this.data.questionnaireArray[i].type == 'SCQ' || this.data.questionnaireArray[i].type == 'MCQ'){
+        for(var j = 0;j<this.data.questionnaireArray[i].content.options.length;j++){
+          if(this.data.questionnaireArray[i].content.options[j].name == ''){
+            this.setData({
+              canBePublished: false,
+            })
+          }
+        }
+      }
+    }
+
+    if (this.data.canBePublished == false){
       wx.showToast({
-        title: '标题或要求为空',
+        title: '输入不能为空',
       })
       return;
     }

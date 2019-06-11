@@ -1,4 +1,3 @@
-<!--miniprogram/pages/yaoxh6/myQuestion/myQuestion.wxml-->
 <view class="info" wx:for="{{questionInfo}}" wx:key="id">
   <view class='infoItem'>
       <view class="infoName">{{item.infoName}}</view>

@@ -71,13 +71,11 @@ Page({
   },
 
   complete:function(){
-    console.log(this.data.question)
-    console.log(this.data.description)
-    if(this.data.question == ''){
+    if(this.data.question == '' || this.data.description == ''){
       wx.showToast({
         title: '输入不能为空',
-        icon:'none'
       })
+      return;
     }
 
     wx.cloud.callFunction({

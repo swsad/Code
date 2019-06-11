@@ -1,15 +1,15 @@
 <!--miniprogram/pages/yaoxh6/aboutUs/aboutUs.wxml-->
 <view class='infoItem'>
     <view class="infoName">古文鑫</view>
-    <view class="infoValue">163400xx</view>
+    <view class="infoValue">16340064</view>
 </view>
 <view class='infoItem'>
     <view class="infoName">姚雪辉</view>
-    <view class="infoValue">163400xx</view>
+    <view class="infoValue">15355119</view>
 </view>
 <view class='infoItem'>
     <view class="infoName">朱逸渠</view>
-    <view class="infoValue">163400xx</view>
+    <view class="infoValue">16340316</view>
 </view>
 <view class='infoItem'>
     <view class="infoName">黄嘉杰</view>

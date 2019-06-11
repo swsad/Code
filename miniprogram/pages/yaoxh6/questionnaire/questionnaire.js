@@ -255,10 +255,10 @@ Page({
     }
 
     if (this.data.canBePublished == false){
-      wx.showToast({
-        title: '输入不能为空',
-      })
-      return;
+      // wx.showToast({
+      //   title: '输入不能为空',
+      // })
+      // return;
     }
     //console.log(this.data.questionnaireArray);
     //console.log("test" + this.data.descriptionContent)
@@ -266,9 +266,9 @@ Page({
 
     // publish time
     this.setData({
-      startTime: util.getTime
+      startTime: util.getTime()
     })
-
+    
     wx.cloud.callFunction({
       name: 'release_questionnaire',
       data: {

@@ -21,6 +21,7 @@ Page({
   onLoad: function (options) {
     console.log(options.id)
     this.setData({
+      title: options.title,
       qid: options.id
     })
     wx.cloud.callFunction({

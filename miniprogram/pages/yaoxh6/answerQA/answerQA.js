@@ -19,6 +19,7 @@ Page({
         }
       ]
     },
+    qid: '',
     comment:'',
   },
 
@@ -26,7 +27,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options.id)
+    this.setData({
+      qid: options.id
+    })
+    wx.cloud.callFunction({
+      name: 'get_reply',
+      data: {
+        qid: options.id
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        console.log(util.deBlocking(res))
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_reply] 调用失败：', err)
+      }
+    })
   },
 
   /**

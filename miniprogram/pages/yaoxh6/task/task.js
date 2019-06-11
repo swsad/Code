@@ -199,9 +199,9 @@ Page({
   },
   goDetail: function (content) {
     var tempIndex = content.currentTarget.dataset.id;
-    console.log(this.data.questionnairesArray[tempIndex]._id)
+    console.log(this.data.questionnairesArray[tempIndex])
     wx.navigateTo({
-      url: '../item/item?id=' + this.data.questionnairesArray[tempIndex]._id,
+      url: '../item/item?id=' + this.data.questionnairesArray[tempIndex]._id + '&title=' + this.data.questionnairesArray[tempIndex].name,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

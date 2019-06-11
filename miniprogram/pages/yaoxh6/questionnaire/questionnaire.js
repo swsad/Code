@@ -6,12 +6,14 @@ Page({
    */
   data: {
     canBePublished:false,
-    price: "",
-    qNum: "",
+    price: "1",
+    qNum: "100",
     campusArray: ["全部", "东校", "南校", "北校", "珠海", "深圳"],
     campusIndex: 0,
-    date: "",
-    startDate: "",    
+    endDate: "",
+    startDate: "",
+    startTime: "",
+    maxEndDate: "", 
     titleContent: '',
     descriptionContent: '',
     addIconPath1:'../../../images/plus.png',
@@ -21,53 +23,21 @@ Page({
     newIndex: 0,
     addIconPath: "../../../images/addIcon.png",
     currentFatherIndex : 0,
-    questionnaireArray : [
-      // {
-      //   "type": "SCQ",
-      //   "content": {
-      //     "description": "Which fruit do you like best?",
-      //     "options":
-      //       [
-      //         { "id": 1, "name": "Lua", "isSelected": false },
-      //         { "id": 2, "name": "Java", "isSelected": true },
-      //         { "id": 3, "name": "C++", "isSelected": false }
-      //       ]
-      //   }
-      // },
-      // {
-      //   "type": "MCQ",
-      //   "content": {
-      //     "description": "Which fruit do you like?",
-      //     "options":
-      //       [
-      //         { "id": 1, "name": "OK", "isSelected": true },
-      //         { "id": 2, "name": "Java", "isSelected": false },
-      //         { "id": 3, "name": "C++", "isSelected": true }
-      //       ]
-      //   }
-      // },
-      // {
-      //   "type": "SAQ",
-      //   "content": {
-      //     "description": "What's your name?",
-      //     "answer":"i dont know"
-      //   }
-      // }
-    ],
+    questionnaireArray : [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var date = new Date();
-    var options = { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: "Asia/Shanghai" };
-    var y = date.toLocaleDateString('default', options);
-    var dateString = y.replace(/\//g, '-');
     this.setData({
-      date: dateString,
-      startDate: dateString
+      startTime: util.getTime(),
     })
+    this.setData({
+      startDate: this.data.startTime.substring(0, 10),
+      endDate: this.data.startTime.substring(0, 10)
+    })
+    this.updateMaxEndDate()
   },
 
   /**
@@ -293,11 +263,18 @@ Page({
     //console.log(this.data.questionnaireArray);
     //console.log("test" + this.data.descriptionContent)
     var position = this.data.campusArray[this.data.campusIndex];
+
+    // publish time
+    this.setData({
+      startTime: util.getTime
+    })
+
     wx.cloud.callFunction({
       name: 'release_questionnaire',
       data: {
         name: this.data.titleContent,
-        time: this.data.date.replace(/-/g, '/'),
+        publish_time: this.data.startTime,
+        deadline: this.data.date,
         category: 'c1',
         reward: this.data.price,
         position: position,
@@ -389,10 +366,12 @@ Page({
     });
   },
   bindDateChange: function (e) {
-    //console.log('picker发送选择改变，携带值为', e.detail.value)
+    // console.log('picker发送选择改变，携带值为', e.detail.value)
+    // 截止日期最迟为一年后
     this.setData({
-      date: e.detail.value
+      endDate: e.detail.value
     })
+    this.updateMaxEndDate()
   },
   bindPickerChange: function (e) {
     //console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -409,4 +388,17 @@ Page({
     this.setData(temp);
     //console.log(this.data[name])
   },  
+  updateMaxEndDate: function () {
+    var currDate = new Date()
+    var year = currDate.getFullYear() + 10
+    var month = currDate.getMonth() + 1
+    var day = currDate.getDate()
+    this.setData({
+      maxEndDate: [year, month, day].map(this.formatNumber).join('-')
+    })
+  },
+  formatNumber: function (n) {
+    n = n.toString()
+    return n[1] ? n : '0' + n
+  }
 })

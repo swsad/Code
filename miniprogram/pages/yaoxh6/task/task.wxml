@@ -27,10 +27,6 @@
 </view>
 
 <view class="weui-btn-area">
-    <picker class='areaPicker' value="{{areaIndex}}" range='{{areaArray}}' bindchange="bindAreaChange">
-        <view >{{areaArray[areaIndex]}} </view>
-        <view class="areaArrow"></view>
-    </picker>
     <picker class='typePicker' value="{{typeIndex}}" range='{{typeArray}}' bindchange="bindTypeChange">
         <view >{{typeArray[typeIndex]}} </view>
         <view class="typeArrow"></view>
@@ -41,13 +37,30 @@
     </picker>
 </view>
 
-<view class="questionnaire" wx:for="{{questionnairesArray}}" wx:key="id">
+<wxs module="tools">
+  var timeToDate = function (time) {
+    return time.substring(0, 10)
+  }
+  var isQN = function (list) {
+    return list == '问卷'
+  }
+  var isQA = function (list) {
+    return list == '问答'
+  }
+  module.exports = { 
+    timeToDate: timeToDate,
+    isQN: isQN,
+    isQA: isQA 
+  }
+</wxs>
+
+<view class="questionnaire" wx:for="{{questionnairesArray}}" wx:key="id" hidden="{{!tools.isQN(typeArray[typeIndex])}}">
   <view class='questionnaireItem' bindtap='goDetail' data-id="{{index}}">
     <view class="questionnaireTitle">{{item.name}}</view>
     <view class="questionnaireDetail">
       <view class="dateBlock">
         <image class="dateIconClass" src="{{DateIcon}}" mode='widthFix'></image>
-        <view class="dateClass">{{item.time}} </view>
+        <view class="dateClass">{{tools.timeToDate(item.publish_time)}} </view>
       </view>
       <view class="addressBlock">
         <image class="addressIconClass" src="{{AddressIcon}}" mode='widthFix'></image>
@@ -56,6 +69,22 @@
       <view class="priceBlock">
         <image class="priceIconClass" src="{{PriceIcon}}" mode='widthFix'></image>
         <view class="priceClass">{{item.reward}} </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="questionnaire" wx:for="{{QAsArray}}" wx:key="id" hidden="{{!tools.isQA(typeArray[typeIndex])}}">
+  <view class='questionnaireItem' bindtap='goQADetail' data-id="{{index}}">
+    <view class="questionnaireTitle">{{item.title}}</view>
+    <view class="questionnaireDetail">
+      <view class="dateBlock">
+        <image class="dateIconClass" src="{{DateIcon}}" mode='widthFix'></image>
+        <view class="dateClass">{{tools.timeToDate(item.time)}} </view>
+      </view>
+      <view class="addressBlock">
+      </view>
+      <view class="priceBlock">
       </view>
     </view>
   </view>

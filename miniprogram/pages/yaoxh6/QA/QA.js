@@ -1,3 +1,5 @@
+var util = require('../../../utils.js');
+
 // pages/yaoxh6/QA/QA.js
 Page({
 
@@ -8,7 +10,8 @@ Page({
     answerIcon: "../../../images/price.png",
     questionIcon: "../../../images/price.png",
     supportIcon: "../../../images/support1.png",
-    question:''
+    question: "",
+    description: ""
   },
 
   /**
@@ -68,18 +71,44 @@ Page({
   },
 
   complete:function(){
-    console.log(this.data.question);
-    if(this.data.question == ''){
+    if(this.data.question == '' || this.data.description == ''){
       wx.showToast({
         title: '输入不能为空',
-        icon:'none'
       })
+      return;
     }
+
+    wx.cloud.callFunction({
+      name: 'ask_question',
+      data: {
+        time: util.getTime(),
+        title: this.data.question,
+        content: this.data.description
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [ask_question] 调用失败：', err)
+      }
+    })
   },
 
-  bindblur:function(input){
+  bindinputQuestion: function(input) {
     this.setData({
       question: input.detail.value
     });
+  },
+
+  bindinputDescription: function(input) {
+    this.setData({
+      description: input.detail.value
+    })
   }
 })

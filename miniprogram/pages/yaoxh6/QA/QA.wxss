@@ -16,7 +16,6 @@
 }
 
 #title{
-  height: 100rpx;
   padding: 20rpx;
   margin-top: 10rpx;
   /* color:#D4D4D4; */
@@ -24,7 +23,6 @@
   border: 1rpx solid #E3E3E3;
 }
 #request{
-  height: 200rpx;
   padding: 20rpx;
   margin-top: 10rpx;
   /* color:#D4D4D4; */

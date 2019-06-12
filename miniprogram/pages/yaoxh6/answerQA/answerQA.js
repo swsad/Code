@@ -95,6 +95,15 @@ Page({
         wx.showToast({
           title: '调用成功',
         })
+        const data = this.data.answerData
+        data.push({
+          time: util.getTime(),
+          content: this.data.comment,
+          like_count: 0
+        })
+        this.setData({
+          answerData: data
+        })
       },
       fail: err => {
         wx.showToast({

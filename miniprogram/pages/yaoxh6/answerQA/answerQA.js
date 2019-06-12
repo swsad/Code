@@ -104,6 +104,9 @@ Page({
         this.setData({
           answerData: data
         })
+        this.setData({
+          comment: ""
+        })
       },
       fail: err => {
         wx.showToast({

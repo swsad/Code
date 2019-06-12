@@ -25,6 +25,11 @@ exports.main = async (event, context) => {
       qid: event.qid
     }).get()
     console.log('[result]: ', result)
+    for (var i = 0; i < result.data.length; i++) {
+      if (result.data[i].uid == wxContext.OPENID) {
+        result.data[i].self_liked = true;
+      }
+    }
     console.log('[完成]: 完成获取回答')
     return {
       success: true,

@@ -30,7 +30,8 @@
           <view class="weui-media-box__title">{{item.content}}</view>        
           <view class='support'>
             <view class="reply_time">{{tools.toStdTime(item.time)}}</view>
-            <image class='supportPic' src='{{supportIcon}}' mode='widthFix'></image>
+            <image wx:if="{{item.self_liked==false}}" class='supportPic' src='../../../images/support1.png' mode='widthFix' bindtap='onLikeClick' data-index="{{index}}"></image>
+            <image wx:else class='supportPic' src='../../../images/support2.png' mode='widthFix' bindtap='onLikeClick' data-index="{{index}}"></image>
             <view class='numOfSupport'>{{item.like_count}}</view>
           </view>
         </view>

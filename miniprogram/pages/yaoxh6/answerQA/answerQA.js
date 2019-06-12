@@ -141,5 +141,41 @@ Page({
         console.error('[云函数] [get_reply] 调用失败：', err)
       }
     })
+  },
+  onLikeClick: function(event) {
+    console.log('[index]: ', event.currentTarget.dataset['index'])
+    const index = event.currentTarget.dataset['index']
+    wx.cloud.callFunction({
+      name: 'update_like',
+      data: {
+        rid: this.data.answerData[index]._id
+      },
+      success: res => {
+        wx.showToast({
+          title: '调用成功',
+        })
+        const temp = this.data.answerData
+        const isSelfLiked = temp[index].self_liked
+        if (isSelfLiked == true) {
+          temp[index].like_count -= 1
+          temp[index].self_liked = false
+        }
+        else {
+          temp[index].like_count += 1
+          temp[index].self_liked = true
+        }
+        this.setData({
+          answerData: temp
+        })
+        console.log('[data]: ', this.data.answerData)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [update_like] 调用失败：', err)
+      }
+    })
   }
 })

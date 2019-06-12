@@ -21,7 +21,7 @@ exports.main = async (event, context) => {
   console.log('[参数]: ', event)
 
   try {
-    const result = await db.collection('user__reply').where({
+    const result = await db.collection('ur_like_relation').where({
       uid: wxContext.OPENID,
       rid: event.rid
     }).get()
@@ -29,7 +29,7 @@ exports.main = async (event, context) => {
     var count = result.data.length
     console.log('[count]: ', result.data.length)
     if (count == 0) {
-      await db.collection('user__reply').add({
+      await db.collection('ur_like_relation').add({
         data: {
           uid: wxContext.OPENID,
           rid: event.rid
@@ -43,7 +43,7 @@ exports.main = async (event, context) => {
       console.log('[完成]: 完成点赞回复')
     }
     else {
-      await db.collection('user__reply').where({
+      await db.collection('ur_like_relation').where({
         uid: wxContext.OPENID,
         rid: event.rid
       }).remove()

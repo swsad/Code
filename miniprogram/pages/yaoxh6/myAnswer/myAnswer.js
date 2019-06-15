@@ -19,6 +19,9 @@ Page({
       },
       success: res => {
         console.log(res);
+        this.setData({
+          answerInfo: res.result.value
+        })
         wx.showToast({
           title: '调用成功',
         })
@@ -30,40 +33,6 @@ Page({
         })
         console.error('[云函数] [get_user_question] 调用失败：', err)
       }
-    })    
-    var tempArray = this.data.answerInfo;
-    var getInfo = [
-      {
-        answerText: '螺蛳粉，可带劲了啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊',
-        questionTex: '今天吃了什么的问答',
-        qid: 'xxx'
-      },
-      {
-        answerText: '送飞机票',
-        questionTex: '遇到渣女你们是怎么处理的',
-        qid: 'xxx'
-      },
-      {
-        answerText: '乔帮主+1',
-        questionTex: '选乔帮主还是选水军',
-        qid: 'xxx'
-      },
-      {
-        answerText: '没有，约起？',
-        questionTex: '端午有约的吗？',
-        qid: 'xxx'
-      }
-    ]
-    for (var i = 0; i < getInfo.length; i++) {
-      tempArray.push({
-        answerText: getInfo[i]['answerText'],
-        questionTex: getInfo[i]['questionTex'],
-        qid: getInfo[i]['qid']
-      })
-    }
-
-    this.setData({
-      answerInfo: tempArray
     })
   },
 
@@ -118,7 +87,12 @@ Page({
 
   showQADetail: function (event) {
 
-    var qid = event.currentTarget.dataset.qid;
-    console.log("接下来跳转到", qid);
+    var index = event.currentTarget.dataset.index;
+    wx.navigateTo({
+      url: '../answerQA/answerQA?id=' + this.data.answerInfo[index].qid + '&title=' + this.data.answerInfo[index].question_title + '&content=' + this.data.answerInfo[index].question_content,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })    
   }
 })

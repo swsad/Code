@@ -69,6 +69,7 @@ Page({
     wx.cloud.callFunction({
       name: 'get_question',
       success: res => {
+        wx.stopPullDownRefresh();
         wx.showToast({
           title: '调用成功',
         })
@@ -105,7 +106,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onShow();
   },
 
   /**

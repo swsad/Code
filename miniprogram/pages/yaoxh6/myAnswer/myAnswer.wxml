@@ -1,9 +1,9 @@
 <view class="info" wx:for="{{answerInfo}}" wx:key="id">
   <view class='infoItem'>
       <view class='QAInfo'>
-        <view class="answerText">{{item.answerText}}</view>
-        <view class="questionTex">{{item.questionTex}}</view>
+        <view class="answerText">{{item.reply}}</view>
+        <view class="questionTex">{{item.question_title}}</view>
       </view>
-      <button class="weui-btn inLineButton" data-qid="{{item.qid}}" bindtap='showQADetail'>问题详情</button>
+      <button class="weui-btn inLineButton" data-index="{{index}}" bindtap='showQADetail'>问题详情</button>
   </view>
 </view>

@@ -19,7 +19,7 @@ Page({
         self_publish: true
       },
       success: res => {
-        //console.log(res);
+        console.log(res);
         var data = res.result.value;
         for(let i = 0; i < data.length; i++ ) {
           var item = data[i];

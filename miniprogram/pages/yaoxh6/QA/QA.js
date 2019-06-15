@@ -89,6 +89,9 @@ Page({
         wx.showToast({
           title: '调用成功',
         })
+        wx.switchTab({
+          url: "../task/task"
+        })
       },
       fail: err => {
         wx.showToast({

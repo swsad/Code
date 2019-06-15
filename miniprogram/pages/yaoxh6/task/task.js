@@ -69,6 +69,7 @@ Page({
     wx.cloud.callFunction({
       name: 'get_question',
       success: res => {
+        wx.stopPullDownRefresh();
         wx.showToast({
           title: '调用成功',
         })

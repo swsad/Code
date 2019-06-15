@@ -24,6 +24,17 @@ exports.main = async (event, context) => {
     const result = await db.collection('reply').where({
       qid: event.qid
     }).get()
+    console.log('[result]: ', result.data)
+    for (var i = 0; i < result.data.length; i++) {
+      const likes = await db.collection('ur_like_relation').where({
+        rid: result.data[i]._id,
+        uid: wxContext.OPENID
+      }).get()
+      console.log('[like]: ', likes)
+      if (likes.data.length == 1) {
+        result.data[i].self_liked = true;
+      }
+    }
     console.log('[result]: ', result)
     console.log('[完成]: 完成获取回答')
     return {

@@ -35,7 +35,8 @@ exports.main = async (event, context) => {
         qid: event.qid,
         time: event.time,
         content: event.content,
-        like_count: 0
+        like_count: 0,
+        self_liked: false
       }
     })
     console.log('[完成]: 完成回答问题')

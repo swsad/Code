@@ -11,34 +11,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var tempArray = this.data.questionInfo;
-    var getInfo = [
-      {
-        infoName: '今天吃了什么的问答哈哈哈哈哈哈啊哈哈哈哈哈哈啊哈哈哈哈啊哈哈哈',
-        qid: 'xxx'
+    wx.cloud.callFunction({
+      name: 'get_user_question',
+      data: {
+        self_ask: true,
+        self_answer: false
       },
-      {
-        infoName: '遇到渣女你们是怎么处理的',
-        qid: 'xxx'
+      success: res => {
+        console.log(res);
+        this.setData({
+          questionInfo: res.result.value
+        })
+        wx.showToast({
+          title: '调用成功',
+        })
       },
-      {
-        infoName: '选乔帮主还是选水军',
-        qid: 'xxx'
-      },
-      {
-        infoName: '端午有约的吗？',
-        qid: 'xxx'
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [get_user_question] 调用失败：', err)
       }
-    ]
-    for (var i = 0; i < getInfo.length; i++) {
-      tempArray.push({
-        infoName: getInfo[i]['infoName'],
-        qid: getInfo[i]['qid']
-      })
-    }
-
-    this.setData({
-      questionInfo: tempArray
     })
   },
 
@@ -92,27 +86,12 @@ Page({
   },
 
   showQADetail: function (event) {
-    var qid = event.currentTarget.dataset.qid;
-    console.log("接下来跳转到", qid);
-    
-    wx.cloud.callFunction({
-      name: 'get_user_question',
-      data: {
-        self_ask: false,
-        self_answer: true
-      },
-      success: res => {
-        wx.showToast({
-          title: '调用成功',
-        })
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '调用失败',
-        })
-        console.error('[云函数] [get_user_question] 调用失败：', err)
-      }
-    })
+    var index = event.currentTarget.dataset.index;
+    wx.navigateTo({
+      url: '../answerQA/answerQA?id=' + this.data.questionInfo[index].qid + '&title=' + this.data.questionInfo[index].question_title + '&content=' + this.data.questionInfo[index].question_content,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })    
   }  
 })

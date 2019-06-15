@@ -27,12 +27,13 @@
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
           <!-- <view class="weui-media-box__title">标题一</view> -->
-          <view class="weui-media-box__desc">{{tools.toStdTime(item.time)}}</view>
-          <view class="weui-media-box__desc">{{item.content}}</view>
-          <!-- <view class='support'>
-            <image class='supportPic' src='{{supportIcon}}' mode='widthFix'></image>
-            <view class='numOfSupport'>17</view>
-          </view> -->
+          <view class="weui-media-box__title">{{item.content}}</view>        
+          <view class='support'>
+            <view class="reply_time">{{tools.toStdTime(item.time)}}</view>
+            <image wx:if="{{item.self_liked==false}}" class='supportPic' src='../../../images/support1.png' mode='widthFix' bindtap='onLikeClick' data-index="{{index}}"></image>
+            <image wx:else class='supportPic' src='../../../images/support2.png' mode='widthFix' bindtap='onLikeClick' data-index="{{index}}"></image>
+            <view class='numOfSupport'>{{item.like_count}}</view>
+          </view>
         </view>
       </view>
     </view>
@@ -40,7 +41,7 @@
 
   <view id='comment'>
     <view id='review'>
-      <textarea class="weui-textarea" placeholder="请输入评论" style="height: 3.3em" bindinput='commentBindBlur' value='{{comment}}' focus='{{focus}}'></textarea>
+      <textarea class="weui-textarea" placeholder="请输入评论" style="height: 2.8em" bindinput='commentBindBlur' value='{{comment}}' focus='{{focus}}'></textarea>
       <!-- <view class="weui-textarea-counter">0/200</view> -->
     </view>
     <button class="weui-btn" bindtap='addComment'>发布评论</button>

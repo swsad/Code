@@ -208,6 +208,8 @@ Page({
   },
   goQADetail: function (content) {
     var tempIndex = content.currentTarget.dataset.id;
+    console.log(tempIndex);
+    console.log(this.data.QAsArray);
     wx.navigateTo({
       url: '../answerQA/answerQA?id=' + this.data.QAsArray[tempIndex]._id + '&title=' + this.data.QAsArray[tempIndex].title + '&content=' + this.data.QAsArray[tempIndex].content,
       success: function (res) { },

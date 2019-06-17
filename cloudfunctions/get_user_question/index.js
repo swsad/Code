@@ -37,7 +37,8 @@ exports.main = async (event, context) => {
       for (var i = 0; i < qData.length; i++) {
         result[i] = {
           qid: qData[i]._id,
-          question: qData[i].content
+          question_title: qData[i].title,
+          question_content: qData[i].content
         }
       }
       console.log('[完成]: 完成获取当前用户提问的所有问题')
@@ -57,7 +58,9 @@ exports.main = async (event, context) => {
         result[i] = {
           rid: aData[i]._id,
           reply: aData[i].content,
-          question: q.data[0].content
+          qid: q.data[0]._id,
+          question_title: q.data[0].title,
+          question_content: q.data[0].content
         }
       }
       console.log('[完成]: 完成获取当前用户回答的所有问题')

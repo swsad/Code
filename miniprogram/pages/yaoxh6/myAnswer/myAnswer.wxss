@@ -1,16 +1,20 @@
 /* miniprogram/pages/yaoxh6/myAnswer/myAnswer.wxss */
+
 .infoItem {
-  width: 100%;
-  height: 120rpx;
-  line-height: 120rpx;
-  background-color: #E8E8E8;
-  margin-bottom: 5rpx;
+  width: 95%;
+  height: 160rpx;
+  line-height: 160rpx;
+  background-color: #F6F6F6;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
 }
 
 .QAInfo {
   width: 60%;
-  height: 120rpx;
-  line-height: 60rpx;
+  height: 160rpx;
+  line-height: 80rpx;
   padding-left: 30rpx;
   float: left;
 }
@@ -21,7 +25,7 @@
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;   
-  font-size: 30rpx;
+  font-size: 40rpx;
 }
 
 .questionTex {
@@ -30,17 +34,19 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow:ellipsis;     
-  font-size: 20rpx;
+  font-size: 30rpx;
 }
 
 .weui-btn {
   color: white;
   float: right;
   font-size: 30rpx; 
-  height: 60rpx;
-  line-height: 60rpx;
+  height: 80rpx;
+  line-height: 80rpx;
   vertical-align: middle;
   width: 24%;
-  margin-right: 25rpx;
+  margin-right: 20rpx;
   background-color: #63B8FF !important;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
 }

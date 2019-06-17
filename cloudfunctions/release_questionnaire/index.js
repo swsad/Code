@@ -30,6 +30,7 @@ exports.main = async (event, context) => {
     const result = await db.collection('questionnaire_info').add({
       data: {
         name: event.name,
+        description: event.description,
         publish_time: event.publish_time,
         deadline: event.deadline,
         reward: event.reward,
@@ -42,7 +43,6 @@ exports.main = async (event, context) => {
     await db.collection('questionnaire_detail').add({
       data: {
         content: event.content,
-        description: event.description,
         qid: result._id
       }
     }) 

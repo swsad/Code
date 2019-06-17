@@ -1,13 +1,14 @@
 /* miniprogram/pages/yaoxh6/posted/posted.wxss */
 
-
 .taskInfo {
-  width: 100%;
+  width: 95%;
   height: 140rpx;
   line-height: 140rpx;
-  background-color: lightgray;
-  position: relative;
-  margin: 0rpx 0rpx 35rpx 0rpx;
+  background-color: #F6F6F6;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
 }
 
 .nameAprogress {

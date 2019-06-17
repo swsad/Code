@@ -1,3 +1,19 @@
+<wxs module="tools">
+  var timeToDate = function (time) {
+    return time.substring(0, 10)
+  }
+  var isQN = function (list) {
+    return list == '问卷'
+  }
+  var isQA = function (list) {
+    return list == '问答'
+  }
+  module.exports = { 
+    timeToDate: timeToDate,
+    isQN: isQN,
+    isQA: isQA 
+  }
+</wxs>
 <view class="task" wx:for="{{taskArray}}" wx:key="id">
   <view class='taskItem'>
     <!-- <view class='taskInfo'>
@@ -18,7 +34,7 @@
       </view>
       <view class="taskReward">{{item.reward}}<span class="unit">元</span></view>
       <button class="weui-btn inLineButton" data-qid="{{item.qid}}" data-name="{{item.name}}" bindtap='downLoadDetail'>点击下载</button>
-      <view class="taskTime">{{item.time}}</view>
+      <view class="taskTime">{{tools.timeToDate(item.publish_time)}}</view>
     </view>
   </view>
 </view>

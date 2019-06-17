@@ -195,13 +195,6 @@ page{
   /* margin-bottom: 20rpx; */
 }
 
-#bottomButton{
-  display: flex;
-  flex-direction: row;
-  margin-top: 50rpx;
-  margin-bottom: 50rpx;
-}
-
 .newQuestionButton{
   width: 40%;
   margin-left: 6.66%;
@@ -241,4 +234,11 @@ page{
 
 .section__title {
   float: left;
+}
+
+#bottomButton{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
 }

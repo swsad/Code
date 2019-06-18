@@ -44,10 +44,10 @@
 </wxs>
 
 <view class="weui-btn-area">
-    <!-- <picker class='areaPicker' value="{{areaIndex}}" range='{{areaArray}}' bindchange="bindTypeChange">
+    <picker class='areaPicker' value="{{areaIndex}}" range='{{areaArray}}' bindchange="bindAreaChange">
         <view class="pickerText">{{areaArray[areaIndex]}} </view>
         <view class="areaArrow"></view>
-    </picker> -->
+    </picker>
     <picker class='typePicker' value="{{typeIndex}}" range='{{typeArray}}' bindchange="bindTypeChange">
         <view class="pickerText">{{typeArray[typeIndex]}} </view>
         <view class="typeArrow"></view>

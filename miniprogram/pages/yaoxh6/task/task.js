@@ -159,9 +159,11 @@ Page({
   },
 
   bindAreaChange: function (e) {
+    console.log("area")
     this.setData({
       areaIndex: e.detail.value
     })
+    this.searchQN()
   },
   bindTypeChange: function (e) {
     this.setData({
@@ -235,8 +237,7 @@ Page({
     var currTime = util.getTime()
     var tempArray = []
     for (var i = 0; i < this.data.QNs_data.length; ++i) {
-      if (this.data.QNs_data[i].name.indexOf(this.data.inputVal) >= 0 && 
-        currTime < this.data.QNs_data[i].deadline) {
+      if (this.data.QNs_data[i].name.indexOf(this.data.inputVal) >= 0 && currTime < this.data.QNs_data[i].deadline && (this.data.QNs_data[i].position == "全部" || this.data.QNs_data[i].position == this.data.areaArray[this.data.areaIndex])) {
         tempArray.push(this.data.QNs_data[i])
       }
     }

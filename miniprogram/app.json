@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/yaoxh6/task/task",
     "pages/yaoxh6/customerService/customerService",
     "pages/yaoxh6/aboutUs/aboutUs",
     "pages/yaoxh6/posted/posted",     
@@ -7,7 +8,6 @@
     "pages/yaoxh6/myAnswer/myAnswer",
     "pages/yaoxh6/myQuestion/myQuestion",
     "pages/yaoxh6/myInfo/myInfo",
-    "pages/yaoxh6/task/task",
     "pages/yaoxh6/questionnaire/questionnaire",
     "pages/yaoxh6/QA/QA",
     "pages/yaoxh6/answerQA/answerQA",

@@ -232,9 +232,11 @@ Page({
     })
   },
   searchQN: function () {
+    var currTime = util.getTime()
     var tempArray = []
     for (var i = 0; i < this.data.QNs_data.length; ++i) {
-      if (this.data.QNs_data[i].name.indexOf(this.data.inputVal) >= 0) {
+      if (this.data.QNs_data[i].name.indexOf(this.data.inputVal) >= 0 && 
+        currTime < this.data.QNs_data[i].deadline) {
         tempArray.push(this.data.QNs_data[i])
       }
     }

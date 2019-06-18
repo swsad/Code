@@ -274,7 +274,7 @@ Page({
       data: {
         name: this.data.titleContent,
         publish_time: this.data.startTime,
-        deadline: this.data.date,
+        deadline: this.data.endDate + "-23-59-59",
         category: 'c1',
         reward: this.data.price,
         position: position,

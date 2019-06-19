@@ -3,7 +3,8 @@ var util = require('../../../utils.js')
 // pages/yaoxh6/task/task.js
 var Orders = {
   ORDER_TIME: '最新发布',
-  ORDER_REWARD: '最多报酬'
+  ORDER_REWARD: '最多报酬',
+  ORDER_COUNT: '最多回答'
 }
 
 Page({
@@ -20,12 +21,15 @@ Page({
       address:"心理学院楼",
       PriceIcon:"../../../images/price.png",
       price:"25元",
+    AnswerCountIcon: "../../../images/reply_count.png",
       areaArray: ['东校', '南校','珠海','深圳','北校'],
       areaIndex: 0,
       typeArray: ['问卷', '问答'],
       typeIndex: 0,
-      orderArray: [Orders.ORDER_TIME, Orders.ORDER_REWARD],
-      orderIndex: 0,
+      QNorderArray: [Orders.ORDER_TIME, Orders.ORDER_REWARD],
+      QNorderIndex: 0,
+      QAorderArray: [Orders.ORDER_TIME, Orders.ORDER_COUNT],
+      QAorderIndex: 0,
       // taskArray: [],
       // questionnairesArray: [],
       // QAsArray: [],
@@ -170,9 +174,16 @@ Page({
       typeIndex: e.detail.value
     })
   },
-  bindOrderChange: function (e) {
+  bindQAorderChange: function (e) {
     this.setData({
-      orderIndex: e.detail.value
+      QAorderIndex: e.detail.value
+    })
+    this.sortQN()
+    this.sortQA()
+  },
+  bindQNorderChange: function (e) {
+    this.setData({
+      QNorderIndex: e.detail.value
     })
     this.sortQN()
     this.sortQA()
@@ -180,7 +191,7 @@ Page({
   sortQN: function () {
     // var tempArray = this.data.questionnairesArray
     var tempArray = this.data.QNs_show
-    switch (this.data.orderArray[this.data.orderIndex]) {
+    switch (this.data.QNorderArray[this.data.QNorderIndex]) {
       case Orders.ORDER_TIME:
         tempArray.sort(function (q1, q2) {
           return q1.publish_time < q2.publish_time
@@ -201,10 +212,15 @@ Page({
   sortQA: function () {
     // var tempArray = this.data.QAsArray
     var tempArray = this.data.QAs_show
-    switch (this.data.orderArray[this.data.orderIndex]) {
+    switch (this.data.QAorderArray[this.data.QAorderIndex]) {
       case Orders.ORDER_TIME:
         tempArray.sort(function (q1, q2) {
           return q1.time < q2.time
+        })
+        break
+      case Orders.ORDER_COUNT:
+        tempArray.sort(function (q1, q2) {
+          return q1.reply_count < q2.reply_count
         })
         break
       default:

@@ -26,17 +26,6 @@
   </view>
 </view>
 
-<view class="weui-btn-area">
-    <picker class='typePicker' value="{{typeIndex}}" range='{{typeArray}}' bindchange="bindTypeChange">
-        <view class="pickerText">{{typeArray[typeIndex]}} </view>
-        <view class="typeArrow"></view>
-    </picker>
-    <picker class='orderPicker' value="{{orderIndex}}" range='{{orderArray}}' bindchange="bindOrderChange">
-        <view class="pickerText">{{orderArray[orderIndex]}} </view>
-        <view class="orderArrow"></view>
-    </picker>
-</view>
-
 <wxs module="tools">
   var timeToDate = function (time) {
     return time.substring(0, 10)
@@ -54,7 +43,22 @@
   }
 </wxs>
 
-<view class="questionnaire" wx:for="{{questionnairesArray}}" wx:key="id" hidden="{{!tools.isQN(typeArray[typeIndex])}}">
+<view class="weui-btn-area">
+    <picker class='areaPicker' value="{{areaIndex}}" range='{{areaArray}}' bindchange="bindAreaChange">
+        <view class="pickerText">{{areaArray[areaIndex]}} </view>
+        <view class="areaArrow"></view>
+    </picker>
+    <picker class='typePicker' value="{{typeIndex}}" range='{{typeArray}}' bindchange="bindTypeChange">
+        <view class="pickerText">{{typeArray[typeIndex]}} </view>
+        <view class="typeArrow"></view>
+    </picker>
+    <picker class='orderPicker' value="{{orderIndex}}" range='{{orderArray}}' bindchange="bindOrderChange">
+        <view class="pickerText">{{orderArray[orderIndex]}} </view>
+        <view class="orderArrow"></view>
+    </picker>
+</view>
+
+<view class="questionnaire" wx:for="{{QNs_show}}" wx:key="id" hidden="{{!tools.isQN(typeArray[typeIndex])}}">
   <view class='questionnaireItem' bindtap='goDetail' data-id="{{index}}">
     <view class="questionnaireTitle">{{item.name}}</view>
     <view class="questionnaireDescription">{{item.description}}</view>
@@ -75,7 +79,7 @@
   </view>
 </view>
 
-<view class="questionnaire" wx:for="{{QAsArray}}" wx:key="id" hidden="{{!tools.isQA(typeArray[typeIndex])}}">
+<view class="questionnaire" wx:for="{{QAs_show}}" wx:key="id" hidden="{{!tools.isQA(typeArray[typeIndex])}}">
   <view class='questionnaireItem' bindtap='goQADetail' data-id="{{index}}">
     <view class="questionnaireTitle">{{item.title}}</view>
     <view class="questionnaireDescription">{{item.content}}</view>

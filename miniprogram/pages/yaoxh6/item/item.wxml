@@ -1,11 +1,13 @@
-<view id="title">
-  <view class='titleContent'>{{title}}</view>
-  <image class='titlePriceIcon' src='{{priceIcon}}' mode='widthFix'></image>
-  <view class='priceContent'>{{reward}}</view>
-  <view class='priceUnit'>元</view>
-</view>
-
-<view id="description">
+<view id="header">
+  <view id="title">
+    <view class='titleContent'>{{title}}</view>
+    <image class='titlePriceIcon' src='{{priceIcon}}' mode='widthFix'></image>
+    <view class='priceContent'>{{reward}}</view>
+    <view class='priceUnit'>元</view>
+  </view>
+  <view id="description">
+    <view class="descriptionContent">{{description}}</view>
+  </view>
 </view>
 
 <view id = 'body' wx:for="{{questionnaireArray}}" wx:key="id" wx:for-index='fatherIndex'>

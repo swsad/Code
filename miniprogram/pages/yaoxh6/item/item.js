@@ -10,6 +10,7 @@ Page({
     priceIcon: "../../../images/price.png",
     currentFatherIndex: 0,
     title: "title",
+    description: "description",
     reward: '',
     qid: '',
     questionnaireArray: [
@@ -22,6 +23,7 @@ Page({
   onLoad: function (options) {
     this.setData({
       title: options.title,
+      description: options.description,
       reward: options.reward,
       qid: options.id
     })

@@ -43,7 +43,7 @@
   }
 </wxs>
 
-<view class="weui-btn-area">
+<view class="weui-btn-area" wx:if="{{tools.isQN(typeArray[typeIndex])}}">
     <picker class='areaPicker' value="{{areaIndex}}" range='{{areaArray}}' bindchange="bindAreaChange">
         <view class="pickerText">{{areaArray[areaIndex]}} </view>
         <view class="areaArrow"></view>
@@ -52,8 +52,18 @@
         <view class="pickerText">{{typeArray[typeIndex]}} </view>
         <view class="typeArrow"></view>
     </picker>
-    <picker class='orderPicker' value="{{orderIndex}}" range='{{orderArray}}' bindchange="bindOrderChange">
-        <view class="pickerText">{{orderArray[orderIndex]}} </view>
+    <picker class='orderPicker' value="{{QNorderIndex}}" range='{{QNorderArray}}' bindchange="bindQNorderChange">
+        <view class="pickerText">{{QNorderArray[QNorderIndex]}} </view>
+        <view class="orderArrow"></view>
+    </picker>
+</view>
+<view class="weui-btn-area" wx:if="{{tools.isQA(typeArray[typeIndex])}}">
+    <picker class='typePicker' value="{{typeIndex}}" range='{{typeArray}}' bindchange="bindTypeChange">
+        <view class="pickerText">{{typeArray[typeIndex]}} </view>
+        <view class="typeArrow"></view>
+    </picker>
+    <picker class='orderPicker' value="{{QAorderIndex}}" range='{{QAorderArray}}' bindchange="bindQAorderChange">
+        <view class="pickerText">{{QAorderArray[QAorderIndex]}} </view>
         <view class="orderArrow"></view>
     </picker>
 </view>

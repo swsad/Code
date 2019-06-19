@@ -85,8 +85,8 @@
         <view class="dateClass">{{tools.timeToDate(item.time)}} </view>
       </view>
       <view class="addressBlock">
-      </view>
-      <view class="priceBlock">
+        <image class="dateIconClass" src="{{AnswerCountIcon}}" mode='widthFix'></image>
+        <view class="dateClass">{{item.reply_count}}</view>
       </view>
     </view>
   </view>

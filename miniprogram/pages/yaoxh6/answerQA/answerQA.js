@@ -99,7 +99,8 @@ Page({
         data.push({
           time: util.getTime(),
           content: this.data.comment,
-          like_count: 0
+          like_count: 0,
+          self_liked: false
         })
         this.setData({
           answerData: data

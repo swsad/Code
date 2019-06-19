@@ -20,6 +20,7 @@ Page({
       address:"心理学院楼",
       PriceIcon:"../../../images/price.png",
       price:"25元",
+    AnswerCountIcon: "../../../images/reply_count.png",
       areaArray: ['东校', '南校','珠海','深圳','北校'],
       areaIndex: 0,
       typeArray: ['问卷', '问答'],

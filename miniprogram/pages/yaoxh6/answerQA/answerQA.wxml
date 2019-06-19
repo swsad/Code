@@ -41,7 +41,12 @@
 
   <view id='comment'>
     <view id='review'>
-      <textarea class="weui-textarea" placeholder="请输入评论" style="height: 2.8em" bindinput='commentBindBlur' value='{{comment}}' focus='{{focus}}'></textarea>
+    <view>
+     <textarea placeholder-class="place-holder"  placeholder="请输入评论" maxlength='100' bindinput='commentBindBlur' value="{{comment}}" style="height: 2.8em"/>
+      <view class="clear"><text style="color: #ccc; font-size: 14px; float: right; margin-right: 0%;">{{current}} / {{max}} （最多可写100字）</text></view>
+</view>
+
+      <!-- <textarea maxlength='50' class="weui-textarea" placeholder="请输入评论" style="height: 2.8em" bindinput='commentBindBlur' value='{{comment}}' focus='{{focus}}'></textarea> -->
       <!-- <view class="weui-textarea-counter">0/200</view> -->
     </view>
     <button class="weui-btn" bindtap='addComment'>发布评论</button>

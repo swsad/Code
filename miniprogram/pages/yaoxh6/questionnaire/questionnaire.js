@@ -357,13 +357,13 @@ Page({
   },
 
   bindblurAnswerOfSAQ:function(input){
-    var tempIndex = input.currentTarget.dataset.id;
-    var tempArray = this.data.questionnaireArray;
-    tempArray[tempIndex].content.answer = input.detail.value;
+    // var tempIndex = input.currentTarget.dataset.id;
+    // var tempArray = this.data.questionnaireArray;
+    // tempArray[tempIndex].content.answer = input.detail.value;
     // console.log(tempArray[tempIndex].content);
-    this.setData({
-      questionnaireArray: tempArray,
-    });
+    // this.setData({
+    //   questionnaireArray: tempArray,
+    // });
   },
   bindDateChange: function (e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)

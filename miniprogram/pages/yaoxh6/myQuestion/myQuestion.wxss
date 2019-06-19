@@ -1,11 +1,15 @@
 /* miniprogram/pages/yaoxh6/myQuestion/myQuestion.wxss */
 /* miniprogram/pages/yaoxh6/myAnswer/myAnswer.wxss */
+
 .infoItem {
-  width: 100%;
+  width: 95%;
   height: 120rpx;
   line-height: 120rpx;
-  background-color: #E8E8E8;
-  margin-bottom: 5rpx;
+  background-color: #F6F6F6;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
 }
 
 .infoName {
@@ -30,4 +34,6 @@
   width: 24%;
   margin-right: 25rpx;
   background-color: #63B8FF !important;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
 }

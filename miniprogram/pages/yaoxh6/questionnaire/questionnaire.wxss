@@ -59,11 +59,17 @@ page{
   width: 40rpx;
 }
 .SCQ{
-  margin: 20rpx;
-  border-radius: 10rpx;
+  width: 89%;
+  border-radius: 20rpx;
   padding: 20rpx;
-  border: 1rpx dashed #E3E3E3;
+  border: 1rpx solid #E3E3E3;
+  background-color: #fff;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
 }
+
 .SCQText{
   margin-left: 20rpx;
   padding: 5rpx;
@@ -72,10 +78,15 @@ page{
   width: 80%;
 }
 .MCQ{
-  margin: 20rpx;
-  border-radius: 10rpx;
+  width: 89%;
+  border-radius: 20rpx;
   padding: 20rpx;
-  border: 1rpx dashed #E3E3E3;
+  border: 1rpx solid #E3E3E3;
+  background-color: #fff;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
 }
 
 .MCQText{
@@ -87,10 +98,15 @@ page{
 }
 
 .SAQ{
-  margin: 20rpx;
-  border-radius: 10rpx;
+  width: 89%;
+  border-radius: 20rpx;
   padding: 20rpx;
-  border: 1rpx dashed #E3E3E3;
+  border: 1rpx solid #E3E3E3;
+  background-color: #fff;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
 }
 
 .SCQTitle{
@@ -195,13 +211,6 @@ page{
   /* margin-bottom: 20rpx; */
 }
 
-#bottomButton{
-  display: flex;
-  flex-direction: row;
-  margin-top: 50rpx;
-  margin-bottom: 50rpx;
-}
-
 .newQuestionButton{
   width: 40%;
   margin-left: 6.66%;
@@ -241,4 +250,11 @@ page{
 
 .section__title {
   float: left;
+}
+
+#bottomButton{
+  display: flex;
+  flex-direction: row;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
 }

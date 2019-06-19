@@ -19,6 +19,7 @@ cloud.init()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const db = cloud.database()
+  const _ = db.command
   console.log('[参数]: ', event)
 
   try {
@@ -37,6 +38,11 @@ exports.main = async (event, context) => {
         content: event.content,
         like_count: 0,
         self_liked: false
+      }
+    })
+    await db.collection('question').doc(event.qid).update({
+      data: {
+        reply_count: _.inc(1)
       }
     })
     console.log('[完成]: 完成回答问题')

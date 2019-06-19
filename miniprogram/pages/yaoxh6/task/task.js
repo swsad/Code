@@ -3,7 +3,8 @@ var util = require('../../../utils.js')
 // pages/yaoxh6/task/task.js
 var Orders = {
   ORDER_TIME: '最新发布',
-  ORDER_REWARD: '最多报酬'
+  ORDER_REWARD: '最多报酬',
+  ORDER_COUNT: '最多回答'
 }
 
 Page({
@@ -20,16 +21,25 @@ Page({
       address:"心理学院楼",
       PriceIcon:"../../../images/price.png",
       price:"25元",
+    AnswerCountIcon: "../../../images/reply_count.png",
       areaArray: ['东校', '南校','珠海','深圳','北校'],
       areaIndex: 0,
       typeArray: ['问卷', '问答'],
-      typeIndex: 1,
-      orderArray: [Orders.ORDER_TIME, Orders.ORDER_REWARD],
-      orderIndex: 0,
-      taskArray: [],
-      questionnairesArray: [],
-      QAsArray: [],
-      searchArray: []
+      typeIndex: 0,
+      QNorderArray: [Orders.ORDER_TIME, Orders.ORDER_REWARD],
+      QNorderIndex: 0,
+      QAorderArray: [Orders.ORDER_TIME, Orders.ORDER_COUNT],
+      QAorderIndex: 0,
+      // taskArray: [],
+      // questionnairesArray: [],
+      // QAsArray: [],
+      // searchArray: [],
+
+      // data
+      QNs_data: [],
+      QNs_show: [],
+      QAs_data: [],
+      QNs_show: []
   },
 
   /**
@@ -54,8 +64,10 @@ Page({
       name: 'get_all_questionnaire',
       success: res => {
         this.setData({
-          questionnairesArray: res.result.value.data
+          questionnairesArray: res.result.value.data,
+          QNs_data: res.result.value.data
         })
+        this.searchQN()
         this.sortQN()
       },
       fail: err => {
@@ -69,12 +81,15 @@ Page({
     wx.cloud.callFunction({
       name: 'get_question',
       success: res => {
+        wx.stopPullDownRefresh();
         wx.showToast({
           title: '调用成功',
         })
         this.setData({
-          QAsArray: util.deBlocking(res)
+          QAsArray: util.deBlocking(res),
+          QAs_data: util.deBlocking(res)
         })
+        this.searchQA()
         this.sortQA()
       },
       fail: err => {
@@ -105,7 +120,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onShow();
   },
 
   /**
@@ -148,25 +163,35 @@ Page({
   },
 
   bindAreaChange: function (e) {
+    console.log("area")
     this.setData({
       areaIndex: e.detail.value
     })
+    this.searchQN()
   },
   bindTypeChange: function (e) {
     this.setData({
       typeIndex: e.detail.value
     })
   },
-  bindOrderChange: function (e) {
+  bindQAorderChange: function (e) {
     this.setData({
-      orderIndex: e.detail.value
+      QAorderIndex: e.detail.value
+    })
+    this.sortQN()
+    this.sortQA()
+  },
+  bindQNorderChange: function (e) {
+    this.setData({
+      QNorderIndex: e.detail.value
     })
     this.sortQN()
     this.sortQA()
   },
   sortQN: function () {
-    var tempArray = this.data.questionnairesArray
-    switch (this.data.orderArray[this.data.orderIndex]) {
+    // var tempArray = this.data.questionnairesArray
+    var tempArray = this.data.QNs_show
+    switch (this.data.QNorderArray[this.data.QNorderIndex]) {
       case Orders.ORDER_TIME:
         tempArray.sort(function (q1, q2) {
           return q1.publish_time < q2.publish_time
@@ -180,27 +205,34 @@ Page({
       default:
     }
     this.setData({
-      questionnairesArray: tempArray
+      // questionnairesArray: tempArray
+      QNs_show: tempArray
     })
   },
   sortQA: function () {
-    var tempArray = this.data.QAsArray
-    switch (this.data.orderArray[this.data.orderIndex]) {
+    // var tempArray = this.data.QAsArray
+    var tempArray = this.data.QAs_show
+    switch (this.data.QAorderArray[this.data.QAorderIndex]) {
       case Orders.ORDER_TIME:
         tempArray.sort(function (q1, q2) {
           return q1.time < q2.time
         })
         break
+      case Orders.ORDER_COUNT:
+        tempArray.sort(function (q1, q2) {
+          return q1.reply_count < q2.reply_count
+        })
+        break
       default:
     }
     this.setData({
-      QAsArray: tempArray
+      QAs_show: tempArray
     })
   },
   goDetail: function (content) {
     var tempIndex = content.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../item/item?id=' + this.data.questionnairesArray[tempIndex]._id + '&title=' + this.data.questionnairesArray[tempIndex].name + '&reward=' + this.data.questionnairesArray[tempIndex].reward,
+      url: '../item/item?id=' + this.data.QNs_show[tempIndex]._id + '&title=' + this.data.QNs_show[tempIndex].name + '&reward=' + this.data.QNs_show[tempIndex].reward + '&description=' + this.data.QNs_show[tempIndex].description,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
@@ -211,21 +243,37 @@ Page({
     console.log(tempIndex);
     console.log(this.data.QAsArray);
     wx.navigateTo({
-      url: '../answerQA/answerQA?id=' + this.data.QAsArray[tempIndex]._id + '&title=' + this.data.QAsArray[tempIndex].title + '&content=' + this.data.QAsArray[tempIndex].content,
+      url: '../answerQA/answerQA?id=' + this.data.QAs_show[tempIndex]._id + '&title=' + this.data.QAs_show[tempIndex].title + '&content=' + this.data.QAs_show[tempIndex].content,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
     })
   },
-  search : function () {
+  searchQN: function () {
+    var currTime = util.getTime()
     var tempArray = []
-    for (var i = 0; i < this.data.taskArray.length; ++i) {
-      if (this.data.taskArray[i].name.indexOf(this.data.inputVal) >= 0) {
-        tempArray.push(this.data.taskArray[i])
+    for (var i = 0; i < this.data.QNs_data.length; ++i) {
+      if (this.data.QNs_data[i].name.indexOf(this.data.inputVal) >= 0 && currTime < this.data.QNs_data[i].deadline && (this.data.QNs_data[i].position == "全部" || this.data.QNs_data[i].position == this.data.areaArray[this.data.areaIndex])) {
+        tempArray.push(this.data.QNs_data[i])
       }
     }
     this.setData({
-      questionnairesArray: tempArray
+      QNs_show: tempArray
     })
+  },
+  searchQA: function () {
+    var tempArray = []
+    for (var i = 0; i < this.data.QAs_data.length; ++i) {
+      if (this.data.QAs_data[i].title.indexOf(this.data.inputVal) >= 0) {
+        tempArray.push(this.data.QAs_data[i])
+      }
+    }
+    this.setData({
+      QAs_show: tempArray
+    })
+  },
+  search : function () {
+    this.searchQN()
+    this.searchQA()
   }
 })

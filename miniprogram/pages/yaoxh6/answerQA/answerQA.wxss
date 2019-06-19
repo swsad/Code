@@ -32,7 +32,13 @@ page{
 }
 
 .answerBackGround{
-  background-color: 	#F0F0F0;
+  background-color: 	#fff;
+}
+.divLine{
+ background: #E0E3DA;
+ width: 100%;
+ height: 5rpx;
+ margin-top: 20rpx;
 }
 
 #comment{

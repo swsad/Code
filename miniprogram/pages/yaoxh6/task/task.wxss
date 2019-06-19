@@ -13,10 +13,33 @@
   background-color: #fff;
 }
 
+.questionnaireItem{
+  border-bottom: 1px solid #F6F6F6;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.questionnaireTitle{
+  margin-top: 10px;
+  font-size: 40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
+
+.questionnaireDescription {
+  margin-top: 10px;
+  font-size: 30rpx;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
+
 .questionnaireDetail{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: left;
   margin-top: 20rpx;
   margin-bottom: 10rpx;
 }
@@ -26,73 +49,91 @@
   flex-direction: row;
   justify-content: left;
   margin-bottom: 5rpx;
+  width: 170rpx;
 }
 
 .dateIconClass{
-  width: 40rpx;
+  width: 20rpx;
   margin-top: 5rpx;
 }
 
 .dateClass{
-  font-size: 25rpx;
+  font-size: 20rpx;
   margin-left: 10rpx;
-  margin-top: 5rpx;
+  color: #999;
 }
 
 .addressBlock{
   display: flex;
   flex-direction: row;
+  justify-content: left;
   margin-bottom: 10rpx;
+  width: 100rpx;
 }
 
 .addressIconClass{
-  width: 40rpx;
+  width: 20rpx;
+  margin-top: 5rpx;
 }
 
 .addressClass{
-  font-size: 25rpx;
+  font-size: 20rpx;
   margin-left: 10rpx;
-  margin-top: 5rpx;
+  color: #999;
 }
 
 .priceBlock{
   display: flex;
   flex-direction: row;
+  justify-content: left;
   margin-bottom: 10rpx;
+  width: 100rpx;
 }
 
 .priceIconClass{
-  width: 40rpx;
+  width: 20rpx;
+  margin-top: 5rpx;
 }
 
 .priceClass{
-  font-size: 25rpx;
+  font-size: 20rpx;
   margin-left: 10rpx;
+  color: #999;
 }
 
 .weui-btn-area{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  /* border-bottom: 1px solid #F6F6F6; */
 }
 
 .areaPicker{
-  /* border: 1px solid #999; */
   width: 33.3%;
   height: 60rpx;
-  
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
 }
 
 .typePicker{
-  /* border: 1px solid #999; */
   width: 33.3%;
   height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
 }
 
 .orderPicker{
-  /* border: 1px solid #999; */
   width: 33.3%;
   height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.pickerText {
+  font-size: 40rpx;
 }
 
 .areaArrow{
@@ -125,20 +166,6 @@
   border-right: 2px solid #999;
   transform: rotate(135deg);
   position: relative;
-  left: 170rpx;
+  left: 180rpx;
   bottom: 50rpx;
-}
-
-.questionnaireTitle{
-  margin-left: 30rpx;
-  margin-top: 10px;
-  /* margin-bottom: 30rpx; */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; 
-}
-
-.questionnaireItem{
-  border-top: 1px solid #F6F6F6;
-  border-bottom: 2px solid #F6F6F6;
 }

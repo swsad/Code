@@ -26,7 +26,7 @@ Page({
           tempArray.push({
             qid: item['_id'],
             name: item['name'],
-            time: item['time'],
+            publish_time: item['publish_time'],
             reward: item['reward'],
             completedAmount: item['completed_amount'],
             totalAmount: item['total_amount']

@@ -8,6 +8,7 @@
       <view class="weui-media-box__desc">{{description}}</view>
     </view>
   </view>
+  <view class="divLine"></view>
 
   <wxs module="tools">
     var toStdTime = function (time) {

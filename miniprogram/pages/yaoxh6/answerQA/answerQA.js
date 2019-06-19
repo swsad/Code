@@ -13,6 +13,8 @@ Page({
     description: '',
     qid: '',
     comment:'',
+    current: 0,
+    max: 100,
   },
 
   /**
@@ -77,13 +79,21 @@ Page({
 
   },
   commentBindBlur:function(input){
+
     var tempComment = input.detail.value;
     this.setData({
       comment: tempComment,
+      current: tempComment.length
     });
   },
   addComment:function(){
     console.log(this.data.comment);
+    if(this.data.comment == ''){
+      wx.showToast({
+        title: '输入不能为空',
+      })
+      return;
+    }
     wx.cloud.callFunction({
       name: 'reply_question',
       data: {

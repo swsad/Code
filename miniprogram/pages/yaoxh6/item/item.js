@@ -15,6 +15,7 @@ Page({
     qid: '',
     questionnaireArray: [
     ],
+    isValid : false
   },
 
   /**
@@ -201,7 +202,44 @@ Page({
   },
 
   complete :function(){
-    // console.log(this.data.questionnaireArray);
+    console.log(this.data.questionnaireArray);
+    this.setData({
+      isValid: false,
+    })
+    
+    var isValidSCQMCQ = true;
+    var isValidSAQ = true;
+    for(var i = 0;i<this.data.questionnaireArray.length;i++){
+      if (this.data.questionnaireArray[i].type == 'SCQ' || this.data.questionnaireArray[i].type == 'MCQ') {
+        for (var j = 0; j < this.data.questionnaireArray[i].content.options.length; j++) {
+          if (this.data.questionnaireArray[i].content.options[j].isSelected == true) {
+            break;
+          }
+          else if (j == this.data.questionnaireArray[i].content.options.length - 1 && this.data.questionnaireArray[i].content.options[j].isSelected == false){
+            isValidSCQMCQ = false;
+          }
+        }
+      }
+      else if (this.data.questionnaireArray[i].type == 'SAQ'){
+        if (this.data.questionnaireArray[i].content.answer == ''){
+          isValidSAQ = false;
+        }
+      }
+    }
+
+    if(isValidSCQMCQ && isValidSAQ){
+      this.setData({
+        isValid: true,
+      })
+    }
+
+    if(this.data.isValid == false){
+      wx.showToast({
+        icon: 'none',
+        title: '输入不能为空',
+      })
+      return;
+    }
     wx.cloud.callFunction({
       name: 'fill_in_questionnaire',
       data: {

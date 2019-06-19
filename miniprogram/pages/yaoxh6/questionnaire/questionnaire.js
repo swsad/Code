@@ -225,7 +225,7 @@ Page({
       canBePublished: true,
     })
 
-    if(this.data.descriptionContent == '' || this.data.titleContent == '' || this.data.price == '' || this.data.qNum == ''){
+    if(this.data.descriptionContent.trim() == '' || this.data.titleContent.trim() == '' || this.data.price.trim() == '' || this.data.qNum.trim() == ''){
       this.setData({
         canBePublished : false,
       })
@@ -255,10 +255,11 @@ Page({
     }
 
     if (this.data.canBePublished == false){
-      // wx.showToast({
-      //   title: '输入不能为空',
-      // })
-      // return;
+      wx.showToast({
+        icon: 'none',
+        title: '输入不能为空',
+      })
+      return;
     }
     //console.log(this.data.questionnaireArray);
     //console.log("test" + this.data.descriptionContent)

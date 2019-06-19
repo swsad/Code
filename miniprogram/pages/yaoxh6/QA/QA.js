@@ -71,7 +71,7 @@ Page({
   },
 
   complete:function(){
-    if(this.data.question == '' || this.data.description == ''){
+    if(this.data.question.trim() == '' || this.data.description.trim() == ''){
       wx.showToast({
         title: '输入不能为空',
       })

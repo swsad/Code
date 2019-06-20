@@ -24,6 +24,7 @@ cloud.init()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const db = cloud.database()
+  const _ = db.command
   console.log('[参数]: ', event)
 
   try {
@@ -60,9 +61,11 @@ exports.main = async (event, context) => {
     if (balance < event.total_amount * event.reward) {
       throw '余额不足，无法发布问卷'
     }
-    await db.collection('users').doc(wxContext.OPENID).update({
+    await db.collection('users').where({
+      uid: wxContext.OPENID
+    }).update({
       data: {
-        points: balance - event.total_amount * event.reward
+        points: _.inc(-event.total_amount * event.reward)
       }
     })
 

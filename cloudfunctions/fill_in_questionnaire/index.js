@@ -69,7 +69,9 @@ exports.main = async (event, context) => {
     })
     // 给填问卷的用户加钱
     const reward = questionnaire.data.reward
-    await db.collection('users').doc(wxContext.OPENID).update({
+    await db.collection('users').where({
+      uid: wxContext.OPENID
+    }).update({
       data: {
         points: _.inc(reward)
       }

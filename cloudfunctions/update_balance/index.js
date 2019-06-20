@@ -1,7 +1,7 @@
 /*
   功能：更新用户余额（充值/提现）
   接受参数：
-    amount: number 增加/减少的值
+    amount: number 充值为正数，提现为负数
   返回情况：
     {
       success: bool 表示是否正确执行
@@ -29,7 +29,9 @@ exports.main = async (event, context) => {
     if (event.amount < 0 && balance + event.amount < 0) {
       throw '余额不足，无法提现'
     }
-    await db.collection('users').doc(wxContext.OPENID).update({
+    await db.collection('users').where({
+      uid: wxContext.OPENID
+    }).update({
       data: {
         points: _.inc(event.amount)
       }

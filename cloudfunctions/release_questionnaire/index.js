@@ -52,6 +52,20 @@ exports.main = async (event, context) => {
         uid: wxContext.OPENID
       }
     })
+    const user = await db.collection('users').where({
+      uid: wxContext.OPENID
+    }).get()
+    console.log('[user]: ', user)
+    const balance = user.data.points
+    if (balance < event.total_amount * event.reward) {
+      throw '余额不足，无法发布问卷'
+    }
+    await db.collection('users').doc(wxContext.OPENID).update({
+      data: {
+        points: balance - event.total_amount * event.reward
+      }
+    })
+
     console.log('[完成]: 完成发布问卷')
     return {
       success: true

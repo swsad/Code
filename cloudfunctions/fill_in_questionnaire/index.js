@@ -57,13 +57,24 @@ exports.main = async (event, context) => {
     })
     var questionnaire = await db.collection('questionnaire_info').doc(event.qid).get()
     var completed = (questionnaire.data.total_amount - questionnaire.data.completed_amount == 1)
+    console.log('[completed]: ', completed)
+    if (completed == true) {
+      throw '该问卷已被填完'
+    }
     await db.collection('questionnaire_info').doc(event.qid).update({
       data: {
         completed_amount: _.inc(1),
         is_all_completed: completed
       }
     })
-    console.log(completed)
+    // 给填问卷的用户加钱
+    const reward = questionnaire.data.reward
+    await db.collection('users').doc(wxContext.OPENID).update({
+      data: {
+        points: _.inc(reward)
+      }
+    })
+
     console.log('[完成]: 完成填写问卷')
     return {
       success: true

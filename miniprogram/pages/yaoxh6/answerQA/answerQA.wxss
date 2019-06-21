@@ -54,7 +54,7 @@ page{
   padding: 20rpx;
   margin: 20rpx;
   /* color:#D4D4D4; */
-  border-radius: 20rpx;
+  border-radius: 10rpx;
   border: 1rpx solid #E3E3E3;
 }
 
@@ -78,5 +78,5 @@ page{
   word-break:break-all;
 }
 .clear{
-  margin-bottom: 4%;
+  margin-bottom: 5%;
 }

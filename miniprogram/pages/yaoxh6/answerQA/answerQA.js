@@ -107,6 +107,9 @@ Page({
         wx.showToast({
           title: '调用成功',
         })
+        this.setData({
+          current: 0
+        })
         const data = this.data.answerData
         data.push({
           time: util.getTime(),

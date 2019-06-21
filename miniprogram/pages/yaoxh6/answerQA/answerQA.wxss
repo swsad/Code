@@ -30,15 +30,16 @@ page{
   background-color: #5CACEE;
   color: white;
 }
-
-.answerBackGround{
-  background-color: 	#fff;
+.itemLine{
+ background: #F6F6F6;
+ width: 100%;
+ height: 1rpx;
 }
+
 .divLine{
  background: #E0E3DA;
  width: 100%;
- height: 5rpx;
- margin-top: 20rpx;
+ height: 3rpx;
 }
 
 #comment{
@@ -46,7 +47,7 @@ page{
 }
 
 #commentContent{
-  height: 60%;
+  height: 50%
 }
 
 #review{
@@ -68,6 +69,14 @@ page{
   white-space :pre-line;
 }
 
+.weui-media-box__desc{
+  display: block;
+  word-wrap:break-word;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:pre-line;
+  word-break:break-all;
+}
 .clear{
-  margin-bottom: 4%;
+  margin-bottom: 5%;
 }

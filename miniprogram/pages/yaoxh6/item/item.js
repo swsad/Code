@@ -250,15 +250,18 @@ Page({
         // console.log(JSON.stringify(res))
         console.log(res);
         var msg = "";
-        var icon = "success";
+        // var icon = "success";
         if(res.result.success) msg = "填写成功!";
         else {
           msg = res.result.error;
-          icon = "none";
+          // icon = "none";
         }
         wx.showToast({
-          icon: icon,
-          title: msg,
+          // icon: icon,
+          title: "填写成功",
+        })
+        wx.switchTab({
+          url: "../task/task"
         })
       },
       fail: err => {

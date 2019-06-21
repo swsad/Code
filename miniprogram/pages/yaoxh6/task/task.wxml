@@ -58,6 +58,10 @@
     </picker>
 </view>
 <view class="weui-btn-area" wx:if="{{tools.isQA(typeArray[typeIndex])}}">
+    <picker class='areaPicker' value="{{areaIndex}}" range='{{areaArray}}' bindchange="bindAreaChange">
+        <view class="pickerText">{{areaArray[areaIndex]}} </view>
+        <view class="areaArrow"></view>
+    </picker>
     <picker class='typePicker' value="{{typeIndex}}" range='{{typeArray}}' bindchange="bindTypeChange">
         <view class="pickerText">{{typeArray[typeIndex]}} </view>
         <view class="typeArrow"></view>
@@ -67,42 +71,46 @@
         <view class="orderArrow"></view>
     </picker>
 </view>
+<view class="divLine"></view>
 
-<view class="questionnaire" wx:for="{{QNs_show}}" wx:key="id" hidden="{{!tools.isQN(typeArray[typeIndex])}}">
-  <view class='questionnaireItem' bindtap='goDetail' data-id="{{index}}">
-    <view class="questionnaireTitle">{{item.name}}</view>
-    <view class="questionnaireDescription">{{item.description}}</view>
-    <view class="questionnaireDetail">
-      <view class="dateBlock">
-        <image class="dateIconClass" src="{{DateIcon}}" mode='widthFix'></image>
-        <view class="dateClass">{{tools.timeToDate(item.publish_time)}} </view>
-      </view>
-      <view class="addressBlock">
-        <image class="addressIconClass" src="{{AddressIcon}}" mode='widthFix'></image>
-        <view class="addressClass">{{item.position}} </view>
-      </view>
-      <view class="priceBlock">
-        <image class="priceIconClass" src="{{PriceIcon}}" mode='widthFix'></image>
-        <view class="priceClass">{{item.reward}} </view>
+<scroll-view scroll-y='true' id="commentContent">
+  <view class="questionnaire" wx:for="{{QNs_show}}" wx:key="_id" hidden="{{!tools.isQN(typeArray[typeIndex])}}">
+    <view class='questionnaireItem' bindtap='goDetail' data-id="{{index}}">
+      <view class="questionnaireTitle">{{item.name}}</view>
+      <view class="questionnaireDescription">{{item.description}}</view>
+      <view class="questionnaireDetail">
+        <view class="dateBlock">
+          <image class="dateIconClass" src="{{DateIcon}}" mode='widthFix'></image>
+          <view class="dateClass">{{tools.timeToDate(item.publish_time)}} </view>
+        </view>
+        <view class="addressBlock">
+          <image class="addressIconClass" src="{{AddressIcon}}" mode='widthFix'></image>
+          <view class="addressClass">{{item.position}} </view>
+        </view>
+        <view class="priceBlock">
+          <image class="priceIconClass" src="{{PriceIcon}}" mode='widthFix'></image>
+          <view class="priceClass">{{item.reward}} </view>
+        </view>
       </view>
     </view>
   </view>
-</view>
 
-<view class="questionnaire" wx:for="{{QAs_show}}" wx:key="id" hidden="{{!tools.isQA(typeArray[typeIndex])}}">
-  <view class='questionnaireItem' bindtap='goQADetail' data-id="{{index}}">
-    <view class="questionnaireTitle">{{item.title}}</view>
-    <view class="questionnaireDescription">{{item.content}}</view>
-    <view class="questionnaireDetail">
-      <view class="dateBlock">
-        <image class="dateIconClass" src="{{DateIcon}}" mode='widthFix'></image>
-        <view class="dateClass">{{tools.timeToDate(item.time)}} </view>
-      </view>
-      <view class="addressBlock">
-        <image class="dateIconClass" src="{{AnswerCountIcon}}" mode='widthFix'></image>
-        <view class="dateClass">{{item.reply_count}}</view>
+  <view class="questionnaire" wx:for="{{QAs_show}}" wx:key="_id" hidden="{{!tools.isQA(typeArray[typeIndex])}}">
+    <view class='questionnaireItem' bindtap='goQADetail' data-id="{{index}}">
+      <view class="questionnaireTitle">{{item.title}}</view>
+      <view class="questionnaireDescription">{{item.content}}</view>
+      <view class="questionnaireDetail">
+        <view class="dateBlock">
+          <image class="dateIconClass" src="{{DateIcon}}" mode='widthFix'></image>
+          <view class="dateClass">{{tools.timeToDate(item.time)}} </view>
+        </view>
+        <view class="addressBlock">
+          <image class="dateIconClass" src="{{AnswerCountIcon}}" mode='widthFix'></image>
+          <view class="dateClass">{{item.reply_count}}</view>
+        </view>
       </view>
     </view>
+    <view class="itemLine"></view>
   </view>
-</view>
+</scroll-view>
 

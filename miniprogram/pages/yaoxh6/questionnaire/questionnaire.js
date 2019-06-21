@@ -35,7 +35,13 @@ Page({
     })
     this.setData({
       startDate: this.data.startTime.substring(0, 10),
-      endDate: this.data.startTime.substring(0, 10)
+    })
+    var currDate = new Date()
+    var year = currDate.getFullYear() + 1
+    var month = currDate.getMonth() + 1
+    var day = currDate.getDate()
+    this.setData({
+      endDate: [year, month, day].map(this.formatNumber).join('-')
     })
     this.updateMaxEndDate()
   },

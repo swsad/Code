@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/yaoxh6/task/task",
-    "pages/yaoxh6/item/item",
     "pages/yaoxh6/questionnaire/questionnaire",
+    "pages/yaoxh6/item/item",
     "pages/yaoxh6/login/login",
     "pages/yaoxh6/QA/QA",
     "pages/testCloudFunction/testCloudFunction",

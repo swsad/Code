@@ -156,6 +156,20 @@ Page({
   onLikeClick: function(event) {
     console.log('[index]: ', event.currentTarget.dataset['index'])
     const index = event.currentTarget.dataset['index']
+    const temp = this.data.answerData
+    const isSelfLiked = temp[index].self_liked
+    if (isSelfLiked == true) {
+      temp[index].like_count -= 1
+      temp[index].self_liked = false
+    }
+    else {
+      temp[index].like_count += 1
+      temp[index].self_liked = true
+    }
+    this.setData({
+      answerData: temp
+    })
+    console.log('[data]: ', this.data.answerData)
     wx.cloud.callFunction({
       name: 'update_like',
       data: {
@@ -165,20 +179,6 @@ Page({
         wx.showToast({
           title: '调用成功',
         })
-        const temp = this.data.answerData
-        const isSelfLiked = temp[index].self_liked
-        if (isSelfLiked == true) {
-          temp[index].like_count -= 1
-          temp[index].self_liked = false
-        }
-        else {
-          temp[index].like_count += 1
-          temp[index].self_liked = true
-        }
-        this.setData({
-          answerData: temp
-        })
-        console.log('[data]: ', this.data.answerData)
       },
       fail: err => {
         wx.showToast({

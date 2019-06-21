@@ -1,9 +1,7 @@
 /*
-  功能：提问
+  功能：更新用户余额（充值/提现）
   接受参数：
-    time: string 提问时间
-    title: string 问题标题
-    content: string 问题内容
+    amount: number 充值为正数，提现为负数
   返回情况：
     {
       success: bool 表示是否正确执行
@@ -19,19 +17,27 @@ cloud.init()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const db = cloud.database()
+  const _ = db.command
   console.log('[参数]: ', event)
 
   try {
-    await db.collection('question').add({
+    const user = await db.collection('users').where({
+      uid: wxContext.OPENID
+    }).get()
+    console.log('[user]: ', user)
+    const balance = user.data.points
+    if (event.amount < 0 && balance + event.amount < 0) {
+      throw '余额不足，无法提现'
+    }
+    await db.collection('users').where({
+      uid: wxContext.OPENID
+    }).update({
       data: {
-        uid: wxContext.OPENID,
-        time: event.time,
-        title: event.title,
-        content: event.content,
-        reply_count: 0
+        points: _.inc(event.amount)
       }
-    })   
-    console.log('[完成]: 完成提问')
+    })
+
+    console.log('[完成]: 完成余额更新')
     return {
       success: true
     }

@@ -21,6 +21,7 @@ Page({
       },
       success: res=> {
         var data = res.result.value;
+        console.log(data)
         for (let i = 0; i < data.length; i++) {
           var item = data[i];
           var price = parseFloat(item['reward']);

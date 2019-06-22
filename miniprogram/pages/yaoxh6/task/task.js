@@ -21,21 +21,15 @@ Page({
       address:"心理学院楼",
       PriceIcon:"../../../images/price.png",
       price:"25元",
-    AnswerCountIcon: "../../../images/reply_count.png",
+      AnswerCountIcon: "../../../images/reply_count.png",
       areaArray: ['东校', '南校','珠海','深圳','北校'],
       areaIndex: 0,
       typeArray: ['问卷', '问答'],
-      typeIndex: 0,
+      typeIndex: 1,
       QNorderArray: [Orders.ORDER_TIME, Orders.ORDER_REWARD],
       QNorderIndex: 0,
       QAorderArray: [Orders.ORDER_TIME, Orders.ORDER_COUNT],
       QAorderIndex: 0,
-      // taskArray: [],
-      // questionnairesArray: [],
-      // QAsArray: [],
-      // searchArray: [],
-
-      // data
       QNs_data: [],
       QNs_show: [],
       QAs_data: [],
@@ -65,11 +59,9 @@ Page({
       success: res => {
         console.log('[sucess]: ', res.result.success)
         this.setData({
-          questionnairesArray: res.result.value.data,
           QNs_data: res.result.value.data
         })
-        this.searchQN()
-        this.sortQN()
+        this.updateQN()
       },
       fail: err => {
         wx.showToast({
@@ -82,16 +74,13 @@ Page({
     wx.cloud.callFunction({
       name: 'get_question',
       success: res => {
-        wx.stopPullDownRefresh();
         wx.showToast({
           title: '调用成功',
         })
         this.setData({
-          QAsArray: util.deBlocking(res),
           QAs_data: util.deBlocking(res)
         })
-        this.searchQA()
-        this.sortQA()
+        this.updateQA()
       },
       fail: err => {
         wx.showToast({
@@ -122,6 +111,7 @@ Page({
    */
   onPullDownRefresh: function () {
     this.onShow();
+    wx.stopPullDownRefresh();
   },
 
   /**
@@ -164,11 +154,10 @@ Page({
   },
 
   bindAreaChange: function (e) {
-    console.log("area")
     this.setData({
       areaIndex: e.detail.value
     })
-    this.searchQN()
+    this.updateQN()
   },
   bindTypeChange: function (e) {
     this.setData({
@@ -179,7 +168,6 @@ Page({
     this.setData({
       QAorderIndex: e.detail.value
     })
-    this.sortQN()
     this.sortQA()
   },
   bindQNorderChange: function (e) {
@@ -187,10 +175,8 @@ Page({
       QNorderIndex: e.detail.value
     })
     this.sortQN()
-    this.sortQA()
   },
   sortQN: function () {
-    // var tempArray = this.data.questionnairesArray
     var tempArray = this.data.QNs_show
     switch (this.data.QNorderArray[this.data.QNorderIndex]) {
       case Orders.ORDER_TIME:
@@ -206,12 +192,10 @@ Page({
       default:
     }
     this.setData({
-      // questionnairesArray: tempArray
       QNs_show: tempArray
     })
   },
   sortQA: function () {
-    // var tempArray = this.data.QAsArray
     var tempArray = this.data.QAs_show
     switch (this.data.QAorderArray[this.data.QAorderIndex]) {
       case Orders.ORDER_TIME:
@@ -241,8 +225,6 @@ Page({
   },
   goQADetail: function (content) {
     var tempIndex = content.currentTarget.dataset.id;
-    console.log(tempIndex);
-    console.log(this.data.QAsArray);
     wx.navigateTo({
       url: '../answerQA/answerQA?id=' + this.data.QAs_show[tempIndex]._id + '&title=' + this.data.QAs_show[tempIndex].title + '&content=' + this.data.QAs_show[tempIndex].content,
       success: function (res) { },
@@ -276,5 +258,13 @@ Page({
   search : function () {
     this.searchQN()
     this.searchQA()
+  },
+  updateQN: function() {
+    this.searchQN()
+    this.sortQN()
+  },
+  updateQA: function() {
+    this.searchQA()
+    this.sortQA()
   }
 })

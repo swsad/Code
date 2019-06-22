@@ -15,6 +15,7 @@ Page({
     comment:'',
     current: 0,
     max: 100,
+    imgPath: []
   },
 
   /**
@@ -62,7 +63,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.updateReview()
+    wx.stopPullDownRefresh();
   },
 
   /**
@@ -105,6 +107,9 @@ Page({
         wx.showToast({
           title: '调用成功',
         })
+        this.setData({
+          current: 0
+        })
         const data = this.data.answerData
         data.push({
           time: util.getTime(),
@@ -139,7 +144,18 @@ Page({
           title: '调用成功',
         })
         var answerData = util.deBlocking(res)
-        console.log(answerData)
+        var tempPath = []
+        for (var i = 0; i < answerData.length; ++i) {
+          var x = answerData[i].self_liked
+          if (x) {
+            tempPath.push("../../../images/support2.png") 
+          } else {
+            tempPath.push("../../../images/support1.png") 
+          }
+        }
+        this.setData({
+          imgPath: tempPath
+        })
         this.setData({
           answerData: answerData
         })
@@ -154,10 +170,19 @@ Page({
     })
   },
   onLikeClick: function(event) {
-    console.log('[index]: ', event.currentTarget.dataset['index'])
+    // console.log('[index]: ', event.currentTarget.dataset['index'])
     const index = event.currentTarget.dataset['index']
     const temp = this.data.answerData
     const isSelfLiked = temp[index].self_liked
+    const tempPath = this.data.imgPath
+    if (tempPath[index] == "../../../images/support1.png") {
+      tempPath[index] = "../../../images/support2.png"
+    } else {
+      tempPath[index] = "../../../images/support1.png"
+    }
+    this.setData({
+      imgPath: tempPath
+    })
     if (isSelfLiked == true) {
       temp[index].like_count -= 1
       temp[index].self_liked = false
@@ -169,7 +194,7 @@ Page({
     this.setData({
       answerData: temp
     })
-    console.log('[data]: ', this.data.answerData)
+    // console.log('[data]: ', this.data.answerData)
     wx.cloud.callFunction({
       name: 'update_like',
       data: {

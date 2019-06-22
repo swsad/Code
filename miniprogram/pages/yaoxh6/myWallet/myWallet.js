@@ -17,62 +17,62 @@ Page({
   onLoad: function (options) {
     var tempArray = this.data.walletInfo;
     var total = 0;
-    wx.cloud.callFunction({
-      name: 'get_user_questionnaire',
-      data: {
-        self_fill_in: true
-      },
-      success: res=> {
-        var data = res.result.value;
-        console.log(data)
-        for (let i = 0; i < data.length; i++) {
-          var item = data[i];
-          var price = parseFloat(item['reward']);
-          total = total + price;
-          tempArray.push({
-            infoName: item['name'],
-            infoValue: price.toFixed(2),
-          })
-        }
-        this.setData({
-          walletInfo: tempArray,
-        })        
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '调用失败',
-        })
-        console.error('[云函数] [getAllQuestionnaire] 调用失败：', err)
-      }
-    })
-    wx.cloud.callFunction({
-      name: 'get_user_questionnaire',
-      data: {
-        self_publish: true
-      },
-      success: res => {
-        var data = res.result.value;
-        for (let i = 0; i < data.length; i++) {
-          var item = data[i];
-          var price = parseFloat(item['reward']) * parseFloat(item['total_amount']);
-          tempArray.push({
-            infoName: item['name'],
-            infoValue: "-" + price.toFixed(2),
-          })
-        }
-        this.setData({
-          walletInfo: tempArray,
-        })
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '调用失败',
-        })
-        console.error('[云函数] [getAllQuestionnaire] 调用失败：', err)
-      }
-    })
+    // wx.cloud.callFunction({
+    //   name: 'get_user_questionnaire',
+    //   data: {
+    //     self_fill_in: true
+    //   },
+    //   success: res=> {
+    //     var data = res.result.value;
+    //     console.log(data)
+    //     for (let i = 0; i < data.length; i++) {
+    //       var item = data[i];
+    //       var price = parseFloat(item['reward']);
+    //       total = total + price;
+    //       tempArray.push({
+    //         infoName: item['name'],
+    //         infoValue: price.toFixed(2),
+    //       })
+    //     }
+    //     this.setData({
+    //       walletInfo: tempArray,
+    //     })        
+    //   },
+    //   fail: err => {
+    //     wx.showToast({
+    //       icon: 'none',
+    //       title: '调用失败',
+    //     })
+    //     console.error('[云函数] [getAllQuestionnaire] 调用失败：', err)
+    //   }
+    // })
+    // wx.cloud.callFunction({
+    //   name: 'get_user_questionnaire',
+    //   data: {
+    //     self_publish: true
+    //   },
+    //   success: res => {
+    //     var data = res.result.value;
+    //     for (let i = 0; i < data.length; i++) {
+    //       var item = data[i];
+    //       var price = parseFloat(item['reward']) * parseFloat(item['total_amount']);
+    //       tempArray.push({
+    //         infoName: item['name'],
+    //         infoValue: "-" + price.toFixed(2),
+    //       })
+    //     }
+    //     this.setData({
+    //       walletInfo: tempArray,
+    //     })
+    //   },
+    //   fail: err => {
+    //     wx.showToast({
+    //       icon: 'none',
+    //       title: '调用失败',
+    //     })
+    //     console.error('[云函数] [getAllQuestionnaire] 调用失败：', err)
+    //   }
+    // })
     wx.cloud.callFunction({
       name: 'get_balance',
       success: res => {
@@ -91,6 +91,7 @@ Page({
     wx.cloud.callFunction({
       name: 'get_balance_record',
       success: res => {
+        console.log(res)
         var data = res.result.records.data
         for (let i = 0; i < data.length; i++) {
           var item = data[i];

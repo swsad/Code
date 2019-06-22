@@ -25,7 +25,7 @@ Page({
       areaArray: ['东校', '南校','珠海','深圳','北校'],
       areaIndex: 0,
       typeArray: ['问卷', '问答'],
-      typeIndex: 1,
+      typeIndex: 0,
       QNorderArray: [Orders.ORDER_TIME, Orders.ORDER_REWARD],
       QNorderIndex: 0,
       QAorderArray: [Orders.ORDER_TIME, Orders.ORDER_COUNT],

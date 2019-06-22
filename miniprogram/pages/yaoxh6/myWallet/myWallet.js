@@ -1,3 +1,5 @@
+var util = require('../../../utils.js');
+
 // miniprogram/pages/yaoxh6/myWallet/myWallet.js
 Page({
 
@@ -22,6 +24,7 @@ Page({
       },
       success: res=> {
         var data = res.result.value;
+        console.log(data)
         for (let i = 0; i < data.length; i++) {
           var item = data[i];
           var price = parseFloat(item['reward']);
@@ -33,7 +36,6 @@ Page({
         }
         this.setData({
           walletInfo: tempArray,
-          moneyNum: total.toFixed(2)
         })        
       },
       fail: err => {
@@ -54,7 +56,6 @@ Page({
         for (let i = 0; i < data.length; i++) {
           var item = data[i];
           var price = parseFloat(item['reward']) * parseFloat(item['total_amount']);
-          total = total - price;
           tempArray.push({
             infoName: item['name'],
             infoValue: "-" + price.toFixed(2),
@@ -62,7 +63,6 @@ Page({
         }
         this.setData({
           walletInfo: tempArray,
-          moneyNum: total.toFixed(2)
         })
       },
       fail: err => {
@@ -75,12 +75,38 @@ Page({
     })
     wx.cloud.callFunction({
       name: 'get_balance',
-      data: {
-        
-      },
       success: res => {
-        var data = res.result.value;
-        console.log(res)
+        this.setData({
+          moneyNum: parseFloat(res.result.balance).toFixed(2)
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [getAllQuestionnaire] 调用失败：', err)
+      }
+    }),
+    wx.cloud.callFunction({
+      name: 'get_balance_record',
+      success: res => {
+        var data = res.result.records.data
+        for (let i = 0; i < data.length; i++) {
+          var item = data[i];
+          var price = parseFloat(item['amount'])
+          var name = "【充值】"
+          if (price < 0) {
+            name = "【提现】"
+          }
+          tempArray.push({
+            infoName: name,
+            infoValue: price.toFixed(2),
+          })
+        }
+        this.setData({
+          walletInfo: tempArray,
+        })
       },
       fail: err => {
         wx.showToast({
@@ -144,5 +170,57 @@ Page({
     this.setData({
       money: input.detail.value
     });
+  },
+  recharge: function () {
+    if (this.data.money.trim() == '' ) {
+      wx.showToast({
+        icon: 'none',
+        title: '金额不能为空',
+      })
+      return;
+    }
+    wx.cloud.callFunction({
+      name: 'update_balance',
+      data: {
+        amount: parseInt(this.data.money),
+        time: util.getTime()
+      },
+      success: res => {
+        console.log(res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [getAllQuestionnaire] 调用失败：', err)
+      }
+    })
+  },
+  withdraw: function () {
+    if (this.data.money.trim() == '') {
+      wx.showToast({
+        icon: 'none',
+        title: '金额不能为空',
+      })
+      return;
+    }
+    wx.cloud.callFunction({
+      name: 'update_balance',
+      data: {
+        amount: parseInt("-" + this.data.money),
+        time: util.getTime()
+      },
+      success: res => {
+        console.log(res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [getAllQuestionnaire] 调用失败：', err)
+      }
+    })
   }
 })

@@ -39,6 +39,6 @@
 </view>
 
 <view id='bottomButton'>
-  <button class='nextButton'>充值</button>
-  <button class="nextButton">提现</button>
+  <button class='nextButton' bindtap="recharge">充值</button>
+  <button class="nextButton" bindtap="withdraw">提现</button>
 </view>

@@ -57,8 +57,7 @@ exports.main = async (event, context) => {
     const result = await db.collection('answer').add({
       data: {
         content: event.content,
-        qid: event.qid,
-        time: event.time
+        qid: event.qid
       }
     })
     console.log('[result]: ', result)
@@ -76,6 +75,14 @@ exports.main = async (event, context) => {
     }).update({
       data: {
         points: _.inc(reward)
+      }
+    })
+    await db.collection('balance_record').add({
+      data: {
+        uid: wxContext.OPENID,
+        title: questionnaire.data.title,
+        amount: reward,
+        time: event.time
       }
     })
 

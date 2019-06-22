@@ -81,10 +81,7 @@
   padding: 20rpx;
   border: 1rpx solid #E3E3E3;
   background-color: #fff;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-  margin-top: 50rpx;
-  margin-bottom: 50rpx;
+  margin:20rpx;
 }
 .SCQText{
   margin-left: 20rpx;
@@ -95,12 +92,13 @@
   word-wrap: break-word;
 }
 .MCQ{
-  margin: 20rpx;
-  padding: 20rpx;
-  border: 1rpx solid #F6F6F6;
+  width: 89%;
   border-radius: 10rpx;
+  padding: 20rpx;
+  border: 1rpx solid #E3E3E3;
+  background-color: #fff;
+  margin:20rpx;
 }
-
 .MCQText{
   margin-left: 20rpx;
   /* color: #E3E3E3; */
@@ -111,11 +109,12 @@
 }
 
 .SAQ{
-  margin-left: 20rpx;
-  margin-right: 20rpx; 
-  padding: 20rpx;
-  border: 1rpx solid #F6F6F6;
+  width: 89%;
   border-radius: 10rpx;
+  padding: 20rpx;
+  border: 1rpx solid #E3E3E3;
+  background-color: #fff;
+  margin:20rpx;
 }
 
 .SCQTitle{
@@ -140,10 +139,10 @@
 }
 
 .SAQAnswer{
-  border: 1rpx solid #F6F6F6;
+  border: 1rpx solid #E3E3E3;
   border-radius: 10rpx;
   padding: 10rpx;
-  width: 95%;
+  width: 90%;
 }
 
 .SCQDiscription{

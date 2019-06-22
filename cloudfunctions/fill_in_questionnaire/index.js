@@ -3,6 +3,7 @@
   接受参数：
     qid: string 所填写的问卷id
     content: string 填写的内容（JSON转string）
+    time: string 填写问卷的时间
   返回情况：
     {
       success: bool 表示是否正确执行
@@ -56,7 +57,8 @@ exports.main = async (event, context) => {
     const result = await db.collection('answer').add({
       data: {
         content: event.content,
-        qid: event.qid
+        qid: event.qid,
+        time: event.time
       }
     })
     console.log('[result]: ', result)

@@ -25,7 +25,7 @@ exports.main = async (event, context) => {
       uid: wxContext.OPENID
     }).get()
     console.log('[user]: ', user)
-    const balance = user.data.points
+    const balance = user.data[0].points
     if (event.amount < 0 && balance + event.amount < 0) {
       throw '余额不足，无法提现'
     }

@@ -4,7 +4,7 @@ page{
 
 .options {
   width: 94%;
-  border-radius: 20rpx;
+  border-radius: 10rpx;
   background-color: #fff;
   border: 1rpx solid #E3E3E3;
   margin-left: 20rpx;
@@ -60,7 +60,7 @@ page{
 }
 .SCQ{
   width: 89%;
-  border-radius: 20rpx;
+  border-radius: 10rpx;
   padding: 20rpx;
   border: 1rpx solid #E3E3E3;
   background-color: #fff;
@@ -79,7 +79,7 @@ page{
 }
 .MCQ{
   width: 89%;
-  border-radius: 20rpx;
+  border-radius: 10rpx;
   padding: 20rpx;
   border: 1rpx solid #E3E3E3;
   background-color: #fff;
@@ -99,7 +99,7 @@ page{
 
 .SAQ{
   width: 89%;
-  border-radius: 20rpx;
+  border-radius: 10rpx;
   padding: 20rpx;
   border: 1rpx solid #E3E3E3;
   background-color: #fff;

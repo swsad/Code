@@ -93,6 +93,7 @@
         </view>
       </view>
     </view>
+    <view class="itemLine"></view>
   </view>
 
   <view class="questionnaire" wx:for="{{QAs_show}}" wx:key="_id" hidden="{{!tools.isQA(typeArray[typeIndex])}}">

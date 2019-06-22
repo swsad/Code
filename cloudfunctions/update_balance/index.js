@@ -40,6 +40,7 @@ exports.main = async (event, context) => {
     await db.collection('balance_record').add({
       data: {
         uid: wxContext.OPENID,
+        title: event.amount > 0 ? "充值" : "提现",
         amount: event.amount,
         time: event.time
       }

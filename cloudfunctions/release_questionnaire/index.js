@@ -28,6 +28,22 @@ exports.main = async (event, context) => {
   console.log('[参数]: ', event)
 
   try {
+    const user = await db.collection('users').where({
+      uid: wxContext.OPENID
+    }).get()
+    const balance = user.data[0].points
+    console.log('[balance]: ', balance)
+    console.log('[total]: ', event.total_amount * event.reward)
+    if (balance < event.total_amount * event.reward) {
+      throw '余额不足，无法发布问卷'
+    }
+    await db.collection('users').where({
+      uid: wxContext.OPENID
+    }).update({
+      data: {
+        points: _.inc(-event.total_amount * event.reward)
+      }
+    })
     const result = await db.collection('questionnaire_info').add({
       data: {
         name: event.name,
@@ -53,22 +69,6 @@ exports.main = async (event, context) => {
         uid: wxContext.OPENID
       }
     })
-    const user = await db.collection('users').where({
-      uid: wxContext.OPENID
-    }).get()
-    console.log('[user]: ', user)
-    const balance = user.data.points
-    if (balance < event.total_amount * event.reward) {
-      throw '余额不足，无法发布问卷'
-    }
-    await db.collection('users').where({
-      uid: wxContext.OPENID
-    }).update({
-      data: {
-        points: _.inc(-event.total_amount * event.reward)
-      }
-    })
-
     console.log('[完成]: 完成发布问卷')
     return {
       success: true

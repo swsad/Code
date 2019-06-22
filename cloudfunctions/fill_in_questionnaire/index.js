@@ -41,6 +41,18 @@ exports.main = async (event, context) => {
     if (auResult.total > 0) {
       throw "不能重复填写问卷哦~";
     }
+    var questionnaire = await db.collection('questionnaire_info').doc(event.qid).get()
+    var completed = (questionnaire.data.total_amount - questionnaire.data.completed_amount == 1)
+    console.log('[completed]: ', completed)
+    if (completed == true) {
+      throw '该问卷已被填完'
+    }
+    await db.collection('questionnaire_info').doc(event.qid).update({
+      data: {
+        completed_amount: _.inc(1),
+        is_all_completed: completed
+      }
+    })
     const result = await db.collection('answer').add({
       data: {
         content: event.content,
@@ -53,18 +65,6 @@ exports.main = async (event, context) => {
         anid: result._id,
         qid: event.qid,
         uid: wxContext.OPENID
-      }
-    })
-    var questionnaire = await db.collection('questionnaire_info').doc(event.qid).get()
-    var completed = (questionnaire.data.total_amount - questionnaire.data.completed_amount == 1)
-    console.log('[completed]: ', completed)
-    if (completed == true) {
-      throw '该问卷已被填完'
-    }
-    await db.collection('questionnaire_info').doc(event.qid).update({
-      data: {
-        completed_amount: _.inc(1),
-        is_all_completed: completed
       }
     })
     // 给填问卷的用户加钱

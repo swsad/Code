@@ -69,7 +69,7 @@ exports.main = async (event, context) => {
       }
     })
     // 给填问卷的用户加钱
-    const reward = questionnaire.data.reward
+    const reward = parseInt(questionnaire.data.reward)
     await db.collection('users').where({
       uid: wxContext.OPENID
     }).update({
@@ -80,7 +80,7 @@ exports.main = async (event, context) => {
     await db.collection('balance_record').add({
       data: {
         uid: wxContext.OPENID,
-        title: questionnaire.data.title,
+        title: questionnaire.data.name,
         amount: reward,
         time: event.time
       }

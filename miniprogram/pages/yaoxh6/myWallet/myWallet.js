@@ -22,7 +22,6 @@ Page({
       },
       success: res=> {
         var data = res.result.value;
-        console.log(res)
         for (let i = 0; i < data.length; i++) {
           var item = data[i];
           var price = parseFloat(item['reward']);
@@ -30,12 +29,6 @@ Page({
           tempArray.push({
             infoName: item['name'],
             infoValue: price.toFixed(2),
-            // qid: item['_id'],
-            // name: item['name'],
-            // time: item['time'],
-            // reward: item['reward'],
-            // completedAmount: item['completed_amount'],
-            // totalAmount: item['total_amount']
           })
         }
         this.setData({
@@ -58,7 +51,6 @@ Page({
       },
       success: res => {
         var data = res.result.value;
-        console.log(res)
         for (let i = 0; i < data.length; i++) {
           var item = data[i];
           var price = parseFloat(item['reward']) * parseFloat(item['total_amount']);
@@ -66,12 +58,6 @@ Page({
           tempArray.push({
             infoName: item['name'],
             infoValue: "-" + price.toFixed(2),
-            // qid: item['_id'],
-            // name: item['name'],
-            // time: item['time'],
-            // reward: item['reward'],
-            // completedAmount: item['completed_amount'],
-            // totalAmount: item['total_amount']
           })
         }
         this.setData({
@@ -86,42 +72,24 @@ Page({
         })
         console.error('[云函数] [getAllQuestionnaire] 调用失败：', err)
       }
-    })              
-    // var getInfo = [
-    //   { 
-    //     infoName: '今天吃了什么的问卷',
-    //     infoValue: '1'
-    //   },
-    //   {
-    //     infoName: '留学状况调查',
-    //     infoValue: '3'
-    //   },
-    //   {
-    //     infoName: '考试时间安排',
-    //     infoValue: '0.01'
-    //   },
-    //   {
-    //     infoName: '端午出游时间安排',
-    //     infoValue: '2'
-    //   },
-    //   {
-    //     infoName: '你是甜党还是咸党',
-    //     infoValue: '1'
-    //   },                  
-    // ]
-    // var total = 0;
-    // for(var i = 0; i < getInfo.length; i++) {
-    //   total = total + parseFloat(getInfo[i]['infoValue']);
-    //   tempArray.push({
-    //     infoName: getInfo[i]['infoName'],
-    //     infoValue: parseFloat(getInfo[i]['infoValue']).toFixed(2)
-    //   })
-    // }
-
-    // this.setData({
-    //   walletInfo: tempArray,
-    //   moneyNum: total.toFixed(2)
-    // })
+    })
+    wx.cloud.callFunction({
+      name: 'get_balance',
+      data: {
+        
+      },
+      success: res => {
+        var data = res.result.value;
+        console.log(res)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [getAllQuestionnaire] 调用失败：', err)
+      }
+    })
   },
 
   /**

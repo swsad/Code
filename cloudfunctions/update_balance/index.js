@@ -2,6 +2,7 @@
   功能：更新用户余额（充值/提现）
   接受参数：
     amount: number 充值为正数，提现为负数
+    time: string 充值/提现的时间
   返回情况：
     {
       success: bool 表示是否正确执行
@@ -25,7 +26,7 @@ exports.main = async (event, context) => {
       uid: wxContext.OPENID
     }).get()
     console.log('[user]: ', user)
-    const balance = user.data.points
+    const balance = user.data[0].points
     if (event.amount < 0 && balance + event.amount < 0) {
       throw '余额不足，无法提现'
     }
@@ -36,7 +37,13 @@ exports.main = async (event, context) => {
         points: _.inc(event.amount)
       }
     })
-
+    await db.collection('balance_record').add({
+      data: {
+        uid: wxContext.OPENID,
+        amount: event.amount,
+        time: event.time
+      }
+    })
     console.log('[完成]: 完成余额更新')
     return {
       success: true

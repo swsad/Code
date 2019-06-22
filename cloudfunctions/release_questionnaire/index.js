@@ -48,7 +48,7 @@ exports.main = async (event, context) => {
       data: {
         uid: wxContext.OPENID,
         title: event.name,
-        amount: -event.reward * event.amount,
+        amount: -event.reward * event.total_amount,
         time: event.publish_time
       }
     })

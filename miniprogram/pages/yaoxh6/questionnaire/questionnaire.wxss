@@ -64,10 +64,7 @@ page{
   padding: 20rpx;
   border: 1rpx solid #E3E3E3;
   background-color: #fff;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-  margin-top: 50rpx;
-  margin-bottom: 50rpx;
+  margin:20rpx;
 }
 
 .SCQText{
@@ -83,10 +80,7 @@ page{
   padding: 20rpx;
   border: 1rpx solid #E3E3E3;
   background-color: #fff;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-  margin-top: 50rpx;
-  margin-bottom: 50rpx;
+  margin:20rpx;
 }
 
 .MCQText{
@@ -103,10 +97,7 @@ page{
   padding: 20rpx;
   border: 1rpx solid #E3E3E3;
   background-color: #fff;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-  margin-top: 50rpx;
-  margin-bottom: 50rpx;
+  margin:20rpx;
 }
 
 .SCQTitle{

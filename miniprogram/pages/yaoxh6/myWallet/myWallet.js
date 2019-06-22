@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    walletInfo: []
+    walletInfo: [],
+    money: ''
   },
 
   /**
@@ -21,7 +22,7 @@ Page({
       },
       success: res=> {
         var data = res.result.value;
-        console.log(data)
+        console.log(res)
         for (let i = 0; i < data.length; i++) {
           var item = data[i];
           var price = parseFloat(item['reward']);
@@ -49,7 +50,43 @@ Page({
         })
         console.error('[云函数] [getAllQuestionnaire] 调用失败：', err)
       }
-    })       
+    })
+    wx.cloud.callFunction({
+      name: 'get_user_questionnaire',
+      data: {
+        self_publish: true
+      },
+      success: res => {
+        var data = res.result.value;
+        console.log(res)
+        for (let i = 0; i < data.length; i++) {
+          var item = data[i];
+          var price = parseFloat(item['reward']) * parseFloat(item['total_amount']);
+          total = total - price;
+          tempArray.push({
+            infoName: item['name'],
+            infoValue: "-" + price.toFixed(2),
+            // qid: item['_id'],
+            // name: item['name'],
+            // time: item['time'],
+            // reward: item['reward'],
+            // completedAmount: item['completed_amount'],
+            // totalAmount: item['total_amount']
+          })
+        }
+        this.setData({
+          walletInfo: tempArray,
+          moneyNum: total.toFixed(2)
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '调用失败',
+        })
+        console.error('[云函数] [getAllQuestionnaire] 调用失败：', err)
+      }
+    })              
     // var getInfo = [
     //   { 
     //     infoName: '今天吃了什么的问卷',
@@ -134,5 +171,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  bindInputMoney: function(input) {
+    this.setData({
+      money: input.detail.value
+    });
   }
 })

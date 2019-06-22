@@ -1,7 +1,44 @@
-<view class="info" wx:for="{{walletInfo}}" wx:key="id">
-  <view class='infoItem'>
-      <view class="infoName">{{item.infoName}}</view>
-      <view class="infoValue">{{item.infoValue}}</view>
+
+<view class='moneyInfo'>我的零钱</view>
+<view class='moneyNum'>￥{{moneyNum}}</view>
+<view class="divLine"></view>
+
+<wxs module="tools">
+  var toStdMoney = function (money) {
+    if (money[0] != "-") {
+      money = "+" + money
+    }
+    return money
+  }
+  module.exports = {
+    toStdMoney: toStdMoney
+  }
+</wxs>
+
+<scroll-view scroll-y='true' class="info">
+  <view wx:for="{{walletInfo}}" wx:key="id">
+    <view class='infoItem'>
+        <view class="infoName">{{item.infoName}}</view>
+        <view class="infoValue">
+          {{tools.toStdMoney(item.infoValue)}}
+        </view>
+    </view>
   </view>
+  <view class="blank"></view>
+</scroll-view>
+<view class="divLine"></view>
+
+
+<view class="options">
+  <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">充值/提现：</label></div>
+      <div class="weui-cell__bd">
+          <input data-name='price' bindinput='bindInputMoney' class="weui-input" type="number" value="{{money}}" placeholder="请输入金额/元"/>
+      </div>
+  </div>
 </view>
-<view class='moneyInfo'>总共赚了 <view class='moneyNum'>{{moneyNum}}元</view></view>
+
+<view id='bottomButton'>
+  <button class='nextButton'>充值</button>
+  <button class="nextButton">提现</button>
+</view>

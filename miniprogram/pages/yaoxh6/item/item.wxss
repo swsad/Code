@@ -69,7 +69,7 @@ page{
 }
 
 .SCQselectIcon{
-  width: 60rpx;
+  width: 40rpx;
 }
 
 .SCQOption{
@@ -79,18 +79,17 @@ page{
 }
 
 .MCQselectIcon{
-  width: 60rpx;
+  width: 40rpx;
 }
 .SCQ{
-  width: 89%;
-  border-radius: 10rpx;
+  width: 90%;
+  border-radius: 20rpx;
   padding: 20rpx;
   border: 1rpx solid #E3E3E3;
   background-color: #fff;
   margin:20rpx;
 }
 .SCQText{
-  margin-left: 20rpx;
   /* color: #E3E3E3; */
   /* border: 2rpx solid #999; */
   width: 90%;
@@ -98,15 +97,14 @@ page{
   word-wrap: break-word;
 }
 .MCQ{
-  width: 89%;
-  border-radius: 10rpx;
+  width: 90%;
+  border-radius: 20rpx;
   padding: 20rpx;
   border: 1rpx solid #E3E3E3;
   background-color: #fff;
   margin:20rpx;
 }
 .MCQText{
-  margin-left: 20rpx;
   /* color: #E3E3E3; */
   /* border: 2rpx solid #999; */
   width: 90%;
@@ -115,8 +113,8 @@ page{
 }
 
 .SAQ{
-  width: 89%;
-  border-radius: 10rpx;
+  width: 90%;
+  border-radius: 20rpx;
   padding: 20rpx;
   border: 1rpx solid #E3E3E3;
   background-color: #fff;
@@ -148,7 +146,7 @@ page{
   border: 1rpx solid #E3E3E3;
   border-radius: 10rpx;
   padding: 10rpx;
-  width: 90%;
+  width: 95%;
 }
 
 .SCQDiscription{
@@ -156,7 +154,7 @@ page{
   width: 90%;
   word-break: keep-all;
   word-wrap: break-word;
-  margin-left: 5rpx;
+  margin-left: 20rpx;
 }
 
 .MCQDiscription{
@@ -164,7 +162,7 @@ page{
   width: 90%;
   word-break: keep-all;
   word-wrap: break-word;
-  margin-left: 5rpx;
+  margin-left: 20rpx;
 }
 
 .SAQDiscription{
@@ -172,7 +170,7 @@ page{
   width: 90%;
   word-break: keep-all;
   word-wrap: break-word;
-  margin-left: 5rpx;
+  margin-left: 20rpx;
 }
 
 .SCQdeleteIcon{
@@ -212,7 +210,9 @@ page{
 
 #body{
   margin-top: 20rpx;
-  height: 80%;
+}
+#commentContent{
+  height: 70%
 }
 
 .weui-btn{

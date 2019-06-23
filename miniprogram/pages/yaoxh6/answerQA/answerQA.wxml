@@ -38,6 +38,7 @@
       </view>
         <view class="itemLine"></view>
     </view>
+    <view class='note' wx:if="{{isEmpty}}">目前还没有回答哦~</view>
   </scroll-view>
 
   <view id='comment'>

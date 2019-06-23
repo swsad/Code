@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isEmpty: false,
+    MoneyIcon: "../../../images/price2.png",
     walletInfo: [],
     money: ''
   },
@@ -53,6 +55,7 @@ Page({
         for (let i = 0; i < data.length; i++) {
           var item = data[i];
           var price = parseFloat(item['amount'])
+          var time = item['time']
           var name = ""
           if (item.title == "充值") {
             name = "【充值】"
@@ -64,11 +67,20 @@ Page({
           tempArray.push({
             infoName: name,
             infoValue: price.toFixed(2),
+            time: time,
           })
         }
-        this.setData({
-          walletInfo: tempArray.reverse(),
+        tempArray.sort(function (r1, r2) {
+          return -r1.time.localeCompare(r2.time)
         })
+        this.setData({
+          walletInfo: tempArray
+        })
+        if (this.data.walletInfo.length == 0) {
+          this.setData({
+            isEmpty: true
+          })
+        }
       },
       fail: err => {
         wx.showToast({
@@ -126,6 +138,12 @@ Page({
         title: '金额不能为空',
       })
       return;
+    } else if (this.data.money.trim() == "0") {
+      wx.showToast({
+        icon: 'none',
+        title: '金额不能为0',
+      })
+      return;
     }
     wx.cloud.callFunction({
       name: 'update_balance',
@@ -135,6 +153,9 @@ Page({
       },
       success: res => {
         this.onShow()
+        wx.showToast({
+          title: '充值成功',
+        })
       },
       fail: err => {
         wx.showToast({
@@ -152,6 +173,12 @@ Page({
         title: '金额不能为空',
       })
       return;
+    } else if (this.data.money.trim() == "0") {
+      wx.showToast({
+        icon: 'none',
+        title: '金额不能为0',
+      })
+      return;
     }
     wx.cloud.callFunction({
       name: 'update_balance',
@@ -161,6 +188,9 @@ Page({
       },
       success: res => {
         this.onShow()
+        wx.showToast({
+          title: '提现成功',
+        })
       },
       fail: err => {
         wx.showToast({

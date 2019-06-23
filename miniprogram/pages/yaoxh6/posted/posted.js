@@ -5,14 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    taskArray: []
+    DateIcon: "../../../images/time.png",
+    PriceIcon: "../../../images/price.png",
+    AnswerCountIcon: "../../../images/reply_count.png",
+    taskArray: [],
+    isEmpty: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var tempArray = this.data.taskArray
+    var tempArray = []
     wx.cloud.callFunction({
       name: 'get_user_questionnaire',
       data: {
@@ -35,6 +39,11 @@ Page({
         this.setData({
           taskArray: tempArray
         })
+        if (this.data.taskArray.length == 0) {
+          this.setData({
+            isEmpty: true
+          })
+        }
       },
       fail: err => {
         wx.showToast({

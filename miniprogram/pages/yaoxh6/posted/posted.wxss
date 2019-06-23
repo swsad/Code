@@ -1,5 +1,11 @@
 /* miniprogram/pages/yaoxh6/posted/posted.wxss */
 
+.note {
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #999;
+}
 .infoItem{
   height: 120rpx;
   line-height: 120rpx;
@@ -8,12 +14,49 @@
 
 .nameAprogress {
   margin-left: 30rpx;
-  width: 50%;
+  width: 60%;
   line-height: 60rpx;
   float: left;
   text-align: center;
 }
+.questionnaireDetail{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin-top: 10rpx;
+}
+.dateBlock{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 250rpx;
+}
+.dateIconClass{
+  width: 30rpx;
+  margin-top: 15rpx;
+}
+.dateClass{
+  font-size: 30rpx;
+  margin-left: 10rpx;
+  color: #999;
+}
+.addressBlock{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 200rpx;
+}
 
+.addressIconClass{
+  width: 30rpx;
+  margin-top: 15rpx;
+}
+
+.addressClass{
+  font-size: 30rpx;
+  margin-left: 10rpx;
+  color: #999;
+}
 
 .taskName {
   width: 100%;
@@ -25,11 +68,6 @@
   font-size: 40rpx;
 }
 
-.taskAmount{
-  font-size: 30rpx;
-  color: gray;
-  float: left;
-}
 
 .taskTime {
   margin: 0rpx;

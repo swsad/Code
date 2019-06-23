@@ -29,8 +29,19 @@
     <view class='infoItem'>
       <view class='nameAprogress'>
         <view class="taskName">{{item.name}}</view>
-        <view class="taskAmount">
-          {{item.completedAmount}}/{{item.totalAmount}}
+        <view class="questionnaireDetail">
+          <view class="dateBlock">
+            <image class="dateIconClass" src="{{DateIcon}}" mode='widthFix'></image>
+              <view class="dateClass">
+               {{tools.timeToDate(item.publish_time)}}
+              </view>
+          </view>
+          <view class="addressBlock">
+            <image class="dateIconClass" src="{{AnswerCountIcon}}" mode='widthFix'></image>
+              <view class="dateClass">
+                {{item.completedAmount}}/{{item.totalAmount}}
+              </view>
+          </view>
         </view>
       </view>
       <!-- <view class="taskReward">{{item.reward}}<span class="unit">元</span></view> -->
@@ -41,3 +52,5 @@
     </view>
   </view>
 </view>
+
+<view class='note' wx:if="{{isEmpty}}">您还没有发布过问卷哦~</view>

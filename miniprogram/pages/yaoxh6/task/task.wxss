@@ -9,6 +9,12 @@
     padding: 12px 15px 12px 35px;
 }
 
+.note {
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #999;
+}
 #commentContent{
   height: 80%;
 }

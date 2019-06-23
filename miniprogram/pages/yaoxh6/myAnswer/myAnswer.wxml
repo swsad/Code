@@ -9,3 +9,5 @@
       </view>
   </view>
 </view>
+
+<view class='note' wx:if="{{isEmpty}}">您还没有回答过问题哦~</view>

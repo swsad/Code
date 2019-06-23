@@ -36,10 +36,18 @@
   var isQA = function (list) {
     return list == '问题'
   }
+  var isEmptyQN = function (isEmptyQN, list) {
+    return isEmptyQN && list == '问卷'
+  }
+  var isEmptyQA = function (isEmptyQA, list) {
+    return isEmptyQA && list == '问题'
+  }
   module.exports = { 
     timeToDate: timeToDate,
     isQN: isQN,
-    isQA: isQA 
+    isQA: isQA,
+    isEmptyQN: isEmptyQN,
+    isEmptyQA: isEmptyQA,
   }
 </wxs>
 
@@ -95,6 +103,7 @@
     </view>
     <view class="itemLine"></view>
   </view>
+  <view class='note' wx:if="{{tools.isEmptyQN(isEmptyQN, typeArray[typeIndex])}}">目前没有可以填写的问卷哦~</view>
 
   <view class="questionnaire" wx:for="{{QAs_show}}" wx:key="_id" hidden="{{!tools.isQA(typeArray[typeIndex])}}">
     <view class='questionnaireItem' bindtap='goQADetail' data-id="{{index}}">
@@ -113,5 +122,6 @@
     </view>
     <view class="itemLine"></view>
   </view>
+  <view class='note' wx:if="{{tools.isEmptyQA(isEmptyQA, typeArray[typeIndex])}}">目前没有可以回答的问题哦~</view>
 </scroll-view>
 

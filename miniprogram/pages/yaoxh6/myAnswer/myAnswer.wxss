@@ -1,5 +1,12 @@
 /* miniprogram/pages/yaoxh6/myAnswer/myAnswer.wxss */
 
+.note {
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #999;
+}
+
 .infoItem{
   height: 120rpx;
   line-height: 120rpx;
@@ -26,6 +33,8 @@
   white-space: nowrap;
   text-overflow:ellipsis;     
   font-size: 30rpx;
+  margin-top: 10rpx;
+  color: #999;
 }
 
 .btnView{

@@ -1,6 +1,9 @@
 
-<view class='moneyInfo'>我的零钱</view>
-<view class='moneyNum'>￥{{moneyNum}}</view>
+<view class='moneyInfo'>我的闲钱</view>
+<view class="moneyBlock">
+  <image class="moneyIcon" src="{{MoneyIcon}}" mode='widthFix'></image>
+  <view class='moneyNum'>{{moneyNum}}</view>
+</view>
 <view class="divLine"></view>
 
 <wxs module="tools">
@@ -24,7 +27,7 @@
         </view>
     </view>
   </view>
-  <view class="blank"></view>
+  <view class='note' wx:if="{{isEmpty}}">目前还没有交易记录哦~</view>
 </scroll-view>
 <view class="divLine"></view>
 
@@ -33,7 +36,7 @@
   <div class="weui-cell">
       <div class="weui-cell__hd"><label class="weui-label">充值/提现：</label></div>
       <div class="weui-cell__bd">
-          <input data-name='price' bindinput='bindInputMoney' class="weui-input" type="number" value="{{money}}" placeholder="请输入金额/元"/>
+          <input data-name='price' bindinput='bindInputMoney' class="weui-input" type="number" value="{{money}}" placeholder="请输入金额"/>
       </div>
   </div>
 </view>

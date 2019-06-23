@@ -6,3 +6,5 @@
       </view>
   </view>
 </view>
+
+<view class='note' wx:if="{{isEmpty}}">您还没有发布过问题哦~</view>

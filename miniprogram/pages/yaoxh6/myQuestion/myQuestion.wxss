@@ -1,6 +1,12 @@
 /* miniprogram/pages/yaoxh6/myQuestion/myQuestion.wxss */
 /* miniprogram/pages/yaoxh6/myAnswer/myAnswer.wxss */
 
+.note {
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #999;
+}
 .btnView{
   height: 100rpx;
   width: 30%;

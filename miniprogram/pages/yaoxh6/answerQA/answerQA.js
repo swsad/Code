@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isEmpty: false,
     answerIcon: "../../../images/anonymous3.jpg",
     questionIcon: "../../../images/anonymous3.jpg",
     supportIcon: "../../../images/support1.png",
@@ -121,6 +122,15 @@ Page({
         this.setData({
           answerData: data
         })
+        if (this.data.answerData.length == 0) {
+          this.setData({
+            isEmpty: true
+          })
+        } else {
+          this.setData({
+            isEmpty: false
+          })
+        }
         this.updateImg()
         this.setData({
           comment: ""
@@ -147,6 +157,15 @@ Page({
           answerData: answerData
         })
         this.updateImg()
+        if (this.data.answerData.length == 0) {
+          this.setData({
+            isEmpty: true
+          })
+        } else {
+          this.setData({
+            isEmpty: false
+          })
+        }
       },
       fail: err => {
         wx.showToast({

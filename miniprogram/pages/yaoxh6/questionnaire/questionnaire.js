@@ -5,7 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    canBePublished:false,
     price: "",
     qNum: "",
     campusArray: ["全部", "东校", "南校", "北校", "珠海", "深圳"],
@@ -227,22 +226,39 @@ Page({
   },
 
   showQ:function(){
-    this.setData({
-      canBePublished: true,
-    })
-
-    if(this.data.descriptionContent.trim() == '' || this.data.titleContent.trim() == '' || this.data.price.trim() == '' || this.data.qNum.trim() == ''){
-      this.setData({
-        canBePublished : false,
+    if (this.data.titleContent.trim() == '') {
+      wx.showToast({
+        icon: 'none',
+        title: '标题不能为空',
       })
+      return
+    } else if (this.data.descriptionContent.trim() == '') {
+      wx.showToast({
+        icon: 'none',
+        title: '问卷详情不能为空',
+      })
+      return
+    } else if (this.data.price.trim() == '') {
+      wx.showToast({
+        icon: 'none',
+        title: '问卷报酬不能为空',
+      })
+      return
+    } else if (this.data.qNum.trim() == '') {
+      wx.showToast({
+        icon: 'none',
+        title: '问卷数量不能为空',
+      })
+      return
+    } else if (this.data.questionnaireArray.length == 0) {
+      wx.showToast({
+        icon: 'none',
+        title: '问卷内容不能为空',
+      })
+      return
     }
 
-    if(this.data.questionnaireArray.length == 0){
-      this.setData({
-        canBePublished: false,
-      })
-    }
-
+    var canBePublished = true
     for(var i = 0;i<this.data.questionnaireArray.length;i++){
       if(this.data.questionnaireArray[i].content.description == ''){
         this.setData({
@@ -260,12 +276,12 @@ Page({
       }
     }
 
-    if (this.data.canBePublished == false){
+    if (this.data.canBePublished == false) {
       wx.showToast({
         icon: 'none',
-        title: '输入不能为空',
+        title: '问卷内容不能留空',
       })
-      return;
+      return
     }
     //console.log(this.data.questionnaireArray);
     //console.log("test" + this.data.descriptionContent)

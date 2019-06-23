@@ -216,6 +216,7 @@ Page({
       },
       success: res => {
         // console.log(JSON.stringify(res))
+        // console.log("here")
         console.log(res);
         var msg = "";
         // var icon = "success";

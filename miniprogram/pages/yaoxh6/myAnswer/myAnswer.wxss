@@ -1,27 +1,26 @@
 /* miniprogram/pages/yaoxh6/myAnswer/myAnswer.wxss */
 
-.infoItem {
-  width: 95%;
-  height: 160rpx;
-  line-height: 160rpx;
-  background-color: #F6F6F6;
+.note {
   margin-top: 20rpx;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-  border-radius: 10rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #999;
+}
+
+.infoItem{
+  height: 120rpx;
+  line-height: 120rpx;
+  padding: 20rpx 0rpx 20rpx 0rpx;
 }
 
 .QAInfo {
-  width: 60%;
-  height: 160rpx;
-  line-height: 80rpx;
-  padding-left: 30rpx;
+  margin-left: 30rpx;
+  line-height: 60rpx;
   float: left;
 }
 
 .answerText {
   width: 100%;
-  height: 50%;
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;   
@@ -30,11 +29,21 @@
 
 .questionTex {
   width: 100%;
-  height: 50%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow:ellipsis;     
   font-size: 30rpx;
+  margin-top: 10rpx;
+  color: #999;
+}
+
+.btnView{
+  height: 100rpx;
+  width: 30%;
+  float: right;
+  align-content: middle;
+  margin-right: 30rpx;
+  padding-top: 20rpx;
 }
 
 .weui-btn {
@@ -43,9 +52,7 @@
   font-size: 30rpx; 
   height: 80rpx;
   line-height: 80rpx;
-  vertical-align: middle;
-  width: 24%;
-  margin-right: 20rpx;
+  width: 80%;
   background-color: #63B8FF !important;
   padding-left: 10rpx;
   padding-right: 10rpx;

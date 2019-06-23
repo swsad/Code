@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    answerIcon: "../../../images/anonymous.png",
-    questionIcon: "../../../images/anonymous.png",
+    answerIcon: "../../../images/anonymous3.jpg",
+    questionIcon: "../../../images/anonymous3.jpg",
     supportIcon: "../../../images/support1.png",
     answerData:'',
     question: '',
@@ -90,9 +90,10 @@ Page({
   },
   addComment:function(){
     console.log(this.data.comment);
-    if(this.data.comment == ''){
+    if(this.data.comment.trim() == ''){
       wx.showToast({
-        title: '输入不能为空',
+        icon: 'none',
+        title: '回答不能为空',
       })
       return;
     }
@@ -105,7 +106,7 @@ Page({
       },
       success: res => {
         wx.showToast({
-          title: '调用成功',
+          title: '提交成功',
         })
         this.setData({
           current: 0
@@ -120,6 +121,7 @@ Page({
         this.setData({
           answerData: data
         })
+        this.updateImg()
         this.setData({
           comment: ""
         })
@@ -140,25 +142,11 @@ Page({
         qid: this.data.qid
       },
       success: res => {
-        wx.showToast({
-          title: '调用成功',
-        })
         var answerData = util.deBlocking(res)
-        var tempPath = []
-        for (var i = 0; i < answerData.length; ++i) {
-          var x = answerData[i].self_liked
-          if (x) {
-            tempPath.push("../../../images/support2.png") 
-          } else {
-            tempPath.push("../../../images/support1.png") 
-          }
-        }
-        this.setData({
-          imgPath: tempPath
-        })
         this.setData({
           answerData: answerData
         })
+        this.updateImg()
       },
       fail: err => {
         wx.showToast({
@@ -201,9 +189,6 @@ Page({
         rid: this.data.answerData[index]._id
       },
       success: res => {
-        wx.showToast({
-          title: '调用成功',
-        })
       },
       fail: err => {
         wx.showToast({
@@ -212,6 +197,20 @@ Page({
         })
         console.error('[云函数] [update_like] 调用失败：', err)
       }
+    })
+  },
+  updateImg() {
+    var tempPath = []
+    for (var i = 0; i < this.data.answerData.length; ++i) {
+      var x = this.data.answerData[i].self_liked
+      if (x) {
+        tempPath.push("../../../images/support2.png")
+      } else {
+        tempPath.push("../../../images/support1.png")
+      }
+    }
+    this.setData({
+      imgPath: tempPath
     })
   }
 })

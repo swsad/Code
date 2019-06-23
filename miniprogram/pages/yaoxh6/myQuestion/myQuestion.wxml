@@ -1,6 +1,10 @@
 <view class="info" wx:for="{{questionInfo}}" wx:key="id">
   <view class='infoItem'>
       <view class="infoName">{{item.question_title}}</view>
-      <button class="weui-btn inLineButton" data-index="{{index}}" bindtap='showQADetail'>问题详情</button>
+      <view class="btnView">
+        <button class="weui-btn inLineButton" data-index="{{index}}" bindtap='showQADetail'>问题详情</button>
+      </view>
   </view>
 </view>
+
+<view class='note' wx:if="{{isEmpty}}">您还没有发布过问题哦~</view>

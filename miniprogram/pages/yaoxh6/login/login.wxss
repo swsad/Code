@@ -16,7 +16,6 @@
 }
 
 .person{
-  height: 30%;
   padding-top: 50rpx;
   display: flex;
   justify-content: center;
@@ -24,8 +23,7 @@
 
 .weui-vcode-btn {
   color: #5CACEE;
-  margin-right: 10rpx;
-  margin-left: 10rpx;
+  margin-right: 30rpx;
 }
 
 .weui-input {
@@ -36,9 +34,4 @@
   width: 50%;
   background-color: #5CACEE;
   color: white;
-}
-
-.weui-cell {
-  margin-right: 30rpx;
-  height: 80rpx;
 }

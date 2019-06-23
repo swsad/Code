@@ -1,4 +1,4 @@
 <view class='buttons'>
-  <button class="weui-btn" bindtap='gotoQA'>发布问答</button>
+  <button class="weui-btn" bindtap='gotoQA'>发布问题</button>
   <button class="weui-btn" bindtap='gotoQues'>发布问卷</button>
 </view>

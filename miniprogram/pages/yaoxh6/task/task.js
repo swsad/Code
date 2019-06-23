@@ -13,6 +13,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+      isEmptyQN: false,
+      isEmptyQA: false,
       inputShowed:false,
       inputVal:"",
       DateIcon:"../../../images/time.png",
@@ -24,7 +26,7 @@ Page({
       AnswerCountIcon: "../../../images/reply_count.png",
       areaArray: ['东校', '南校','珠海','深圳','北校'],
       areaIndex: 0,
-      typeArray: ['问卷', '问答'],
+      typeArray: ['问卷', '问题'],
       typeIndex: 0,
       QNorderArray: [Orders.ORDER_TIME, Orders.ORDER_REWARD],
       QNorderIndex: 0,
@@ -57,11 +59,11 @@ Page({
     wx.cloud.callFunction({
       name: 'get_all_questionnaire',
       success: res => {
-        console.log('[sucess]: ', res.result.success)
         this.setData({
           QNs_data: res.result.value.data
         })
         this.updateQN()
+        this.updateEmptyQN()
       },
       fail: err => {
         wx.showToast({
@@ -74,13 +76,11 @@ Page({
     wx.cloud.callFunction({
       name: 'get_question',
       success: res => {
-        wx.showToast({
-          title: '调用成功',
-        })
         this.setData({
           QAs_data: util.deBlocking(res)
         })
         this.updateQA()
+        this.updateEmptyQA()
       },
       fail: err => {
         wx.showToast({
@@ -158,6 +158,7 @@ Page({
       areaIndex: e.detail.value
     })
     this.updateQN()
+    this.updateEmpty()
   },
   bindTypeChange: function (e) {
     this.setData({
@@ -181,7 +182,7 @@ Page({
     switch (this.data.QNorderArray[this.data.QNorderIndex]) {
       case Orders.ORDER_TIME:
         tempArray.sort(function (q1, q2) {
-          return q1.publish_time < q2.publish_time
+          return -q1.publish_time.localeCompare(q2.publish_time)
         })
         break
       case Orders.ORDER_REWARD:
@@ -200,7 +201,7 @@ Page({
     switch (this.data.QAorderArray[this.data.QAorderIndex]) {
       case Orders.ORDER_TIME:
         tempArray.sort(function (q1, q2) {
-          return q1.time < q2.time
+          return -q1.time.localeCompare(q2.time)
         })
         break
       case Orders.ORDER_COUNT:
@@ -258,6 +259,7 @@ Page({
   search : function () {
     this.searchQN()
     this.searchQA()
+    this.updateEmpty()
   },
   updateQN: function() {
     this.searchQN()
@@ -266,5 +268,31 @@ Page({
   updateQA: function() {
     this.searchQA()
     this.sortQA()
+  },
+  updateEmptyQN: function () {
+    if (this.data.QNs_show.length == 0) {
+      this.setData({
+        isEmptyQN: true
+      })
+    } else {
+      this.setData({
+        isEmptyQN: false
+      })
+    }
+  },
+  updateEmptyQA: function () {
+    if (this.data.QAs_show.length == 0) {
+      this.setData({
+        isEmptyQA: true
+      })
+    } else {
+      this.setData({
+        isEmptyQA: false
+      })
+    }
+  },
+  updateEmpty: function() {
+    this.updateEmptyQN()
+    this.updateEmptyQA()
   }
 })

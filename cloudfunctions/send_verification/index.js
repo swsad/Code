@@ -69,7 +69,7 @@ exports.main = async (event, context) => {
     var mailOptions = {
       from: 'swsad_github_2019@163.com', // 发件地址
       to: event.receiver, // 收件列表
-      subject: '招财猫中大学生验证', // 标题
+      subject: '招财喵中大学生验证', // 标题
       // text和html两者只支持一种
       // text: 'Hello world ?', // 标题
       html: "验证码: " + code + " 五分钟内有效" // html 内容

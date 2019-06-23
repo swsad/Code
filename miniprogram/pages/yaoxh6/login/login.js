@@ -122,11 +122,16 @@ Page({
         },
         complete: res => {
           var msg;
-          if(res.result.success) msg = "发送成功";
-          else msg = "发送失败，请稍后重试";
-          wx.showToast({
-            title: msg
-          })
+          if(res.result.success) {
+            wx.showToast({
+              title: "发送成功"
+            })
+          } else {
+            wx.showToast({
+              icon: none,
+              title: "发送失败，请稍后重试"
+            })
+          }
         }
       })      
     }
@@ -144,7 +149,7 @@ Page({
     return new Promise((resolve, reject) => {
       var data = this.data;
       var mailVer = this.data.mail.match(this.data.reg) != null;
-      if (!data.sname || !data.sid || !data.major || !data.collage || !mailVer) {
+      if (!data.sname.trim() || !data.sid.trim() || !data.major.trim() || !data.collage.trim() || !mailVer) {
         return reject("请完整填写正确信息");
       }
       if(!data.buttonDisbale) {
@@ -187,9 +192,9 @@ Page({
             app.globalData.collage = data.collage;
             app.globalData.sid = data.sid;
             app.globalData.major = data.major;
-            wx.showToast({
-              title: "注册成功"
-            })
+            // wx.showToast({
+            //   title: "注册成功"
+            // })
             wx.switchTab({
               url: '../mine/mine',
             })

@@ -1,46 +1,18 @@
-// miniprogram/pages/yaoxh6/myinfo/myInfo.js
-const app = getApp();
-
+// pages/yaoxh6/publish/publish2.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    personInfo: [],
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    /*
-      在登入之后服务器会返回个人信息，保存下来，在这里不用继续请求
-    */
-    var tempArray = this.data.personInfo;
-    tempArray.push({
-      infoName: '我的姓名',
-      infoValue: app.globalData.name
-    })
 
-    tempArray.push({
-      infoName: '我的学号',
-      infoValue: app.globalData.sid
-    })
-
-    tempArray.push({
-      infoName: '我的学院',
-      infoValue: app.globalData.collage
-    })  
-
-    tempArray.push({
-      infoName: '我的专业',
-      infoValue: app.globalData.major
-    })
-
-    this.setData({
-      personInfo: tempArray
-    })
   },
 
   /**
@@ -90,9 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  updateInfo: function() {
-    
   }
 })

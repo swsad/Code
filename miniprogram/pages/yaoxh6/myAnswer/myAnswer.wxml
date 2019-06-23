@@ -4,6 +4,10 @@
         <view class="answerText">{{item.reply}}</view>
         <view class="questionTex">{{item.question_title}}</view>
       </view>
-      <button class="weui-btn inLineButton" data-index="{{index}}" bindtap='showQADetail'>问题详情</button>
+      <view class="btnView">
+        <button class="weui-btn inLineButton" data-index="{{index}}" bindtap='showQADetail'>问题详情</button>
+      </view>
   </view>
 </view>
+
+<view class='note' wx:if="{{isEmpty}}">您还没有回答过问题哦~</view>

@@ -71,9 +71,16 @@ Page({
   },
 
   complete:function(){
-    if(this.data.question.trim() == '' || this.data.description.trim() == ''){
+    if(this.data.question.trim() == ''){
       wx.showToast({
-        title: '输入不能为空',
+        icon: 'none',
+        title: '标题不能为空',
+      })
+      return;
+    } else if (this.data.description.trim() == '') {
+      wx.showToast({
+        icon: 'none',
+        title: '问题描述不能为空',
       })
       return;
     }
@@ -86,11 +93,11 @@ Page({
         content: this.data.description
       },
       success: res => {
-        wx.showToast({
-          title: '调用成功',
-        })
         wx.switchTab({
           url: "../task/task"
+        })
+        wx.showToast({
+          title: '发布成功',
         })
       },
       fail: err => {

@@ -4,6 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isEmpty: false,
     questionInfo: []
   },
 
@@ -22,9 +23,11 @@ Page({
         this.setData({
           questionInfo: res.result.value
         })
-        wx.showToast({
-          title: '调用成功',
-        })
+        if (this.data.questionInfo.length == 0) {
+          this.setData({
+            isEmpty: true
+          })
+        }
       },
       fail: err => {
         wx.showToast({

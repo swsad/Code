@@ -6,8 +6,8 @@ Page({
    */
   data: {
     canBePublished:false,
-    price: "1",
-    qNum: "100",
+    price: "",
+    qNum: "",
     campusArray: ["全部", "东校", "南校", "北校", "珠海", "深圳"],
     campusIndex: 0,
     endDate: "",
@@ -290,6 +290,7 @@ Page({
         description: this.data.descriptionContent
       },
       success: res => {
+        console.log(res)
         wx.showToast({
           title: '调用成功',
         })

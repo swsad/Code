@@ -9,6 +9,12 @@
     padding: 12px 15px 12px 35px;
 }
 
+.note {
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #999;
+}
 #commentContent{
   height: 80%;
 }
@@ -22,15 +28,11 @@ page{
 .questionnaireItem{
   margin-left: 30rpx;
   margin-right: 30rpx;
-}
-.itemLine{
- background: #F6F6F6;
- width: 100%;
- height: 1rpx;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
 }
 
 .questionnaireTitle{
-  margin-top: 10rpx;
   font-size: 40rpx;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -38,7 +40,6 @@ page{
 }
 
 .questionnaireDescription {
-  margin-top: 5rpx;
   font-size: 30rpx;
   color: #999;
   overflow: hidden;
@@ -51,14 +52,12 @@ page{
   flex-direction: row;
   justify-content: left;
   margin-top: 10rpx;
-  margin-bottom: 10rpx;
 }
 
 .dateBlock{
   display: flex;
   flex-direction: row;
   justify-content: left;
-  margin-bottom: 5rpx;
   width: 170rpx;
 }
 
@@ -77,7 +76,6 @@ page{
   display: flex;
   flex-direction: row;
   justify-content: left;
-  margin-bottom: 10rpx;
   width: 100rpx;
 }
 
@@ -96,7 +94,6 @@ page{
   display: flex;
   flex-direction: row;
   justify-content: left;
-  margin-bottom: 10rpx;
   width: 100rpx;
 }
 
@@ -115,12 +112,6 @@ page{
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
-.divLine{
- background: #E0E3DA;
- width: 100%;
- height: 3rpx;
- margin-top: 20rpx;
 }
 
 .areaPicker{

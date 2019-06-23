@@ -13,20 +13,21 @@
 
 .session {
   margin: 20rpx;
+  width: 95%;
 }
 
 #title{
   padding: 20rpx;
   margin-top: 10rpx;
   /* color:#D4D4D4; */
-  border-radius: 10rpx;
+  border-radius: 20rpx;
   border: 1rpx solid #E3E3E3;
 }
 #request{
   padding: 20rpx;
   margin-top: 10rpx;
   /* color:#D4D4D4; */
-  border-radius: 10rpx;
+  border-radius: 20rpx;
   border: 1rpx solid #E3E3E3;
 }
 
@@ -39,4 +40,9 @@
 
 .answerBackGround{
   background-color: 	#F0F0F0;
+}
+
+.btnView{
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
 }

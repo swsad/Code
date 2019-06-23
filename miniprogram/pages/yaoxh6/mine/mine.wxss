@@ -4,7 +4,6 @@ page{
 }
 
 .person{
-  height: 25%;
   background-color: #5CACEE;
   padding-top: 50rpx;
   padding-bottom: 50rpx;
@@ -34,18 +33,16 @@ page{
   width: 95%;
   border-radius: 20rpx;
   background-color: #fff;
-  margin-left: 20rpx;
-  margin-top: 20rpx;
+  margin:20rpx;
+  border: 1rpx solid #E3E3E3;
 }
 
 .options {
   width: 95%;
   border-radius: 20rpx;
   background-color: #fff;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
+  margin:20rpx;
+  border: 1rpx solid #E3E3E3;
 }
 
 .stateDetail{
@@ -112,9 +109,4 @@ page{
 
 .hasBeenPublishedText{
   text-align: center;
-}
-
-.weui-cell{
-  height: 100rpx;
-  margin-right: 30rpx;
 }

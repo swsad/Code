@@ -24,7 +24,7 @@ Page({
       AnswerCountIcon: "../../../images/reply_count.png",
       areaArray: ['东校', '南校','珠海','深圳','北校'],
       areaIndex: 0,
-      typeArray: ['问卷', '问答'],
+      typeArray: ['问卷', '问题'],
       typeIndex: 0,
       QNorderArray: [Orders.ORDER_TIME, Orders.ORDER_REWARD],
       QNorderIndex: 0,
@@ -74,9 +74,6 @@ Page({
     wx.cloud.callFunction({
       name: 'get_question',
       success: res => {
-        wx.showToast({
-          title: '调用成功',
-        })
         this.setData({
           QAs_data: util.deBlocking(res)
         })

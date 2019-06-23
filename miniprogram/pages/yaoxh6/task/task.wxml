@@ -34,7 +34,7 @@
     return list == '问卷'
   }
   var isQA = function (list) {
-    return list == '问答'
+    return list == '问题'
   }
   module.exports = { 
     timeToDate: timeToDate,

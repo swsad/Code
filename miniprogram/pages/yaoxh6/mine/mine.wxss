@@ -110,7 +110,3 @@ page{
 .hasBeenPublishedText{
   text-align: center;
 }
-
-.weui-cell{
-  height: 100rpx;
-}

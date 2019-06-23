@@ -26,15 +26,18 @@
       <view class="taskTotalAmount">/{{item.totalAmount}}</view>
       <view class="taskCompletedAmount">{{item.completedAmount}}</view>
     </view> -->
-    <view class='taskInfo'>
+    <view class='infoItem'>
       <view class='nameAprogress'>
         <view class="taskName">{{item.name}}</view>
-        <view class="taskCompletedAmount">{{item.completedAmount}}</view>
-        <view class="taskTotalAmount">/{{item.totalAmount}}</view>
+        <view class="taskAmount">
+          {{item.completedAmount}}/{{item.totalAmount}}
+        </view>
       </view>
-      <view class="taskReward">{{item.reward}}<span class="unit">元</span></view>
-      <button class="weui-btn inLineButton" data-qid="{{item.qid}}" data-name="{{item.name}}" bindtap='downLoadDetail'>点击下载</button>
-      <view class="taskTime">{{tools.timeToDate(item.publish_time)}}</view>
+      <!-- <view class="taskReward">{{item.reward}}<span class="unit">元</span></view> -->
+      <view class="btnView">
+        <button class="weui-btn inLineButton" data-qid="{{item.qid}}" data-name="{{item.name}}" bindtap='downLoadDetail'>点击下载</button>
+      </view>
+      <!-- <view class="taskTime">{{tools.timeToDate(item.publish_time)}}</view> -->
     </view>
   </view>
 </view>

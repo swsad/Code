@@ -290,6 +290,7 @@ Page({
         description: this.data.descriptionContent
       },
       success: res => {
+        console.log(res)
         wx.showToast({
           title: '调用成功',
         })

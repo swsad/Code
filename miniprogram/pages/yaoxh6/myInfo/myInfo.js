@@ -19,24 +19,24 @@ Page({
     */
     var tempArray = this.data.personInfo;
     tempArray.push({
-      infoName: '我的姓名：',
+      infoName: '我的姓名',
       infoValue: app.globalData.name
     })
 
     tempArray.push({
-      infoName: '我的学号：',
+      infoName: '我的学号',
       infoValue: app.globalData.sid
     })
 
     tempArray.push({
-      infoName: '我的专业：',
-      infoValue: app.globalData.major
-    })
-
-    tempArray.push({
-      infoName: '我的学院：',
+      infoName: '我的学院',
       infoValue: app.globalData.collage
     })  
+
+    tempArray.push({
+      infoName: '我的专业',
+      infoValue: app.globalData.major
+    })
 
     this.setData({
       personInfo: tempArray

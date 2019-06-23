@@ -1,38 +1,22 @@
 /* miniprogram/pages/yaoxh6/myQuestion/myQuestion.wxss */
 /* miniprogram/pages/yaoxh6/myAnswer/myAnswer.wxss */
 
-.infoItem {
-  width: 95%;
-  height: 120rpx;
-  line-height: 120rpx;
-  background-color: #F6F6F6;
-  margin-top: 20rpx;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-  border-radius: 10rpx;
+.btnView{
+  height: 100rpx;
+  width: 30%;
+  float: right;
+  margin-right: 30rpx;
+  padding-top: 20rpx;
 }
-
-.infoName {
-  width: 60%;
-  height: 120rpx;
-  line-height: 120rpx;
-  float: left;
-  padding-left: 30rpx;
-  overflow: hidden;
-  text-overflow:ellipsis;
-  white-space: nowrap; 
-}
-
-
 .weui-btn {
   color: white;
   float: right;
   font-size: 30rpx; 
-  height: 60rpx;
-  line-height: 60rpx;
+  height: 80rpx;
+  line-height: 80rpx;
   vertical-align: middle;
-  width: 24%;
-  margin-right: 25rpx;
+  width: 80%;
+  margin-bottom: 20rpx;
   background-color: #63B8FF !important;
   padding-left: 10rpx;
   padding-right: 10rpx;

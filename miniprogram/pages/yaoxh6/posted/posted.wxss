@@ -1,24 +1,17 @@
 /* miniprogram/pages/yaoxh6/posted/posted.wxss */
 
-.taskInfo {
-  width: 95%;
-  height: 140rpx;
-  line-height: 140rpx;
-  background-color: #F6F6F6;
-  margin-top: 20rpx;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-  border-radius: 10rpx;
+.infoItem{
+  height: 120rpx;
+  line-height: 120rpx;
+  padding: 20rpx 0rpx 20rpx 0rpx;
 }
 
 .nameAprogress {
-  padding: 10rpx 15rpx 10rpx 15rpx;
-  height: 140rpx;
-  width: 25%;
+  margin-left: 30rpx;
+  width: 50%;
   line-height: 60rpx;
   float: left;
   text-align: center;
-  font-size: 35rpx; 
 }
 
 
@@ -29,19 +22,13 @@
   text-overflow:ellipsis;
   white-space: nowrap;   
   vertical-align: text-bottom;
-  height: 70rpx;   
+  font-size: 40rpx;
 }
 
-.taskCompletedAmount {
-  height: 70rpx;  
+.taskAmount{
+  font-size: 30rpx;
   color: gray;
   float: left;
-}
-
-.taskTotalAmount {
-  height: 70rpx;  
-  float: left;
-  color: gray;
 }
 
 .taskTime {
@@ -64,17 +51,23 @@
   padding: 0rpx;
 }
 
+.btnView{
+  height: 100rpx;
+  width: 30%;
+  float: right;
+  align-content: middle;
+  margin-right: 30rpx;
+  padding-top: 20rpx;
+}
 
 .weui-btn {
   color: white;
   float: right;
   font-size: 30rpx; 
-  line-height: 60rpx;
-  vertical-align: middle;
-  width: 22%;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 80%;
+  background-color: #63B8FF !important;
   padding-left: 10rpx;
   padding-right: 10rpx;
-  height: 60rpx;
-  margin: 40rpx 20rpx 40rpx 20rpx;
-  background-color: #63B8FF !important;
 }

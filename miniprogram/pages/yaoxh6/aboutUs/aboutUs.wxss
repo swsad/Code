@@ -4,10 +4,8 @@
   height: 120rpx;
   line-height: 120rpx;
   background-color: #F6F6F6;
-  margin-top: 20rpx;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-  border-radius: 10rpx;
+  margin:20rpx;
+  border-radius: 20rpx;
 }
 
 .infoName {

@@ -16,7 +16,6 @@
 }
 
 .person{
-  height: 30%;
   padding-top: 50rpx;
   display: flex;
   justify-content: center;

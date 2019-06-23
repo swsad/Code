@@ -57,8 +57,7 @@ exports.main = async (event, context) => {
     const result = await db.collection('answer').add({
       data: {
         content: event.content,
-        qid: event.qid,
-        time: event.time
+        qid: event.qid
       }
     })
     console.log('[result]: ', result)
@@ -70,12 +69,20 @@ exports.main = async (event, context) => {
       }
     })
     // 给填问卷的用户加钱
-    const reward = questionnaire.data.reward
+    const reward = parseInt(questionnaire.data.reward)
     await db.collection('users').where({
       uid: wxContext.OPENID
     }).update({
       data: {
         points: _.inc(reward)
+      }
+    })
+    await db.collection('balance_record').add({
+      data: {
+        uid: wxContext.OPENID,
+        title: questionnaire.data.name,
+        amount: reward,
+        time: event.time
       }
     })
 

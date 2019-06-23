@@ -54,7 +54,7 @@ page{
   padding: 20rpx;
   margin: 20rpx;
   /* color:#D4D4D4; */
-  border-radius: 10rpx;
+  border-radius: 20rpx;
   border: 1rpx solid #E3E3E3;
 }
 

@@ -94,7 +94,6 @@ page{
   display: flex;
   flex-direction: row;
   justify-content: left;
-  margin-bottom: 10rpx;
   width: 100rpx;
 }
 

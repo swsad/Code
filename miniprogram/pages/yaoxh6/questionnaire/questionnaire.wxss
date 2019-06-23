@@ -2,16 +2,6 @@ page{
   height: 100%;
 }
 
-.options {
-  width: 94%;
-  border-radius: 10rpx;
-  background-color: #fff;
-  border: 1rpx solid #E3E3E3;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-  margin-top: 50rpx;
-  margin-bottom: 50rpx;
-}
 
 /* .divLine{
  background: #E0E3DA;
@@ -22,6 +12,11 @@ page{
 
 .session {
   margin: 20rpx;
+  width: 95%
+}
+.options {
+  margin: 20rpx;
+  width: 95%
 }
 
 .Index {
@@ -33,14 +28,14 @@ page{
   padding: 20rpx;
   margin-top: 10rpx;
   /* color:#D4D4D4; */
-  border-radius: 10rpx;
+  border-radius: 20rpx;
   border: 1rpx solid #E3E3E3;
 }
 #request{
   padding: 20rpx;
   margin-top: 10rpx;
   /* color:#D4D4D4; */
-  border-radius: 10rpx;
+  border-radius: 20rpx;
   border: 1rpx solid #E3E3E3;
 }
 
@@ -59,12 +54,12 @@ page{
   width: 40rpx;
 }
 .SCQ{
-  width: 89%;
-  border-radius: 10rpx;
+  width: 90%;
+  margin:20rpx;
   padding: 20rpx;
+  border-radius: 20rpx;
   border: 1rpx solid #E3E3E3;
   background-color: #fff;
-  margin:20rpx;
 }
 
 .SCQText{
@@ -75,8 +70,8 @@ page{
   width: 80%;
 }
 .MCQ{
-  width: 89%;
-  border-radius: 10rpx;
+  width: 90%;
+  border-radius: 20rpx;
   padding: 20rpx;
   border: 1rpx solid #E3E3E3;
   background-color: #fff;
@@ -92,8 +87,8 @@ page{
 }
 
 .SAQ{
-  width: 89%;
-  border-radius: 10rpx;
+  width: 90%;
+  border-radius: 20rpx;
   padding: 20rpx;
   border: 1rpx solid #E3E3E3;
   background-color: #fff;
@@ -131,7 +126,7 @@ page{
 }
 
 .SCQDiscription{
-  margin-left: 10rpx;
+  margin-left: 20rpx;
   margin-top: 5rpx;
   border: 1rpx solid #E3E3E3;
   width: 70%;
@@ -139,7 +134,7 @@ page{
 }
 
 .MCQDiscription{
-  margin-left: 10rpx;
+  margin-left: 20rpx;
   margin-top: 5rpx;
   border: 1rpx solid #E3E3E3;
   width: 70%;
@@ -147,7 +142,7 @@ page{
 }
 
 .SAQDiscription{
-  margin-left: 10rpx;
+  margin-left: 20rpx;
   margin-top: 5rpx;
   border: 1rpx solid #E3E3E3;
   width: 90%;
@@ -193,7 +188,7 @@ page{
 }
 
 #body{
-  margin-top: 50rpx;
+  margin-top: 20rpx;
 }
 
 .weui-btn{
@@ -226,10 +221,6 @@ page{
   width: 50%;
 }
 
-.weui-cell{
-  margin-right: 20rpx;
-  height:80rpx;
-}
 .section {
   height: 80rpx;
   padding-left: 33rpx;
@@ -248,4 +239,7 @@ page{
   flex-direction: row;
   margin-top: 50rpx;
   margin-bottom: 50rpx;
+}
+.weui-input {
+  padding-left: 10rpx;
 }

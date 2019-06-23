@@ -34,7 +34,7 @@
 
 <view class="options">
   <div class="weui-cell">
-      <div class="weui-cell__hd"><label class="weui-label">充值/提现：</label></div>
+      <div class="weui-cell__hd"><label class="weui-label">充值/提现</label></div>
       <div class="weui-cell__bd">
           <input data-name='price' bindinput='bindInputMoney' class="weui-input" type="number" value="{{money}}" placeholder="请输入金额"/>
       </div>

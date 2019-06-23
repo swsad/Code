@@ -1,14 +1,10 @@
-<view id="header">
-  <view id="title">
-    <view class='titleContent'>{{title}}</view>
-    <image class='titlePriceIcon' src='{{priceIcon}}' mode='widthFix'></image>
-    <view class='priceContent'>{{reward}}</view>
-    <view class='priceUnit'>元</view>
-  </view>
-  <view id="description">
-    <view class="descriptionContent">{{description}}</view>
+<view class="answerBackGround weui-media-box weui-media-box_appmsg">
+  <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+    <view class="weui-media-box__title">{{title}}</view>
+    <view class="weui-media-box__desc">{{description}}</view>
   </view>
 </view>
+<view class="divLine"></view>
 
 <view id = 'body' wx:for="{{questionnaireArray}}" wx:key="id" wx:for-index='fatherIndex'>
   <block wx:if="{{item.type === 'SCQ'}}">

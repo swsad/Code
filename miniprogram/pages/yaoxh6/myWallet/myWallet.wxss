@@ -79,3 +79,6 @@ page{
   background-color: #5CACEE;
   color: white;
 }
+.weui-input {
+  padding-left: 10rpx;
+}

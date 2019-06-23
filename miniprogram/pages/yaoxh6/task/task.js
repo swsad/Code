@@ -59,7 +59,6 @@ Page({
     wx.cloud.callFunction({
       name: 'get_all_questionnaire',
       success: res => {
-        console.log('[sucess]: ', res.result.success)
         this.setData({
           QNs_data: res.result.value.data
         })

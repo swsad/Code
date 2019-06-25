@@ -40,6 +40,7 @@
     </view>
     <view class='note' wx:if="{{isEmpty}}">目前还没有回答哦~</view>
   </scroll-view>
+  <view class="divLine"></view>
 
   <view id='comment'>
     <view id='review'>

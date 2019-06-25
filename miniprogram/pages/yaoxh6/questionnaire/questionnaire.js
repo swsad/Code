@@ -131,7 +131,7 @@ Page({
         "type": "SAQ",
         "content": {
           "description": "",
-        }
+          "answer": ""
       };
       tempArray.push(temp0);
     }
@@ -178,26 +178,32 @@ Page({
     });
   },
 
-  deleteOneOfSCQ:function(input){
-    var tempFatherIndex = this.data.currentFatherIndex;
-    var tempSonIndex = input.target.dataset.id;
+  deleteOneOfSCQ: function (input) {
+    var tempFatherIndex = input.target.dataset.id;
+    var tempSonIndex = input.target.dataset.id2;
     //console.log(tempSonIndex);
     var tempArray = this.data.questionnaireArray;
     //console.log(tempArray[tempFatherIndex].content.options[tempSonIndex]);
     tempArray[tempFatherIndex].content.options.splice(tempSonIndex,1);
+    for (var i = 0; i < tempArray[tempFatherIndex].content.options.length; ++i) {
+      tempArray[tempFatherIndex].content.options[i].id = i+1
+    }
     this.setData({
       questionnaireArray: tempArray,
     });
   },
 
-  deleteOneOfMCQ:function(input){
-    var tempFatherIndex = this.data.currentFatherIndex;
-    var tempSonIndex = input.target.dataset.id;
+  deleteOneOfMCQ: function (input) {
+    var tempFatherIndex = input.target.dataset.id;
+    var tempSonIndex = input.target.dataset.id2;
     // console.log('tempFatherIndex: ' + tempFatherIndex);
     // console.log('tempSonIndex: ' + tempSonIndex);
     var tempArray = this.data.questionnaireArray;
     // console.log(tempArray[tempFatherIndex].content.options[tempSonIndex]);
     tempArray[tempFatherIndex].content.options.splice(tempSonIndex, 1);
+    for (var i = 0; i < tempArray[tempFatherIndex].content.options.length; ++i) {
+      tempArray[tempFatherIndex].content.options[i].id = i + 1
+    }
     this.setData({
       questionnaireArray: tempArray,
     });
@@ -206,8 +212,8 @@ Page({
   addSCQ:function(input){
     var tempIndex = input.currentTarget.dataset.id;
     var tempArray = this.data.questionnaireArray;
-    var tempSCQ = { "id": 1, "name": "", "isSelected": false };
-    console.log(tempIndex);
+    var tempID = tempArray[tempIndex].content.options.length + 1
+    var tempSCQ = { "id": tempID, "name": "", "isSelected": false };
     tempArray[tempIndex].content.options.push(tempSCQ);
     this.setData({
       questionnaireArray: tempArray,
@@ -217,8 +223,8 @@ Page({
   addMCQ: function (input) {
     var tempIndex = input.currentTarget.dataset.id;
     var tempArray = this.data.questionnaireArray;
-    var tempMCQ = { "id": 1, "name": "", "isSelected": false };
-    console.log(tempIndex);
+    var tempID = tempArray[tempIndex].content.options.length + 1
+    var tempMCQ = { "id": tempID, "name": "", "isSelected": false };
     tempArray[tempIndex].content.options.push(tempMCQ);
     this.setData({
       questionnaireArray: tempArray,
@@ -260,14 +266,14 @@ Page({
 
     var canBePublished = true
     for(var i = 0;i<this.data.questionnaireArray.length;i++){
-      if(this.data.questionnaireArray[i].content.description == ''){
+      if(this.data.questionnaireArray[i].content.descriptio.trim() == ''){
         this.setData({
           canBePublished: false,
         })
       }
       else if (this.data.questionnaireArray[i].type == 'SCQ' || this.data.questionnaireArray[i].type == 'MCQ'){
         for(var j = 0;j<this.data.questionnaireArray[i].content.options.length;j++){
-          if(this.data.questionnaireArray[i].content.options[j].name == ''){
+          if(this.data.questionnaireArray[i].content.options[j].name.trim() == ''){
             this.setData({
               canBePublished: false,
             })
@@ -346,8 +352,8 @@ Page({
   },
 
   bindblurOneOfSCQ:function(input){
-    var tempFatherIndex = this.data.currentFatherIndex;
-    var tempSonIndex = input.target.dataset.id;
+    var tempFatherIndex = input.target.dataset.id;
+    var tempSonIndex = input.target.dataset.id2;
     var tempArray = this.data.questionnaireArray;
     tempArray[tempFatherIndex].content.options[tempSonIndex].name = input.detail.value;
     this.setData({
@@ -364,9 +370,9 @@ Page({
     });
   },
 
-  bindblurOneOfMCQ:function(input){
-    var tempFatherIndex = this.data.currentFatherIndex;
-    var tempSonIndex = input.target.dataset.id;
+  bindblurOneOfMCQ: function (input) {
+    var tempFatherIndex = input.target.dataset.id;
+    var tempSonIndex = input.target.dataset.id2;
     var tempArray = this.data.questionnaireArray;
     tempArray[tempFatherIndex].content.options[tempSonIndex].name = input.detail.value;
     this.setData({

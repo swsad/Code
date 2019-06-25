@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/yaoxh6/task/task",
     "pages/yaoxh6/login/login",
+    "pages/yaoxh6/task/task",
     "pages/yaoxh6/publish2/publish2",
     "pages/yaoxh6/myWallet/myWallet",
     "pages/yaoxh6/publish/publish",

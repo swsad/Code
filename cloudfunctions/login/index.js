@@ -31,7 +31,7 @@ exports.main = async (event, context) => {
         data: {
           type: -1,
           is_verified: false,
-          points: 100,
+          points: 0,
           uid: wxContext.OPENID
         }
       })

@@ -79,6 +79,10 @@ Page({
           this.setData({
             isEmpty: true
           })
+        } else {
+          this.setData({
+            isEmpty: false
+          })
         }
       },
       fail: err => {

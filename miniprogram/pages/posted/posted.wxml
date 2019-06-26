@@ -1,0 +1,44 @@
+<wxs module="tools">
+  var timeToDate = function (time) {
+    return time.substring(0, 10)
+  }
+  var isQN = function (list) {
+    return list == '问卷'
+  }
+  var isQA = function (list) {
+    return list == '问答'
+  }
+  module.exports = { 
+    timeToDate: timeToDate,
+    isQN: isQN,
+    isQA: isQA 
+  }
+</wxs>
+<view class="task" wx:for="{{taskArray}}" wx:key="id">
+  <view class='taskItem'>
+    <view class='infoItem'>
+      <view class='nameAprogress'>
+        <view class="taskName">{{item.name}}</view>
+        <view class="questionnaireDetail">
+          <view class="dateBlock">
+            <image class="dateIconClass" src="{{DateIcon}}" mode='widthFix'></image>
+              <view class="dateClass">
+               {{tools.timeToDate(item.publish_time)}}
+              </view>
+          </view>
+          <view class="addressBlock">
+            <image class="dateIconClass" src="{{AnswerCountIcon}}" mode='widthFix'></image>
+              <view class="dateClass">
+                {{item.completedAmount}}/{{item.totalAmount}}
+              </view>
+          </view>
+        </view>
+      </view>
+      <view class="btnView">
+        <button class="weui-btn inLineButton" data-qid="{{item.qid}}" data-name="{{item.name}}" bindtap='downLoadDetail'>点击下载</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='note' wx:if="{{isEmpty}}">您还没有发布过问卷哦~</view>

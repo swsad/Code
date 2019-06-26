@@ -132,6 +132,7 @@ Page({
         "content": {
           "description": "",
           "answer": ""
+        }
       };
       tempArray.push(temp0);
     }
@@ -250,10 +251,22 @@ Page({
         title: '问卷报酬不能为空',
       })
       return
+    } else if (this.data.price.trim() == '0') {
+      wx.showToast({
+        icon: 'none',
+        title: '问卷报酬不能为0',
+      })
+      return
     } else if (this.data.qNum.trim() == '') {
       wx.showToast({
         icon: 'none',
         title: '问卷数量不能为空',
+      })
+      return
+    } else if (this.data.qNum.trim() == '0') {
+      wx.showToast({
+        icon: 'none',
+        title: '问卷数量不能为0',
       })
       return
     } else if (this.data.questionnaireArray.length == 0) {
@@ -266,23 +279,19 @@ Page({
 
     var canBePublished = true
     for(var i = 0;i<this.data.questionnaireArray.length;i++){
-      if(this.data.questionnaireArray[i].content.descriptio.trim() == ''){
-        this.setData({
-          canBePublished: false,
-        })
+      if(this.data.questionnaireArray[i].content.description.trim() == ''){
+        canBePublished = false
       }
       else if (this.data.questionnaireArray[i].type == 'SCQ' || this.data.questionnaireArray[i].type == 'MCQ'){
         for(var j = 0;j<this.data.questionnaireArray[i].content.options.length;j++){
           if(this.data.questionnaireArray[i].content.options[j].name.trim() == ''){
-            this.setData({
-              canBePublished: false,
-            })
+            canBePublished = false
           }
         }
       }
     }
 
-    if (this.data.canBePublished == false) {
+    if (canBePublished == false) {
       wx.showToast({
         icon: 'none',
         title: '问卷内容不能留空',
@@ -312,12 +321,18 @@ Page({
         description: this.data.descriptionContent
       },
       success: res => {
-        console.log(res)
-        wx.showToast({
-          title: '调用成功',
-        })
+        if (!res.result.success) {
+          wx.showToast({
+            icon: 'none',
+            title: '余额不足',
+          })
+          return
+        }
         wx.switchTab({
           url: "../task/task"
+        })
+        wx.showToast({
+          title: '发布成功',
         })
       },
       fail: err => {

@@ -40,7 +40,7 @@
         <view class='SCQQ'>Q{{fatherIndex+1}}</view>
         <text class='SAQDiscription' data-id='{{fatherIndex}}'>{{item.content.description}}</text>
       </view>
-      <textarea auto-height='true' class = "SAQAnswer" value='{{item.content.answer}}' bindblur='bindblurAnswerOfSAQ' data-id='{{fatherIndex}}'></textarea>
+      <textarea auto-height='true' class = "SAQAnswer" value='{{item.content.answer}}' bindinput='bindblurAnswerOfSAQ' data-id='{{fatherIndex}}'></textarea>
     </view>
   </block>
 </view>

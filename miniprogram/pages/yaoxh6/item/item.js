@@ -173,6 +173,7 @@ Page({
     var isValidSCQMCQ = true;
     var isValidSAQ = true;
     for(var i = 0;i<this.data.questionnaireArray.length;i++){
+      console.log(this.data.questionnaireArray[i].content)
       if (this.data.questionnaireArray[i].type == 'SCQ' || this.data.questionnaireArray[i].type == 'MCQ') {
         for (var j = 0; j < this.data.questionnaireArray[i].content.options.length; j++) {
           if (this.data.questionnaireArray[i].content.options[j].isSelected == true) {
@@ -214,19 +215,31 @@ Page({
         // console.log(JSON.stringify(res))
         // console.log("here")
         console.log(res);
-        var msg = "";
-        // var icon = "success";
-        if(res.result.success) msg = "填写成功!";
-        else {
-          msg = res.result.error;
-          // icon = "none";
+        if (!res.result.success) {
+          if (res.result.error == "发布者不能填写问卷哦~") {
+            wx.showToast({
+              icon: 'none',
+              title: '不能填写自己的问卷',
+            })
+          } else if (res.result.error == '该问卷已被填完') {
+            wx.showToast({
+              icon: 'none',
+              title: '问卷已填完',
+            })
+          } else {
+            wx.showToast({
+              icon: 'none',
+              title: '不能重复填写问卷',
+            })
+          }
+          return
         }
+        wx.switchTab({
+          url: "../task/task"
+        })
         wx.showToast({
           // icon: icon,
           title: "填写成功",
-        })
-        wx.switchTab({
-          url: "../task/task"
         })
       },
       fail: err => {

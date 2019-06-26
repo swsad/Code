@@ -1,30 +1,29 @@
 {
   "pages": [
-    "pages/yaoxh6/login/login",
-    "pages/yaoxh6/task/task",
-    "pages/yaoxh6/questionnaire/questionnaire",
-    "pages/yaoxh6/publish2/publish2",
-    "pages/yaoxh6/myWallet/myWallet",
-    "pages/yaoxh6/publish/publish",
-    "pages/yaoxh6/mine/mine",
-    "pages/yaoxh6/myQuestion/myQuestion",
-    "pages/yaoxh6/myAnswer/myAnswer",
-    "pages/yaoxh6/aboutUs/aboutUs",
-    "pages/yaoxh6/item/item",
-    "pages/yaoxh6/answerQA/answerQA",
-    "pages/yaoxh6/QA/QA",
-    "pages/testCloudFunction/testCloudFunction",
-    "pages/yaoxh6/posted/posted",       
-    "pages/yaoxh6/myInfo/myInfo",
-    "pages/yaoxh6/customerService/customerService",  
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/index/index",
-    "pages/yaoxh6/test/test"
+    "pages/login/login",
+    "pages/task/task",
+    "pages/questionnaire/questionnaire",
+    "pages/publish2/publish2",
+    "pages/myWallet/myWallet",
+    "pages/mine/mine",
+    "pages/myQuestion/myQuestion",
+    "pages/myAnswer/myAnswer",
+    "pages/aboutUs/aboutUs",
+    "pages/item/item",
+    "pages/answerQA/answerQA",
+    "pages/QA/QA",
+    "pages/posted/posted",       
+    "pages/myInfo/myInfo",
+    "pages/customerService/customerService",  
+
+    "test/testCloudFunction/testCloudFunction",
+    "test/userConsole/userConsole",
+    "test/storageConsole/storageConsole",
+    "test/databaseGuide/databaseGuide",
+    "test/addFunction/addFunction",
+    "test/deployFunctions/deployFunctions",
+    "test/chooseLib/chooseLib",
+    "test/index/index"
   ],
   "window": {
     "backgroundColor": "#5CACEE",
@@ -41,19 +40,19 @@
       {
         "selectedIconPath": "images/task_selected.png",
         "iconPath": "images/task_unselected.png",
-        "pagePath": "pages/yaoxh6/task/task",
+        "pagePath": "pages/task/task",
         "text": "任务"
       },
       {
         "selectedIconPath": "images/publish_selected.png",
         "iconPath": "images/publish_unselected.png",
-        "pagePath": "pages/yaoxh6/publish2/publish2",
+        "pagePath": "pages/publish2/publish2",
         "text": "发布"
       },
       {
         "selectedIconPath": "images/mine_selected.png",
         "iconPath": "images/mine_unselected.png",
-        "pagePath": "pages/yaoxh6/mine/mine",
+        "pagePath": "pages/mine/mine",
         "text": "我的"
       }
     ]

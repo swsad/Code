@@ -65,7 +65,7 @@ exports.main = async (event, context) => {
 
     // 如果没有回答则抛出异常
     if (answers.length == 0) {
-      throw 'no answer'
+      throw '还没有问卷被填写'
     }
 
     var cols = new Array()

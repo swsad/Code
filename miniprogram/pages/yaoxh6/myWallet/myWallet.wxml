@@ -1,14 +1,15 @@
 
-<view class='moneyInfo'>我的闲钱</view>
+<view class='moneyInfo'>我的喵币</view>
 <view class="moneyBlock">
-  <image class="moneyIcon" src="{{MoneyIcon}}" mode='widthFix'></image>
   <view class='moneyNum'>{{moneyNum}}</view>
+  <image class="moneyIcon" src="{{MoneyIcon}}" mode='widthFix'></image>
 </view>
 <view class="divLine"></view>
 
 <wxs module="tools">
   var toStdMoney = function (money) {
-    if (money[0] != "-") {
+    var m = toString(money)
+    if (money > 0) {
       money = "+" + money
     }
     return money
@@ -36,7 +37,7 @@
   <div class="weui-cell">
       <div class="weui-cell__hd"><label class="weui-label">充值/提现</label></div>
       <div class="weui-cell__bd">
-          <input data-name='price' bindinput='bindInputMoney' class="weui-input" type="number" value="{{money}}" placeholder="请输入金额"/>
+          <input data-name='price' bindinput='bindInputMoney' class="weui-input" type="number" value="{{money}}" placeholder="请输入喵币数量"/>
       </div>
   </div>
 </view>

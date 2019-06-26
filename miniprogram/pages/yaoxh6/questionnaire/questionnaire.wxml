@@ -17,13 +17,13 @@
   <div class="weui-cell">
       <div class="weui-cell__hd"><label class="weui-label">问卷报酬</label></div>
       <div class="weui-cell__bd">
-          <input data-name='price' bindinput='bindKeyInput' class="weui-input" type="number" value="{{price}}" placeholder="请输入每份问卷的报酬"/>
+          <input data-name='price' bindinput='bindKeyInput' class="weui-input" type="number" value="{{price}}" placeholder="请输入填写每份问卷的报酬"/>
       </div>
   </div>
   <div class="weui-cell">
       <div class="weui-cell__hd"><label class="weui-label">问卷数量</label></div>
       <div class="weui-cell__bd">
-          <input data-name='qNum' bindinput='bindKeyInput' class="weui-input" type="number" value="{{qNum}}" placeholder="请输入发放问卷的数量"/>
+          <input data-name='qNum' bindinput='bindKeyInput' class="weui-input" type="number" value="{{qNum}}" placeholder="请输入发布问卷的数量"/>
       </div>
   </div>    
   <view class="section weui-cell">

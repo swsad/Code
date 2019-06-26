@@ -55,6 +55,8 @@ page{
 .moneyIcon {
   width: 60rpx;
   margin-top: 20rpx;
+  margin-left: 10rpx;
+  margin-bottom: 20rpx;
 }
 .moneyInfo {
   margin-top: 20rpx;

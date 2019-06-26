@@ -237,7 +237,7 @@ Page({
     var currTime = util.getTime()
     var tempArray = []
     for (var i = 0; i < this.data.QNs_data.length; ++i) {
-      if (this.data.QNs_data[i].name.indexOf(this.data.inputVal) >= 0 && currTime < this.data.QNs_data[i].deadline && (this.data.QNs_data[i].position == "全部" || this.data.QNs_data[i].position == this.data.areaArray[this.data.areaIndex])) {
+      if (this.data.QNs_data[i].name.indexOf(this.data.inputVal) >= 0 && currTime < this.data.QNs_data[i].deadline && (this.data.QNs_data[i].position == "全部" || this.data.QNs_data[i].position == this.data.areaArray[this.data.areaIndex]) && this.data.QNs_data[i].completed_amount < this.data.QNs_data[i].total_amount) {
         tempArray.push(this.data.QNs_data[i])
       }
     }

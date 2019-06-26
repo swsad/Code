@@ -35,7 +35,7 @@
             <label class="weui-label">中大邮箱</label>
         </div>
         <div class="weui-cell__bd">
-            <input data-name='mail' bindinput='bindKeyInput' class="weui-input" style="color:{{mailInputColor}};" name='mailValue' bindblur='mailDetector' value="{{mail}}" placeholder="请输入中大邮箱"/>
+            <input data-name='mail' class="weui-input" style="color:{{mailInputColor}};" name='mailValue' bindinput='mailDetector' value="{{mail}}" placeholder="请输入中大邮箱"/>
         </div>
     </div>
     <div class="weui-cell weui-cell_vcode">

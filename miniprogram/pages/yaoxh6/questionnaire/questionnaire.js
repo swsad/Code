@@ -131,8 +131,9 @@ Page({
         "type": "SAQ",
         "content": {
           "description": "",
-          "answer": ""}
-      }
+          "answer": ""
+        }
+      };
       tempArray.push(temp0);
     }
     this.setData({
@@ -232,6 +233,7 @@ Page({
   },
 
   showQ:function(){
+    console.log(this.data);
     if (this.data.titleContent.trim() == '') {
       wx.showToast({
         icon: 'none',
@@ -266,7 +268,7 @@ Page({
 
     var canBePublished = true
     for(var i = 0;i<this.data.questionnaireArray.length;i++){
-      if(this.data.questionnaireArray[i].content.descriptio.trim() == ''){
+      if(this.data.questionnaireArray[i].content.description.trim() == ''){
         this.setData({
           canBePublished: false,
         })

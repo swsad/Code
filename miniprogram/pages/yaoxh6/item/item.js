@@ -145,10 +145,8 @@ Page({
       tempArray[tempFatherIndex].content.options[i].isSelected = false;
     }
     for (var id in input.detail.value) {
-      var i = parseInt(id)
-      if (tempArray[tempFatherIndex].content.options[i].id == input.detail.value) {
-        tempArray[tempFatherIndex].content.options[i].isSelected = true;
-      }
+      var i = parseInt(input.detail.value[id]) - 1
+      tempArray[tempFatherIndex].content.options[i].isSelected = true;
     }
     this.setData({
       questionnaireArray: tempArray,

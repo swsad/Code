@@ -29,7 +29,7 @@
       </view>
       <checkbox-group class="MCQOption" bindchange="checkboxChangeMCQ" data-id="{{fatherIndex}}">
         <label class="MCQText" wx:for="{{item.content.options}}" wx:key="MCQID" data-id='{{fatherIndex}}'>
-          <checkbox value="{{item.id}}" color="#5CACEE" data-id='{{index}}'/>{{item.name}}
+          <checkbox value="{{item.id}}" color="#5CACEE" data-id='{{fatherIndex}}'/>{{item.name}}
         </label>
       </checkbox-group>
     </view>

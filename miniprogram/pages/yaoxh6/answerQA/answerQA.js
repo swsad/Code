@@ -106,6 +106,13 @@ Page({
         content: this.data.comment
       },
       success: res => {
+        if (!res.result.success) {
+          wx.showToast({
+            icon: 'none',
+            title: '不能回答自己的问题',
+          })
+          return;
+        }
         wx.showToast({
           title: '提交成功',
         })

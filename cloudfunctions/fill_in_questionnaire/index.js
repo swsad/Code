@@ -43,16 +43,9 @@ exports.main = async (event, context) => {
       throw "不能重复填写问卷哦~";
     }
     var questionnaire = await db.collection('questionnaire_info').doc(event.qid).get()
-    var completed = (questionnaire.data.total_amount - questionnaire.data.completed_amount == 0)
-    console.log(questionnaire.data.total_amount + " " + questionnaire.data.completed_amount)
-    console.log('[completed]: ', completed)
-    if (completed == true) {
-      throw '该问卷已被填完'
-    }
     await db.collection('questionnaire_info').doc(event.qid).update({
       data: {
-        completed_amount: _.inc(1),
-        is_all_completed: completed
+        completed_amount: _.inc(1)
       }
     })
     const result = await db.collection('answer').add({

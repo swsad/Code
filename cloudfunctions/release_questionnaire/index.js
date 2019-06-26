@@ -61,8 +61,7 @@ exports.main = async (event, context) => {
         reward: event.reward,
         position: event.position,
         total_amount: event.total_amount,
-        completed_amount: 0,
-        is_all_completed: false
+        completed_amount: 0
       }
     })
     await db.collection('questionnaire_detail').add({

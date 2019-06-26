@@ -35,7 +35,7 @@ Page({
       name: 'get_balance',
       success: res => {
         this.setData({
-          moneyNum: parseFloat(res.result.balance).toFixed(2)
+          moneyNum: parseInt(res.result.balance)
         })
       },
       fail: err => {
@@ -49,12 +49,11 @@ Page({
     wx.cloud.callFunction({
       name: 'get_balance_record',
       success: res => {
-        console.log("record")
-        console.log(res)
         var data = res.result.records.data
         for (let i = 0; i < data.length; i++) {
           var item = data[i];
-          var price = parseFloat(item['amount'])
+          var price = parseInt(item['amount'])
+          console.log(price)
           var time = item['time']
           var name = ""
           if (item.title == "充值") {
@@ -66,7 +65,7 @@ Page({
           }
           tempArray.push({
             infoName: name,
-            infoValue: price.toFixed(2),
+            infoValue: price,
             time: time,
           })
         }
@@ -190,9 +189,19 @@ Page({
         time: util.getTime()
       },
       success: res => {
+        if (!res.result.success) {
+          wx.showToast({
+            icon: 'none',
+            title: '余额不足',
+          })
+          return
+        }
         this.onShow()
         wx.showToast({
           title: '提现成功',
+        })
+        this.setData({
+          money: ""
         })
       },
       fail: err => {

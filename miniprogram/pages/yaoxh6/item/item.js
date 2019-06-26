@@ -119,13 +119,14 @@ Page({
   },
   
   radioChangeSCQ:function(input){
-    var tempFatherIndex = this.data.currentFatherIndex;
+    var tempFatherIndex = input.target.dataset.id
     var tempArray = this.data.questionnaireArray;
+
     for (var i in tempArray[tempFatherIndex].content.options){
-      if (tempArray[tempFatherIndex].content.options[i].name == input.detail.value){
+      if (tempArray[tempFatherIndex].content.options[i].id == input.detail.value){
         tempArray[tempFatherIndex].content.options[i].isSelected = true;
       }
-      else{
+      else {
         tempArray[tempFatherIndex].content.options[i].isSelected = false;
       }
     }
@@ -136,21 +137,17 @@ Page({
 
   checkboxChangeMCQ:function(input){
     // console.log(input.detail.value);
-    var flag = false;
-    var tempFatherIndex = this.data.currentFatherIndex;
+    var tempFatherIndex = input.target.dataset.id
     var tempArray = this.data.questionnaireArray;
+    console.log(input.detail.value)
+
     for (var i in tempArray[tempFatherIndex].content.options) {
-      flag = false;
-      for(var j in input.detail.value){
-        if (tempArray[tempFatherIndex].content.options[i].name == input.detail.value[j]){
-          flag = true;
-        }
-      }
-      if(flag == true){
+      tempArray[tempFatherIndex].content.options[i].isSelected = false;
+    }
+    for (var id in input.detail.value) {
+      var i = parseInt(id)
+      if (tempArray[tempFatherIndex].content.options[i].id == input.detail.value) {
         tempArray[tempFatherIndex].content.options[i].isSelected = true;
-      }
-      else{
-        tempArray[tempFatherIndex].content.options[i].isSelected = false;
       }
     }
     this.setData({
@@ -169,7 +166,6 @@ Page({
   },
 
   complete :function(){
-    console.log(this.data.questionnaireArray);
     this.setData({
       isValid: false,
     })
@@ -188,7 +184,7 @@ Page({
         }
       }
       else if (this.data.questionnaireArray[i].type == 'SAQ'){
-        if (this.data.questionnaireArray[i].content.answer == ''){
+        if (this.data.questionnaireArray[i].content.answer.trim() == ''){
           isValidSAQ = false;
         }
       }
@@ -200,12 +196,12 @@ Page({
       })
     }
 
-    if(this.data.isValid == false){
+    if (this.data.isValid == false) {
       wx.showToast({
         icon: 'none',
-        title: '输入不能为空',
+        title: '问卷内容不能留空',
       })
-      return;
+      return
     }
     wx.cloud.callFunction({
       name: 'fill_in_questionnaire',

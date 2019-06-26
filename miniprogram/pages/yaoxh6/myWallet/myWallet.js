@@ -156,6 +156,9 @@ Page({
         wx.showToast({
           title: '充值成功',
         })
+        this.setData({
+          money: ""
+        })
       },
       fail: err => {
         wx.showToast({

@@ -63,7 +63,7 @@ exports.main = async (event, context) => {
     const answers = answer.data
     console.log('[answers length]: ', answers.length)
 
-    如果没有回答则抛出异常
+    // 如果没有回答则抛出异常
     if (answers.length == 0) {
       throw 'no answer'
     }

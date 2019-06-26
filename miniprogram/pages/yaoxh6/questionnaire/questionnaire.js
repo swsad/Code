@@ -233,6 +233,7 @@ Page({
   },
 
   showQ:function(){
+    console.log(this.data);
     if (this.data.titleContent.trim() == '') {
       wx.showToast({
         icon: 'none',

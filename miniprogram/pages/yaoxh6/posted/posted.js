@@ -141,7 +141,7 @@ Page({
         wx.hideLoading()
         console.log(error);
         wx.showToast({
-          title: '下载失败',
+          title: error,
           icon: 'none'
         })
       })
@@ -171,7 +171,7 @@ Page({
     return new Promise((resolve, reject) => {
       wx.downloadFile({
         url: res.fileList[0].tempFileURL,
-        filePath: wx.env.USER_DATA_PATH + this.data['targetQName'] + '问卷结果.xlsx',
+        filePath: wx.env.USER_DATA_PATH + '/' + this.data['targetQName'] + '问卷结果.xlsx',
         success: res => {
           resolve(res)
         },

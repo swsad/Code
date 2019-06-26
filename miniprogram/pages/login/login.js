@@ -98,15 +98,20 @@ Page({
   }
   ,
 
-  mailDetector: function(e) {
-    if (e.detail.value.match(this.data.reg) == null) 
+  mailDetector: function (e) {
+    var name = e.currentTarget.dataset.name;
+    var value = e.detail.value;
+    var temp = new Object();
+    temp[name] = value;
+    this.setData(temp);
+    if (!(/^[a-z]+[0-9]?@mail2.sysu.edu.cn$/.test(e.detail.value))) 
       this.setData({ mailInputColor: "red" }) 
     else 
       this.setData({ mailInputColor: "black" }) 
   },
 
   sendCode: function() {
-    if (this.data.mail.match(this.data.reg) == null) {
+    if (!(/^[a-z]+[0-9]?@mail2.sysu.edu.cn$/.test(this.data.mail))) {
       wx.showModal({
         title: "提示",
         content: "请输入正确的中大邮箱",

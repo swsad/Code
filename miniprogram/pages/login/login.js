@@ -14,7 +14,7 @@ Page({
     code: '',
     mailInputColor: "black",
     buttonDisbale: false,
-    reg: /^[a-z]+[0-9]?@mail2.sysu.edu.cn$/    
+    reg: /^[a-zA-Z0-9]+@mail2.sysu.edu.cn$/   
   },
 
   /**
@@ -104,14 +104,14 @@ Page({
     var temp = new Object();
     temp[name] = value;
     this.setData(temp);
-    if (!(/^[a-z]+[0-9]?@mail2.sysu.edu.cn$/.test(e.detail.value))) 
+    if (!(/^[a-zA-Z0-9]+@mail2.sysu.edu.cn$/.test(e.detail.value))) 
       this.setData({ mailInputColor: "red" }) 
     else 
       this.setData({ mailInputColor: "black" }) 
   },
 
   sendCode: function() {
-    if (!(/^[a-z]+[0-9]?@mail2.sysu.edu.cn$/.test(this.data.mail))) {
+    if (!(/^[a-zA-Z0-9]+@mail2.sysu.edu.cn$/.test(this.data.mail))) {
       wx.showModal({
         title: "提示",
         content: "请输入正确的中大邮箱",
